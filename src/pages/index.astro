@@ -1,0 +1,101 @@
+---
+import Base from "../layouts/Base.astro";
+import CaseStudyCard from "../components/CaseStudyCard.astro";
+
+const caseStudies = [
+  {
+    title: "E-Commerce Platform",
+    description: "A high-performance online store with real-time inventory management and seamless checkout experience.",
+    techStack: ["Next.js", "Stripe", "PostgreSQL"],
+  },
+  {
+    title: "SaaS Dashboard",
+    description: "Analytics dashboard with interactive data visualizations and role-based access control.",
+    techStack: ["React", "D3.js", "Node.js"],
+  },
+  {
+    title: "Mobile Banking App",
+    description: "Secure mobile application for digital banking with biometric authentication and instant transfers.",
+    techStack: ["React Native", "TypeScript", "AWS"],
+  },
+];
+---
+
+<Base title="Decoded | Web Development Agency">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-logo">DECODED</p>
+          <h1 class="hero-title">We build digital products that matter</h1>
+          <p class="hero-tagline">
+            A web development agency focused on crafting fast, accessible, and
+            beautifully designed experiences.
+          </p>
+          <a href="#contact" class="btn">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section" id="work">
+      <div class="container">
+        <h2 class="section-title">Selected Work</h2>
+        <div class="case-studies-grid">
+          {caseStudies.map((study) => (
+            <CaseStudyCard
+              title={study.title}
+              description={study.description}
+              techStack={study.techStack}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              Decoded is a web development agency that partners with startups
+              and established businesses to bring their digital visions to life.
+            </p>
+            <p>
+              We combine technical expertise with thoughtful design to create
+              products that are not only functional but delightful to use.
+            </p>
+          </div>
+          <ul class="about-values">
+            <li>Performance-first development</li>
+            <li>Accessible by default</li>
+            <li>Clean, maintainable code</li>
+            <li>Transparent collaboration</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="about-text" style="max-width: 500px;">
+          Have a project in mind? We'd love to hear about it.
+          Reach out and let's discuss how we can help.
+        </p>
+        <br />
+        <a href="mailto:hello@decoded.dev" class="btn">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Decoded. All rights reserved.</p>
+    </div>
+  </footer>
+</Base>

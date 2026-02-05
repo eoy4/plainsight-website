@@ -1,0 +1,72 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  techStack: string[];
+}
+
+const { title, description, techStack } = Astro.props;
+---
+
+<article class="card">
+  <div class="card-image"></div>
+  <div class="card-content">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-description">{description}</p>
+    <div class="card-tech">
+      {techStack.map((tech) => (
+        <span class="tech-tag">{tech}</span>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .card-image {
+    height: 200px;
+    background: linear-gradient(135deg, var(--color-border) 0%, var(--color-surface) 100%);
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-description {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--color-bg);
+    border-radius: 9999px;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+  }
+</style>
