@@ -6,7 +6,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "vercel",
+    "deploy:prod": "vercel --prod",
+    "deploy:preview": "vercel",
+    "deploy:info": "vercel inspect",
+    "deploy:logs": "vercel logs",
+    "deploy:list": "vercel list"
   },
   "dependencies": {
     "astro": "^5.17.1"

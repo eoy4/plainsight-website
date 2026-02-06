@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+
+// Fetch all blog posts using Content Collections API
+// This demonstrates Astro's type-safe content fetching
+const posts = await getCollection('blog');
+
+// Sort posts by date (newest first)
+const sortedPosts = posts.sort((a, b) =>
+  b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Base title="Blog | Plain Sight">
+  <main class="container">
+    <section class="blog-section">
+      <h1 class="blog-title">Blog</h1>
+      <p class="blog-intro">Thoughts on web development and technology.</p>
+
+      <div class="blog-grid">
+        {/* Astro uses JavaScript .map() to iterate through data */}
+        {sortedPosts.map((post) => (
+          <BlogPostCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .blog-section {
+    padding: 4rem 0;
+  }
+
+  .blog-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-intro {
+    color: var(--color-text-muted);
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .blog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>
