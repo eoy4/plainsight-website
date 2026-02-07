@@ -1,6 +1,7 @@
 ---
 section: quick-sites
 order: 2
+title: "Quick Sites"
 heading: "Your business deserves better than a DIY job"
 ---
 

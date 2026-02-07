@@ -1,0 +1,267 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Contact | Plain Sight" description="Tell us about your project. We'll respond within a few hours.">
+  <main class="container contact-page">
+    <section class="contact-hero">
+      <h1 class="contact-hero-title">Let's talk about your project</h1>
+      <p class="contact-hero-intro">Tell us a little about what you're working on and we'll take it from there.</p>
+    </section>
+
+    <section class="contact-form-section">
+      <form action="https://formspree.io/f/xvzbokbq" method="POST" class="contact-form">
+        <div class="form-group">
+          <label for="brings-you">What brings you here?</label>
+          <select id="brings-you" name="brings-you" required>
+            <option value="" disabled selected>Select one...</option>
+            <option value="exploring">I'm exploring my options</option>
+            <option value="new-site">I need a new website</option>
+            <option value="existing-site">I need help with an existing site</option>
+            <option value="ongoing-partner">I'm looking for an ongoing partner</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send it</button>
+      </form>
+
+      <dialog class="form-success">
+        <h2 class="form-success-title">Message sent</h2>
+        <p>We'll be in touch soon. Keep an eye on your inbox.</p>
+        <button class="btn form-success-close">Got it</button>
+      </dialog>
+    </section>
+
+    <section class="contact-next">
+      <h2 class="contact-next-title">What happens next</h2>
+      <p>We usually respond within a few hours, or within one business day, tops. From there, we'll set up a quick discovery call to dig into what you're working on. You'll walk away with a clear picture of what your project actually needs.</p>
+    </section>
+
+    <section class="contact-links">
+      <a href="mailto:hello@plainsight.works" class="contact-link">hello@plainsight.works</a>
+      <a href="https://www.linkedin.com/company/plainsight-works/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .contact-page {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    max-width: 640px;
+  }
+
+  .contact-hero {
+    padding-bottom: 3rem;
+  }
+
+  .contact-hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .contact-hero-intro {
+    color: var(--color-text-muted);
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-group label {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .optional {
+    color: var(--color-text-muted);
+    font-weight: 400;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-text);
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .contact-form .btn {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .contact-next {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-next-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-next p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    gap: 2rem;
+  }
+
+  .contact-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .form-success {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    margin: 0;
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 2.5rem;
+    max-width: 400px;
+    width: 90%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .form-success[open] {
+    opacity: 1;
+  }
+
+  .form-success::backdrop {
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.2s ease;
+  }
+
+  .form-success[open]::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .form-success-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-success p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-success-close {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .contact-page {
+      padding-top: 6rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector('.contact-form') as HTMLFormElement;
+  const dialog = document.querySelector('.form-success') as HTMLDialogElement;
+  const closeBtn = document.querySelector('.form-success-close') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = 'Send it';
+        dialog.showModal();
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send it';
+        alert('Something went wrong. Please try again.');
+      }
+    } catch {
+      btn.disabled = false;
+      btn.textContent = 'Send it';
+      alert('Something went wrong. Please try again.');
+    }
+  });
+
+  closeBtn.addEventListener('click', () => dialog.close());
+</script>

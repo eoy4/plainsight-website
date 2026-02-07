@@ -14,26 +14,21 @@ const rendered = await Promise.all(
   }))
 );
 
-const caseStudies = [
-  {
-    title: "E-Commerce Platform",
-    description:
-      "A high-performance online store with real-time inventory management and seamless checkout experience.",
-    techStack: ["Next.js", "Stripe", "PostgreSQL"],
-  },
-  {
-    title: "SaaS Dashboard",
-    description:
-      "Analytics dashboard with interactive data visualizations and role-based access control.",
-    techStack: ["React", "D3.js", "Node.js"],
-  },
-  {
-    title: "Mobile Banking App",
-    description:
-      "Secure mobile application for digital banking with biometric authentication and instant transfers.",
-    techStack: ["React Native", "TypeScript", "AWS"],
-  },
-];
+const workEntries = (await getCollection("work")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const descriptions: Record<number, string> = {
+  1: "Complex AI kitchen software that needed to feel simple. We led with operator pain points, not tech jargon, and built a marketing site that makes Demi feel like relief — not another learning curve.",
+  2: "Three very different buyers, one brand. We found the common thread — reliability at scale — and built a site where each audience gets spoken to directly without the brand feeling fragmented.",
+};
+
+const caseStudies = workEntries.map((entry) => ({
+  title: entry.data.title,
+  description: descriptions[entry.data.order] ?? entry.data.challenge,
+  techStack: entry.data.tech.split(",").map((t: string) => t.trim()),
+  link: `/work#${entry.data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
+}));
 
 const year = new Date().getFullYear();
 ---
@@ -110,6 +105,7 @@ const year = new Date().getFullYear();
                   title={study.title}
                   description={study.description}
                   techStack={study.techStack}
+                  link={study.link}
                 />
               ))}
             </div>

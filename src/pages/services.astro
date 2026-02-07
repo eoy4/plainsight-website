@@ -41,7 +41,8 @@ const rendered = await Promise.all(
 
       return (
         <section class="service-block">
-          <h2 class="service-block-title">{d.heading}</h2>
+          {d.title && <h2 class="service-block-title">{d.title}</h2>}
+          <p class="service-block-subtitle">{d.heading}</p>
           <div class="service-content">
             <Content />
           </div>
@@ -77,6 +78,12 @@ const rendered = await Promise.all(
   .service-block-title {
     font-size: 1.75rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-block-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-muted);
     margin-bottom: 1.5rem;
   }
 

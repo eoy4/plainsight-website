@@ -1,0 +1,164 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const projects = (await getCollection("work")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base title="Work | Plain Sight" description="Selected projects showing our strategic approach to web development.">
+  <main class="container work-page">
+    <section class="work-hero">
+      <h1 class="work-hero-title">See for yourself</h1>
+      <p class="work-hero-subtitle">Sites that look great and actually drive results for the businesses behind them</p>
+      <p class="work-hero-intro">Selected projects showing our strategic approach</p>
+    </section>
+
+    {projects.map((project) => {
+      const d = project.data;
+      return (
+        <section class="case-study" id={d.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}>
+          <h2 class="case-study-title">{d.title}</h2>
+
+          <div class="case-study-content">
+            <div class="case-study-section">
+              <h3>Client Challenge</h3>
+              <p>{d.challenge}</p>
+            </div>
+
+            <div class="case-study-section">
+              <h3>Our Strategic Approach</h3>
+              <p>{d.approach}</p>
+            </div>
+
+            <div class="case-study-section">
+              <h3>Solution</h3>
+              <p>{d.solution}</p>
+            </div>
+
+            <div class="case-study-section">
+              <h3>Results</h3>
+              <p>{d.results}</p>
+            </div>
+
+            <div class="case-study-tech">
+              <span class="tech-label">Tech Stack</span>
+              <span class="tech-value">{d.tech}</span>
+            </div>
+          </div>
+        </section>
+      );
+    })}
+
+    <section class="work-cta">
+      <h2 class="section-title">Your project could be next</h2>
+      <p class="section-prose">We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
+      <a href="/contact" class="btn">Reach out</a>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .work-page {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .work-hero {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .work-hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .work-hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+
+  .work-hero-intro {
+    color: var(--color-text-muted);
+  }
+
+  .case-study {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .case-study-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .case-study-content {
+    max-width: 700px;
+  }
+
+  .case-study-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-study-section p {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .case-study-tech {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .tech-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .tech-value {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .work-cta {
+    padding-top: 4rem;
+  }
+
+  .work-cta .section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .work-cta .section-prose {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .work-cta .btn {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .work-page {
+      padding-top: 6rem;
+    }
+
+    .case-study {
+      padding: 3rem 0;
+    }
+  }
+</style>

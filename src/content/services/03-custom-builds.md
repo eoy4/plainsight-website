@@ -1,6 +1,7 @@
 ---
 section: custom-builds
 order: 3
+title: "Custom Builds"
 heading: "Big goals need a site that can keep up"
 ---
 

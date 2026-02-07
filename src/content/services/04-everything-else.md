@@ -1,6 +1,7 @@
 ---
 section: everything-else
 order: 4
+title: "Everything Else"
 heading: "Already have a site? Good. Let's make it better"
 ---
 

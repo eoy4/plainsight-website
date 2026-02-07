@@ -1,15 +1,5 @@
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.date(),
-    author: z.string().default('Plain Sight Team'),
-  }),
-});
-
 const homepage = defineCollection({
   type: 'content',
   schema: z.object({
@@ -32,6 +22,7 @@ const services = defineCollection({
   schema: z.object({
     section: z.string(),
     order: z.number(),
+    title: z.string().optional(),
     heading: z.string(),
     subheading: z.string().optional(),
     intro: z.string().optional(),
@@ -40,4 +31,17 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { blog, homepage, services };
+const work = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    order: z.number(),
+    challenge: z.string(),
+    approach: z.string(),
+    solution: z.string(),
+    results: z.string(),
+    tech: z.string(),
+  }),
+});
+
+export const collections = { homepage, services, work };

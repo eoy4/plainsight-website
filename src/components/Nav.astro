@@ -1,14 +1,17 @@
 ---
-// Reusable navigation component
+import { Image } from "astro:assets";
+import logo from "../assets/plainsight-logo-white-horizontal.png";
 ---
 
 <nav class="main-nav">
   <div class="container nav-container">
-    <a href="/" class="nav-logo">Plain Sight</a>
+    <a href="/" class="nav-logo">
+      <Image src={logo} alt="Plain Sight" />
+    </a>
     <div class="nav-links">
-      <a href="/#work">Work</a>
       <a href="/services">Services</a>
-      <a href="/blog">Blog</a>
+      <a href="/work">Work</a>
+      <a href="/contact">Contact</a>
     </div>
   </div>
 </nav>
