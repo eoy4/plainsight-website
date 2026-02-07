@@ -1,0 +1,121 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../layouts/Base.astro";
+
+const sections = (await getCollection("services")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const rendered = await Promise.all(
+  sections.map(async (s) => ({
+    ...s,
+    rendered: await render(s),
+  }))
+);
+---
+
+<Base title="Services | Plain Sight" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
+  <main class="container services-page">
+    {rendered.map((section) => {
+      const { Content } = section.rendered;
+      const d = section.data;
+
+      if (d.section === "intro") return (
+        <section class="services-hero">
+          <h1 class="services-hero-title">{d.heading}</h1>
+          <div class="section-prose">
+            <Content />
+          </div>
+        </section>
+      );
+
+      if (d.section === "cta") return (
+        <section class="section services-cta">
+          <h2 class="section-title">{d.heading}</h2>
+          <div class="section-prose">
+            <Content />
+          </div>
+          {d.cta_text && <a href={d.cta_link} class="btn">{d.cta_text}</a>}
+        </section>
+      );
+
+      return (
+        <section class="service-block">
+          <h2 class="service-block-title">{d.heading}</h2>
+          <div class="service-content">
+            <Content />
+          </div>
+        </section>
+      );
+    })}
+  </main>
+</Base>
+
+<style>
+  .services-page {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+  }
+
+  .services-hero {
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .services-hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-block {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .service-block-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-content {
+    max-width: 700px;
+  }
+
+  .service-content :global(p) {
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-content :global(h2) {
+    font-size: 1.25rem;
+    margin: 2.5rem 0 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .service-content :global(strong) {
+    color: var(--color-text);
+  }
+
+  .services-cta {
+    padding-top: 4rem;
+  }
+
+  .services-cta .btn {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .services-page {
+      padding-top: 6rem;
+    }
+
+    .service-block {
+      padding: 3rem 0;
+    }
+  }
+</style>
