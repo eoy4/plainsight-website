@@ -12,6 +12,12 @@ const rendered = await Promise.all(
     rendered: await render(s),
   }))
 );
+
+const icons: Record<string, string> = {
+  "quick-sites": `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  "custom-builds": `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+  "everything-else": `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+};
 ---
 
 <Base title="Services | Plain Sight" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
@@ -23,27 +29,36 @@ const rendered = await Promise.all(
       if (d.section === "intro") return (
         <section class="services-hero">
           <h1 class="services-hero-title">{d.heading}</h1>
-          <div class="section-prose">
+          <div class="services-hero-prose">
             <Content />
           </div>
         </section>
       );
 
       if (d.section === "cta") return (
-        <section class="section services-cta">
-          <h2 class="section-title">{d.heading}</h2>
-          <div class="section-prose">
-            <Content />
+        <section class="section section-cta">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <div class="cta-content">
+            <h2 class="cta-title">{d.heading}</h2>
+            <div class="cta-prose">
+              <Content />
+            </div>
+            {d.cta_text && <a href={d.cta_link} class="btn btn-cta">{d.cta_text}</a>}
           </div>
-          {d.cta_text && <a href={d.cta_link} class="btn">{d.cta_text}</a>}
         </section>
       );
 
       return (
-        <section class="service-block">
-          {d.title && <h2 class="service-block-title">{d.title}</h2>}
-          <p class="service-block-subtitle">{d.heading}</p>
-          <div class="service-content">
+        <section class="service-card">
+          <div class="service-card-sidebar">
+            {icons[d.section] && (
+              <div class="service-icon" set:html={icons[d.section]} />
+            )}
+            {d.title && <h2 class="service-card-title">{d.title}</h2>}
+            <p class="service-card-tagline">{d.heading}</p>
+            {d.intro && <p class="service-card-intro">{d.intro}</p>}
+          </div>
+          <div class="service-card-details">
             <Content />
           </div>
         </section>
@@ -53,76 +68,154 @@ const rendered = await Promise.all(
 </Base>
 
 <style>
+  /* Services page — v3 */
   .services-page {
     padding-top: 8rem;
-    padding-bottom: 4rem;
+    padding-bottom: 0;
   }
 
+  /* ── Hero ── */
   .services-hero {
-    padding-bottom: 4rem;
-    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 3.5rem 3rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services-hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 60%;
+    height: 160%;
+    background: radial-gradient(
+      ellipse at center,
+      var(--color-accent-subtle) 0%,
+      transparent 70%
+    );
+    opacity: 0.4;
+    pointer-events: none;
   }
 
   .services-hero-title {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 700;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+    position: relative;
   }
 
-  .service-block {
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--color-border);
+  .services-hero-prose {
+    max-width: 640px;
+    position: relative;
   }
 
-  .service-block-title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .service-block-subtitle {
-    font-size: 1.15rem;
-    color: var(--color-text-muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .service-content {
-    max-width: 700px;
-  }
-
-  .service-content :global(p) {
+  .services-hero-prose :global(p) {
+    font-size: 1.125rem;
     color: var(--color-text-muted);
     line-height: 1.7;
-    margin-bottom: 1.5rem;
   }
 
-  .service-content :global(h2) {
-    font-size: 1.25rem;
-    margin: 2.5rem 0 1rem;
-    font-weight: 600;
+  /* ── Service cards ── */
+  .service-card {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 3rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .service-card:nth-child(odd) {
+    background: var(--color-surface-raised);
+  }
+
+  /* Left column: icon, title, tagline, intro */
+  .service-card-sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: start;
+  }
+
+  .service-icon {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .service-card-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+
+  .service-card-tagline {
+    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-card-intro {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Right column: rendered markdown details */
+  .service-card-details :global(h2) {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
     color: var(--color-text);
   }
 
-  .service-content :global(strong) {
+  .service-card-details :global(h2:not(:first-child)) {
+    margin-top: 2rem;
+  }
+
+  .service-card-details :global(p) {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin: 0 0 0.75rem;
+  }
+
+  .service-card-details :global(strong) {
     color: var(--color-text);
   }
 
-  .services-cta {
-    padding-top: 4rem;
+  /* ── CTA — uses global section-cta styles ── */
+  .section-cta {
+    margin-top: 2rem;
   }
 
-  .services-cta .btn {
-    margin-top: 1rem;
-  }
-
+  /* ── Responsive ── */
   @media (max-width: 768px) {
     .services-page {
       padding-top: 6rem;
     }
 
-    .service-block {
-      padding: 3rem 0;
+    .services-hero {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .service-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .service-card-sidebar {
+      position: static;
     }
   }
 </style>

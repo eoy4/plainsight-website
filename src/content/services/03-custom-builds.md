@@ -3,9 +3,8 @@ section: custom-builds
 order: 3
 title: "Custom Builds"
 heading: "Big goals need a site that can keep up"
+intro: "Some businesses need more than a quick launch. Maybe you've outgrown your current site, maybe you're building something more ambitious. This is where we roll up our sleeves."
 ---
-
-Some businesses need more than a quick launch. Maybe you've outgrown your current site, maybe you're building something more ambitious. This is where we roll up our sleeves.
 
 ## What you get
 

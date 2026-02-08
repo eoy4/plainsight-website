@@ -17,6 +17,13 @@ const { title, description = "Web development agency crafting digital experience
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <script is:inline>
+      (function() {
+        var stored = localStorage.getItem('theme');
+        var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', stored || preferred);
+      })();
+    </script>
   </head>
   <body>
     <Nav />

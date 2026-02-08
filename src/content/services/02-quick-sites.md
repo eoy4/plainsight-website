@@ -3,9 +3,8 @@ section: quick-sites
 order: 2
 title: "Quick Sites"
 heading: "Your business deserves better than a DIY job"
+intro: "Not every business needs a six-week custom build. Sometimes you just need a clean, professional site that gets the job done and gets it done fast."
 ---
-
-Not every business needs a six-week custom build. Sometimes you just need a clean, professional site that gets the job done and gets it done fast.
 
 ## What you get
 

@@ -1,5 +1,5 @@
 ---
-title: "Demi: AI Software for Food Businesses"
+title: "Demi: AI software for food businesses"
 order: 1
 challenge: "A SaaS startup needed to transform complex B2B software into something that felt approachable. They were selling to food operators drowning in spreadsheets, but their product promised automation and AI. The challenge: make cutting-edge technology feel like relief, not another learning curve."
 approach: "Food operators don't care about AI. They care about Friday afternoon when they're manually building prep lists for the third time that week. We built the messaging around those moments of frustration, not the technology solving them. The discovery process revealed that \"kitchen management software\" sounds like homework, but \"software built for how kitchens really run\" sounds like someone finally gets it."

@@ -3,9 +3,8 @@ section: everything-else
 order: 4
 title: "Everything Else"
 heading: "Already have a site? Good. Let's make it better"
+intro: "If your current site needs work, whether it's a little or a lot, we can probably help."
 ---
-
-If your current site needs work, whether it's a little or a lot, we can probably help.
 
 ## Site audits
 

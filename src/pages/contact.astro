@@ -9,89 +9,145 @@ import Base from "../layouts/Base.astro";
       <p class="contact-hero-intro">Tell us a little about what you're working on and we'll take it from there.</p>
     </section>
 
-    <section class="contact-form-section">
-      <form action="https://formspree.io/f/xvzbokbq" method="POST" class="contact-form">
-        <div class="form-group">
-          <label for="brings-you">What brings you here?</label>
-          <select id="brings-you" name="brings-you" required>
-            <option value="" disabled selected>Select one...</option>
-            <option value="exploring">I'm exploring my options</option>
-            <option value="new-site">I need a new website</option>
-            <option value="existing-site">I need help with an existing site</option>
-            <option value="ongoing-partner">I'm looking for an ongoing partner</option>
-          </select>
+    <section class="contact-body">
+      <div class="contact-form-card">
+        <form action="https://formspree.io/f/xvzbokbq" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="brings-you">What brings you here?</label>
+            <select id="brings-you" name="brings-you" required>
+              <option value="" disabled selected>Select one...</option>
+              <option value="exploring">I'm exploring my options</option>
+              <option value="new-site">I need a new website</option>
+              <option value="existing-site">I need help with an existing site</option>
+              <option value="ongoing-partner">I'm looking for an ongoing partner</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="What are you working on? What's the timeline? Any details help."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-cta">Send it</button>
+        </form>
+      </div>
+
+      <aside class="contact-sidebar">
+        <div class="contact-next-card">
+          <h2 class="contact-next-title">What happens next</h2>
+          <ol class="contact-steps">
+            <li>
+              <span class="step-num">1</span>
+              <span>We'll respond within one business day (usually sooner)</span>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <span>We'll set up a quick discovery call to dig into what you're working on</span>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <span>You'll walk away with a clear picture of what your project actually needs</span>
+            </li>
+          </ol>
         </div>
 
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+        <div class="contact-links-card">
+          <p class="contact-links-label">Or reach us directly</p>
+          <div class="contact-links">
+            <a href="mailto:hello@plainsight.works" class="contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+              hello@plainsight.works
+            </a>
+            <a href="https://www.linkedin.com/company/plainsight-works/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone <span class="optional">(optional)</span></label>
-          <input type="tel" id="phone" name="phone" />
-        </div>
-
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-
-        <button type="submit" class="btn">Send it</button>
-      </form>
-
-      <dialog class="form-success">
-        <h2 class="form-success-title">Message sent</h2>
-        <p>We'll be in touch soon. Keep an eye on your inbox.</p>
-        <button class="btn form-success-close">Got it</button>
-      </dialog>
+      </aside>
     </section>
 
-    <section class="contact-next">
-      <h2 class="contact-next-title">What happens next</h2>
-      <p>We usually respond within a few hours, or within one business day, tops. From there, we'll set up a quick discovery call to dig into what you're working on. You'll walk away with a clear picture of what your project actually needs.</p>
-    </section>
-
-    <section class="contact-links">
-      <a href="mailto:hello@plainsight.works" class="contact-link">hello@plainsight.works</a>
-      <a href="https://www.linkedin.com/company/plainsight-works/" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-    </section>
+    <dialog class="form-success">
+      <h2 class="form-success-title">Message sent</h2>
+      <p>We'll be in touch soon. Keep an eye on your inbox.</p>
+      <button class="btn form-success-close">Got it</button>
+    </dialog>
   </main>
 </Base>
 
 <style>
+  /* Contact page styles */
   .contact-page {
     padding-top: 8rem;
     padding-bottom: 4rem;
-    max-width: 640px;
+    max-width: 1200px;
   }
 
+  /* Hero — matches services/work page treatment */
   .contact-hero {
-    padding-bottom: 3rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 3.5rem 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .contact-hero-title {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-    font-weight: 700;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
   }
 
   .contact-hero-intro {
     color: var(--color-text-muted);
-    font-size: 1.15rem;
-    line-height: 1.6;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  /* Two-column body: form + sidebar */
+  .contact-body {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* Form card */
+  .contact-form-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2.5rem;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
   }
 
   .form-group {
@@ -101,25 +157,28 @@ import Base from "../layouts/Base.astro";
   }
 
   .form-group label {
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.01em;
   }
 
   .optional {
-    color: var(--color-text-muted);
+    color: var(--color-text-dim);
     font-weight: 400;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 0.75rem 1rem;
-    background: var(--color-surface);
+    padding: 0.8rem 1rem;
+    background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     color: var(--color-text);
     font-family: inherit;
     font-size: 1rem;
+    transition: border-color var(--duration-fast) ease,
+                box-shadow var(--duration-fast) ease;
   }
 
   .form-group input:focus,
@@ -127,54 +186,127 @@ import Base from "../layouts/Base.astro";
   .form-group textarea:focus {
     outline: none;
     border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
   }
 
   .form-group textarea {
     resize: vertical;
+    min-height: 120px;
   }
 
-  .contact-form .btn {
+  .form-group textarea::placeholder {
+    color: var(--color-text-dim);
+  }
+
+  .contact-form .btn-cta {
     align-self: flex-start;
     margin-top: 0.5rem;
   }
 
-  .contact-next {
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--color-border);
+  /* Sidebar */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  /* "What happens next" card */
+  .contact-next-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 2rem;
   }
 
   .contact-next-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
   }
 
-  .contact-next p {
+  .contact-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-steps li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.95rem;
     color: var(--color-text-muted);
-    line-height: 1.7;
+    line-height: 1.5;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-accent-subtle);
+    color: var(--color-accent-hover);
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+  }
+
+  /* Direct contact card */
+  .contact-links-card {
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .contact-links-label {
+    font-size: 0.85rem;
+    color: var(--color-text-dim);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
   }
 
   .contact-links {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 1px solid var(--color-border);
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .contact-link {
     color: var(--color-text-muted);
     text-decoration: none;
     font-size: 0.95rem;
-    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color var(--duration-fast) ease;
   }
 
   .contact-link:hover {
-    color: var(--color-text);
+    color: var(--color-accent-hover);
     text-decoration: none;
   }
 
+  .contact-link svg {
+    flex-shrink: 0;
+    opacity: 0.6;
+  }
+
+  .contact-link:hover svg {
+    opacity: 1;
+  }
+
+  /* Success dialog */
   .form-success {
     position: fixed;
     top: 50%;
@@ -221,9 +353,30 @@ import Base from "../layouts/Base.astro";
     width: 100%;
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
     .contact-page {
       padding-top: 6rem;
+    }
+
+    .contact-hero {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .contact-body {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-form-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-sidebar {
+      position: static;
     }
   }
 </style>

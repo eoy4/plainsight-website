@@ -26,8 +26,8 @@ const workEntries = (await getCollection("work")).sort(
 );
 
 const descriptions: Record<number, string> = {
-  1: "Complex AI kitchen software that needed to feel simple. We led with operator pain points, not tech jargon, and built a marketing site that makes Demi feel like relief — not another learning curve.",
-  2: "Three very different buyers, one brand. We found the common thread — reliability at scale — and built a site where each audience gets spoken to directly without the brand feeling fragmented.",
+  1: "Complex AI kitchen software that needed to feel simple. We led with operator pain points, not tech jargon, and built a marketing site that makes Demi feel like relief, not another learning curve.",
+  2: "Three very different buyers, one brand. We found the common thread, reliability at scale, and built a site where each audience gets spoken to directly without the brand feeling fragmented.",
 };
 
 const caseStudies = workEntries.map((entry) => ({
@@ -121,7 +121,7 @@ const year = new Date().getFullYear();
                       </svg>
                     )}
                   </div>
-                  <div class="diff-card-number" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                  <div class="diff-card-number" aria-hidden="true">{String(i + 1).padStart(2, '0')} {['STRATEGY', 'EXPERIENCE', 'EXECUTION', 'TRANSPARENCY'][i]}</div>
                   <h3>{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
@@ -239,15 +239,15 @@ const year = new Date().getFullYear();
   <script>
     const fog = document.querySelector('.hero-fog') as HTMLElement | null;
     if (fog) {
+      const baseOpacity = parseFloat(window.getComputedStyle(fog).opacity);
       const onScroll = () => {
         const scrollY = window.scrollY;
-        const fadeEnd = window.innerHeight * 0.5;
+        const fadeEnd = window.innerHeight * 0.25;
         const progress = Math.min(scrollY / fadeEnd, 1);
-        fog.style.opacity = String(1 - progress);
+        fog.style.opacity = String(baseOpacity * (1 - progress));
         fog.style.transform = `translateY(${progress * 40}px)`;
       };
       window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
     }
   </script>
 </Base>
