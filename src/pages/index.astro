@@ -50,6 +50,7 @@ const year = new Date().getFullYear();
         <section class="hero">
           <div class="hero-bg-glow" aria-hidden="true"></div>
           <div class="hero-grid-pattern" aria-hidden="true"></div>
+          <img src="/fog.png" class="hero-fog" aria-hidden="true" alt="" />
           <div class="container">
             <div class="hero-content">
               <h1 class="hero-title">{d.heading}</h1>
@@ -70,7 +71,7 @@ const year = new Date().getFullYear();
             <h2 class="section-problem-title">{d.heading}</h2>
             <div class="section-problem-prose">
               <p>Most small businesses know they need a website, but the process feels <span class="highlight">overwhelming</span>. Too many options, too many cookie-cutter solutions that slap a template on every business like they're all the same.</p>
-              <p>What's missing is <span class="highlight">strategy</span>: understanding what your site needs to <em class="highlight">achieve</em>. More customers? More bookings? Better leads?</p>
+              <p>What's missing is <span class="highlight">strategy</span>: understanding what your site needs to achieve. More customers? More bookings? Better leads?</p>
             </div>
             <p class="section-problem-kicker">If your website isn't driving those results, it's just expensive decoration.</p>
           </div>
@@ -232,6 +233,21 @@ const year = new Date().getFullYear();
           panel.setAttribute('data-active', (item as HTMLElement).dataset.index!);
         });
       });
+    }
+  </script>
+
+  <script>
+    const fog = document.querySelector('.hero-fog') as HTMLElement | null;
+    if (fog) {
+      const onScroll = () => {
+        const scrollY = window.scrollY;
+        const fadeEnd = window.innerHeight * 0.5;
+        const progress = Math.min(scrollY / fadeEnd, 1);
+        fog.style.opacity = String(1 - progress);
+        fog.style.transform = `translateY(${progress * 40}px)`;
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
   </script>
 </Base>

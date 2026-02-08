@@ -258,14 +258,28 @@ a:hover {
   );
 }
 
+.hero-fog {
+  position: absolute;
+  bottom: 0;
+  left: -5%;
+  width: 110%;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.4;
+  transition: none;
+  will-change: opacity, transform;
+}
+
 .hero-content {
-  max-width: 780px;
+  max-width: 900px;
   position: relative;
   z-index: 1;
 }
 
 .hero-title {
-  font-size: clamp(3rem, 7vw + 1rem, 5.5rem);
+  font-size: clamp(2.75rem, 5vw + 1rem, 4.5rem);
   font-weight: 800;
   line-height: 1.05;
   margin-bottom: 2rem;
@@ -285,7 +299,7 @@ a:hover {
   font-size: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
   color: var(--color-text-muted);
   margin-bottom: 3rem;
-  max-width: 540px;
+  max-width: 640px;
   line-height: 1.7;
   font-weight: 400;
   animation: fadeInUp 0.9s var(--ease-out-expo) 0.1s both;
@@ -387,7 +401,6 @@ a:hover {
 .section-problem-title {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
-  margin-bottom: 2.5rem;
   letter-spacing: -0.02em;
   color: var(--color-text);
 }
@@ -1174,6 +1187,10 @@ body::after {
   .hero-bg-glow {
     animation: none;
     opacity: 0.7;
+  }
+
+  .hero-fog {
+    opacity: 0.4;
   }
 
   .section-cta {
