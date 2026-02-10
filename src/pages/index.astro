@@ -45,17 +45,16 @@ const caseStudies = workEntries.map((entry) => ({
       const d = section.data;
 
       if (d.section === "hero") return (
-        <section class="hero">
+        <section class="hero relative min-h-screen flex items-center pt-34 pb-26 overflow-hidden">
           <div class="hero-bg-glow" aria-hidden="true"></div>
           <div class="hero-grid-pattern" aria-hidden="true"></div>
-          <img src="/fog.png" class="hero-fog" aria-hidden="true" alt="" />
           <div class="container">
-            <div class="hero-content">
-              <h1 class="hero-title">{d.heading}</h1>
-              <p class="hero-tagline">{d.subheading}</p>
+            <div class="hero-content relative z-1 max-w-[900px]">
+              <h1 class="hero-title font-heading text-hero font-extrabold leading-tight tracking-tighter mb-8">{d.heading}</h1>
+              <p class="hero-tagline text-hero-tagline text-text-muted mb-12 max-w-[640px] leading-loose font-normal">{d.subheading}</p>
               {d.cta_text && (
                 <div class="hero-actions">
-                  <a href={d.cta_link} class="btn btn-primary">{d.cta_text}</a>
+                  <a href={d.cta_link} class="btn-primary">{d.cta_text}</a>
                 </div>
               )}
             </div>
@@ -64,31 +63,31 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "problem") return (
-        <section class="section-problem">
-          <div class="container">
-            <h2 class="section-problem-title">{d.heading}</h2>
-            <div class="section-problem-prose">
-              <p>Most small businesses know they need a website, but the process feels <span class="highlight">overwhelming</span>. Too many options, too many cookie-cutter solutions that slap a template on every business like they're all the same.</p>
-              <p>What's missing is <span class="highlight">strategy</span>: understanding what your site needs to achieve. More customers? More bookings? Better leads?</p>
+        <section class="section-problem relative py-section bg-surface-raised">
+          <div class="container relative z-1">
+            <h2 class="font-heading text-section-title font-bold tracking-tight text-text">{d.heading}</h2>
+            <div class="section-problem-prose max-w-[680px] text-section-prose text-text-muted leading-extra-loose mb-12">
+              <p class="mb-6">Most small businesses know they need a website, but the process feels <span class="highlight">overwhelming</span>. Too many options, too many cookie-cutter solutions that slap a template on every business like they're all the same.</p>
+              <p class="mb-6">What's missing is <span class="highlight">strategy</span>: understanding what your site needs to achieve. More customers? More bookings? Better leads?</p>
             </div>
-            <p class="section-problem-kicker">If your website isn't driving those results, it's just expensive decoration.</p>
+            <p class="section-problem-kicker text-section-kicker font-semibold max-w-[680px] leading-extra-loose text-pop">If your website isn't driving those results, it's just expensive decoration.</p>
           </div>
         </section>
       );
 
       if (d.section === "differentiators") return (
-        <section class="section section-diff">
+        <section class="section-diff relative py-section">
           <div class="container">
-            <div class="section-diff-header">
-              <p class="section-diff-label">Why Plain Sight</p>
-              <h2 class="section-diff-title">{d.heading}</h2>
+            <div class="mb-12">
+              <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Why Plain Sight</p>
+              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
             </div>
-            <div class="diff-grid">
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-5">
               {d.items?.map((item, i) => (
-                <div class="diff-card" style={`--card-index: ${i}`}>
-                  <div class="diff-card-icon" aria-hidden="true">
+                <div class="bg-surface border border-border rounded-2xl p-10 max-md:p-8 relative overflow-hidden" style={`--card-index: ${i}`}>
+                  <div class="mb-5 text-accent-hover" aria-hidden="true">
                     {i === 0 && (
-                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 stroke-accent-hover stroke-[1.5] fill-none" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="24" cy="24" r="18" />
                         <circle cx="24" cy="24" r="8" />
                         <line x1="24" y1="2" x2="24" y2="12" />
@@ -98,20 +97,20 @@ const caseStudies = workEntries.map((entry) => ({
                       </svg>
                     )}
                     {i === 1 && (
-                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 stroke-accent-hover stroke-[1.5] fill-none" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="24,4 44,16 24,28 4,16" />
                         <polyline points="4,24 24,36 44,24" />
                         <polyline points="4,32 24,44 44,32" />
                       </svg>
                     )}
                     {i === 2 && (
-                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 stroke-accent-hover stroke-[1.5] fill-none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M24,2 C24,2 40,10 40,22 C40,34 24,46 24,46 C24,46 8,34 8,22 C8,10 24,2 24,2Z" />
                         <polyline points="26,14 20,26 28,26 22,38" />
                       </svg>
                     )}
                     {i === 3 && (
-                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 stroke-accent-hover stroke-[1.5] fill-none" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M8,40 C8,40 16,32 24,32 C32,32 32,16 24,16 C16,16 16,8 24,8 C32,8 40,8 40,8" />
                         <circle cx="8" cy="40" r="3" fill="currentColor" />
                         <circle cx="24" cy="24" r="3" fill="currentColor" />
@@ -119,9 +118,9 @@ const caseStudies = workEntries.map((entry) => ({
                       </svg>
                     )}
                   </div>
-                  <div class="diff-card-number" aria-hidden="true">{String(i + 1).padStart(2, '0')} {['STRATEGY', 'EXPERIENCE', 'EXECUTION', 'TRANSPARENCY'][i]}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+                  <div class="font-mono text-[0.875rem] text-text-dim mb-4 tracking-wider" aria-hidden="true">{String(i + 1).padStart(2, '0')} {['STRATEGY', 'EXPERIENCE', 'EXECUTION', 'TRANSPARENCY'][i]}</div>
+                  <h3 class="text-22 font-bold mb-3 tracking-snug">{item.title}</h3>
+                  <p class="text-text-muted leading-loose">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -130,11 +129,11 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "process") return (
-        <section class="section section-process">
+        <section class="section-process relative py-section">
           <div class="container">
-            <div class="section-process-header">
-              <p class="section-process-label">Our process</p>
-              <h2 class="section-process-title">{d.heading}</h2>
+            <div class="mb-12">
+              <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Our process</p>
+              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
             </div>
             <div class="process-panel" data-active="0">
               <div class="process-nav">
@@ -170,50 +169,50 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "basics") return (
-        <section class="section section-basics">
+        <section class="section-basics relative py-section">
           <div class="container">
-            <div class="section-basics-header">
-              <p class="section-basics-label">What you get</p>
-              <h2 class="section-basics-title">{d.heading}</h2>
+            <div class="mb-12">
+              <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">What you get</p>
+              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
             </div>
-            <ul class="basics-list">
+            <ul class="list-none flex flex-col max-w-[720px]">
               {d.items?.map((item, i) => (
-                <li class="basics-item">
-                  <span class="basics-item-icon" aria-hidden="true">
+                <li class="flex items-start gap-6 py-6 border-b border-border-subtle first:border-t first:border-border-subtle">
+                  <span class="shrink-0 w-9 h-9 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
                     {i === 0 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <rect x="2" y="3" width="20" height="14" rx="2" />
                         <line x1="8" y1="21" x2="16" y2="21" />
                         <line x1="12" y1="17" x2="12" y2="21" />
                       </svg>
                     )}
                     {i === 1 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
                       </svg>
                     )}
                     {i === 2 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <circle cx="11" cy="11" r="8" />
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                       </svg>
                     )}
                     {i === 3 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <polyline points="16,18 22,12 16,6" />
                         <polyline points="8,6 2,12 8,18" />
                       </svg>
                     )}
                     {i === 4 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <path d="M20,21v-2a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" />
                         <circle cx="12" cy="7" r="4" />
                       </svg>
                     )}
                   </span>
-                  <div class="basics-item-text">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                  <div>
+                    <h3 class="text-[1.125rem] font-bold tracking-snug mb-1 text-text">{item.title}</h3>
+                    <p class="text-text-muted leading-loose text-base">{item.description}</p>
                   </div>
                 </li>
               ))}
@@ -223,23 +222,23 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "work") return (
-        <section class="section section-work" id="work">
+        <section class="section-work relative py-section" id="work">
           <div class="container">
-            <div class="section-work-header">
-              <p class="section-work-label">Our work</p>
-              <h2 class="section-work-title">{d.heading}</h2>
-              {d.intro && <p class="section-work-intro">{d.intro}</p>}
+            <div class="mb-12">
+              <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Our work</p>
+              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
+              {d.intro && <p class="text-text-muted mt-4 leading-loose">{d.intro}</p>}
             </div>
-            <div class="work-grid">
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-8">
               {caseStudies.map((study) => (
-                <a href={study.link} class="work-card">
-                  <div class="work-card-image">
-                    {study.image && <Image src={study.image} alt={`${study.title} screenshot`} width={800} />}
+                <a href={study.link} class="work-card block no-underline text-inherit bg-surface border border-border rounded-[0.75rem] overflow-hidden transition-all duration-medium ease-out-expo hover:border-accent hover:-translate-y-0.5 hover:shadow-card-hover hover:no-underline">
+                  <div class="overflow-hidden aspect-hero">
+                    {study.image && <Image src={study.image} alt={`${study.title} screenshot`} width={800} class="w-full h-full object-cover" />}
                   </div>
-                  <div class="work-card-content">
-                    <h3 class="work-card-title">{study.title}</h3>
-                    <p class="work-card-desc">{study.description}</p>
-                    <span class="btn work-card-btn">View case study</span>
+                  <div class="p-8 max-md:p-6 border-t border-border">
+                    <h3 class="text-22 font-bold tracking-snug mb-3 text-text">{study.title}</h3>
+                    <p class="text-text-muted leading-loose mb-5">{study.description}</p>
+                    <span class="btn text-[0.85rem] py-2.5 px-6 mt-5">View case study</span>
                   </div>
                 </a>
               ))}
@@ -249,16 +248,16 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "cta") return (
-        <section class="section section-cta" id="contact">
+        <section class="section-cta relative py-34 text-center overflow-hidden" id="contact">
           <div class="cta-glow" aria-hidden="true"></div>
           <div class="container">
-            <div class="cta-content">
-              <h2 class="cta-title">{d.heading}</h2>
-              <div class="cta-prose">
+            <div class="relative z-1 max-w-[800px] mx-auto">
+              <h2 class="font-heading text-cta-title font-bold tracking-tighter leading-snug mb-6 text-text">{d.heading}</h2>
+              <div class="cta-prose text-21 text-text-muted leading-loose mb-10">
                 <Content />
               </div>
               {d.cta_text && (
-                <a href={d.cta_link} class="btn btn-cta">{d.cta_text}</a>
+                <a href={d.cta_link} class="btn-cta">{d.cta_text}</a>
               )}
             </div>
           </div>
@@ -266,6 +265,408 @@ const caseStudies = workEntries.map((entry) => ({
       );
     })}
   </main>
+
+  <style>
+    /* ── Hero decorative effects ── */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-accent-subtle) 50%, var(--color-border) 80%, transparent 100%);
+    }
+
+    .hero-bg-glow {
+      position: absolute;
+      top: 0;
+      left: -10%;
+      width: 80%;
+      height: 100%;
+      background: radial-gradient(ellipse 70% 60% at 30% 45%, var(--color-hero-glow-1) 0%, var(--color-hero-glow-2) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      animation: subtleFloat 12s ease-in-out infinite;
+    }
+
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cline x1='0' y1='0' x2='72' y2='0' stroke='rgba(255,255,255,0.22)' stroke-width='1' stroke-dasharray='8 8'/%3E%3Cline x1='0' y1='0' x2='0' y2='72' stroke='rgba(255,255,255,0.22)' stroke-width='1' stroke-dasharray='8 8'/%3E%3C/svg%3E");
+      background-size: 72px 72px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 70% 50% at 40% 45%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 50% at 40% 45%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, transparent 100%);
+    }
+
+    .hero-title {
+      background: linear-gradient(to bottom right, var(--hero-title-gradient-start) 30%, var(--hero-title-gradient-end) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.9s var(--ease-out-expo) both;
+    }
+
+    .hero-tagline {
+      animation: fadeInUp 0.9s var(--ease-out-expo) 0.1s both;
+    }
+
+    .hero-actions {
+      animation: fadeInUp 0.9s var(--ease-out-expo) 0.25s both;
+    }
+
+    /* ── Primary CTA button ── */
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--color-accent);
+      color: var(--color-btn-text);
+      border-radius: 0.625rem;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      letter-spacing: -0.01em;
+      transition: all 0.3s var(--ease-out-expo);
+      box-shadow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      box-shadow: 0 0 30px var(--color-accent-glow-strong), 0 0 80px var(--color-accent-glow), 0 4px 16px var(--color-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      transition-duration: 0.1s;
+    }
+
+    /* ── Problem section decorative ── */
+    .section-problem::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-accent-subtle) 50%, var(--color-border) 80%, transparent 100%);
+    }
+
+    .section-problem::after {
+      content: '';
+      position: absolute;
+      top: 30%;
+      right: -20%;
+      width: 40%;
+      height: 60%;
+      background: radial-gradient(ellipse at center, rgba(126, 219, 87, 0.03) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .highlight {
+      color: var(--color-text);
+      background: var(--color-accent-subtle);
+      padding: 0.05em 0.35em;
+      border-radius: 0.25em;
+      font-style: normal;
+      font-weight: 600;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    [data-theme="dark"] .highlight {
+      background: rgba(13, 115, 119, 0.25);
+    }
+
+    /* ── Gradient separators (shared) ── */
+    .section-diff::before,
+    .section-process::before,
+    .section-basics::before,
+    .section-work::before,
+    .section-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-accent-subtle) 50%, var(--color-border) 80%, transparent 100%);
+    }
+
+    /* ── Process section (interactive left-right layout) ── */
+    .process-panel {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      min-height: 320px;
+    }
+
+    .process-nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-nav-item {
+      all: unset;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      position: relative;
+      border-bottom: 1px solid var(--color-border-subtle);
+      transition: padding-left 400ms var(--ease-out-expo);
+    }
+
+    .process-nav-item:first-child {
+      border-top: 1px solid var(--color-border-subtle);
+    }
+
+    .process-nav-number {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      letter-spacing: 0.05em;
+      min-width: 2rem;
+      transition: color 400ms var(--ease-out-expo);
+    }
+
+    .process-nav-line {
+      width: 2rem;
+      height: 2px;
+      background: var(--color-border);
+      border-radius: 1px;
+      transition: width 400ms var(--ease-out-expo), background 400ms var(--ease-out-expo);
+    }
+
+    .process-nav-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      transition: color 400ms var(--ease-out-expo);
+      letter-spacing: -0.01em;
+    }
+
+    .process-nav-item:hover .process-nav-title { color: var(--color-text); }
+    .process-nav-item:hover .process-nav-line { background: var(--color-text-dim); }
+
+    /* Active nav item states */
+    .process-panel[data-active="0"] .process-nav-item[data-index="0"],
+    .process-panel[data-active="1"] .process-nav-item[data-index="1"],
+    .process-panel[data-active="2"] .process-nav-item[data-index="2"],
+    .process-panel[data-active="3"] .process-nav-item[data-index="3"] {
+      padding-left: 0.5rem;
+    }
+
+    .process-panel[data-active="0"] .process-nav-item[data-index="0"] .process-nav-number,
+    .process-panel[data-active="1"] .process-nav-item[data-index="1"] .process-nav-number,
+    .process-panel[data-active="2"] .process-nav-item[data-index="2"] .process-nav-number,
+    .process-panel[data-active="3"] .process-nav-item[data-index="3"] .process-nav-number {
+      color: var(--color-pop);
+    }
+
+    .process-panel[data-active="0"] .process-nav-item[data-index="0"] .process-nav-line,
+    .process-panel[data-active="1"] .process-nav-item[data-index="1"] .process-nav-line,
+    .process-panel[data-active="2"] .process-nav-item[data-index="2"] .process-nav-line,
+    .process-panel[data-active="3"] .process-nav-item[data-index="3"] .process-nav-line {
+      width: 3rem;
+      background: var(--color-pop);
+    }
+
+    .process-panel[data-active="0"] .process-nav-item[data-index="0"] .process-nav-title,
+    .process-panel[data-active="1"] .process-nav-item[data-index="1"] .process-nav-title,
+    .process-panel[data-active="2"] .process-nav-item[data-index="2"] .process-nav-title,
+    .process-panel[data-active="3"] .process-nav-item[data-index="3"] .process-nav-title {
+      color: var(--color-text);
+      font-weight: 700;
+    }
+
+    /* Detail panels */
+    .process-details {
+      position: relative;
+      min-height: 280px;
+    }
+
+    .process-detail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 400ms var(--ease-out-expo), visibility 400ms, transform 400ms var(--ease-out-expo);
+    }
+
+    .process-panel[data-active="0"] .process-detail[data-index="0"],
+    .process-panel[data-active="1"] .process-detail[data-index="1"],
+    .process-panel[data-active="2"] .process-detail[data-index="2"],
+    .process-panel[data-active="3"] .process-detail[data-index="3"] {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .process-detail-number {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--color-pop);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .process-detail-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+
+    .process-detail-desc {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    /* ── CTA section ── */
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120%;
+      height: 140%;
+      background: radial-gradient(ellipse 50% 50% at 50% 50%, var(--color-hero-glow-1) 0%, var(--color-hero-glow-2) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .cta-prose :global(p) {
+      margin-bottom: 0;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--color-accent);
+      color: var(--color-btn-text);
+      border-radius: 0.625rem;
+      font-weight: 600;
+      font-size: 1.0625rem;
+      letter-spacing: -0.01em;
+      transition: all 0.3s var(--ease-out-expo);
+      box-shadow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-decoration: none;
+    }
+
+    .btn-cta:hover {
+      background: var(--color-accent-hover);
+      box-shadow: 0 0 30px var(--color-accent-glow-strong), 0 0 80px var(--color-accent-glow), 0 4px 16px var(--color-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .btn-cta:active {
+      transform: translateY(0);
+      transition-duration: 0.1s;
+    }
+
+    /* ── Mobile overrides ── */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 7rem 0 4rem;
+        min-height: 90vh;
+      }
+
+      .hero-title {
+        letter-spacing: -0.02em;
+      }
+
+      .btn-primary {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-problem {
+        padding: 4rem 0;
+        overflow: hidden;
+      }
+
+      .section-problem-kicker {
+        font-size: 1.25rem;
+        padding-left: 1rem;
+      }
+
+      .hero-grid-pattern {
+        display: none;
+      }
+
+      .hero-bg-glow {
+        animation: none;
+        opacity: 0.7;
+      }
+
+      .process-panel {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        min-height: auto;
+      }
+
+      .process-details {
+        position: relative;
+        min-height: auto;
+      }
+
+      .process-detail {
+        position: relative;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+      }
+
+      .process-panel[data-active="0"] .process-detail[data-index="0"],
+      .process-panel[data-active="1"] .process-detail[data-index="1"],
+      .process-panel[data-active="2"] .process-detail[data-index="2"],
+      .process-panel[data-active="3"] .process-detail[data-index="3"] {
+        display: block;
+      }
+
+      .process-detail-number {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .process-nav-line {
+        display: none;
+      }
+
+      .section-cta {
+        padding: 5rem 0;
+      }
+
+      .btn-cta {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 
   <script>
     const panel = document.querySelector('.process-panel');
@@ -281,18 +682,4 @@ const caseStudies = workEntries.map((entry) => ({
     }
   </script>
 
-  <script>
-    const fog = document.querySelector('.hero-fog') as HTMLElement | null;
-    if (fog) {
-      const baseOpacity = parseFloat(window.getComputedStyle(fog).opacity);
-      const onScroll = () => {
-        const scrollY = window.scrollY;
-        const fadeEnd = window.innerHeight * 0.25;
-        const progress = Math.min(scrollY / fadeEnd, 1);
-        fog.style.opacity = String(baseOpacity * (1 - progress));
-        fog.style.transform = `translateY(${progress * 40}px)`;
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-    }
-  </script>
 </Base>

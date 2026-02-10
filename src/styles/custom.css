@@ -1,25 +1,4 @@
 /* ═══════════════════════════════════════════════════ */
-/* CSS VARIABLES FOR THEME SWITCHING */
-/* ═══════════════════════════════════════════════════ */
-
-:root {
-  /* Font Families */
-  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Darker Grotesque', system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, 'Fira Code', monospace;
-
-  /* Spacing */
-  --section-gap: clamp(5rem, 8vw, 8rem);
-
-  /* Transitions */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
-  --duration-fast: 0.2s;
-  --duration-medium: 0.4s;
-  --duration-slow: 0.7s;
-}
-
-/* ═══════════════════════════════════════════════════ */
 /* LIGHT THEME (DEFAULT) */
 /* ═══════════════════════════════════════════════════ */
 
@@ -52,8 +31,6 @@
 
   --color-hero-glow-1: rgba(244, 162, 97, 0.08);
   --color-hero-glow-2: rgba(244, 162, 97, 0.04);
-  --hero-fog-blend: multiply;
-  --hero-fog-opacity: 0.05;
   --hero-title-gradient-start: #2D3142;
   --hero-title-gradient-end: rgba(45, 49, 66, 0.70);
 }
@@ -91,8 +68,6 @@
 
   --color-hero-glow-1: rgba(13, 115, 119, 0.25);
   --color-hero-glow-2: rgba(13, 115, 119, 0.10);
-  --hero-fog-blend: screen;
-  --hero-fog-opacity: 0.14;
   --hero-title-gradient-start: #FFFFFF;
   --hero-title-gradient-end: rgba(255, 255, 255, 0.75);
 }

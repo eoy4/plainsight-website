@@ -23,7 +23,7 @@ const { title, description = "Web development agency crafting digital experience
     <title>{title}</title>
     <script is:inline>
       (function() {
-        var stored = localStorage.getItem('theme');
+        var stored = sessionStorage.getItem('theme');
         document.documentElement.setAttribute('data-theme', stored || 'light');
       })();
     </script>
@@ -36,12 +36,6 @@ const { title, description = "Web development agency crafting digital experience
 </html>
 
 <style is:global>
-  /* 1. CSS Variables for theme switching */
   @import "../styles/custom.css";
-
-  /* 2. Tailwind CSS with theme configuration */
   @import "../styles/tailwind.css";
-
-  /* 3. Legacy global styles (will be migrated component by component) */
-  @import "../styles/global.css";
 </style>

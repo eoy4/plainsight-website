@@ -1,50 +1,39 @@
 ---
+import Logo from './Logo.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer class="text-sm" style="border-top: 1px solid var(--color-border); color: var(--color-text-muted);">
+<footer class="text-sm border-t border-border text-text-muted">
   <div class="container">
-    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 py-16 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 pt-16 pb-12">
       <div class="max-w-[300px]">
-        <a href="/" class="inline-block no-underline" style="color: var(--color-text);" aria-label="Plain Sight - Home">
-          <svg width="517" height="63" viewBox="0 0 517 63" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-40 h-auto">
-            <rect x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke="currentColor" stroke-width="5" stroke-dasharray="10 10"/>
-            <path d="M261.64 0.041748H276.479V62.0653H262.307L245.634 31.5537V62.0653H230.795V0.041748H245.05L261.64 30.47V0.041748Z" fill="currentColor"/>
-            <path d="M224.934 0.041748V62.0653H210.929V0.041748H224.934Z" fill="currentColor"/>
-            <path d="M185.932 45.7257H173.844L168.342 62.0653H152.419L170.593 0.041748H189.266L207.44 62.0653H191.517L185.932 45.7257Z" fill="currentColor"/>
-            <path d="M132.94 48.06H149.529V62.0653H118.934V0.041748H132.94V48.06Z" fill="currentColor"/>
-            <path d="M96.4198 0.0418701C99.0875 0.0418701 101.505 0.51427 103.673 1.45907C105.84 2.40387 107.674 3.7655 109.175 5.54395C110.731 7.26683 111.926 9.37874 112.759 11.8797C113.593 14.3251 114.01 17.0761 114.01 20.1328C114.01 23.134 113.593 25.8572 112.759 28.3026C111.926 30.748 110.731 32.8599 109.175 34.6383C107.674 36.4168 105.84 37.8062 103.673 38.8066C101.505 39.7514 99.0875 40.2238 96.4198 40.2238H96.3365H91.7514V62.0654H77.496V0.0418701H96.3365H96.4198Z" fill="currentColor"/>
-            <path d="M504.747 0V14.0053H490.658V62.0235H476.653V14.0053H462.564V0H504.747Z" fill="currentColor"/>
-            <path d="M442.702 0H456.707V62.0235H442.702V38.0144H426.112V62.0235H412.107V0H426.112V24.0091H442.702V0Z" fill="currentColor"/>
-            <path d="M404.368 50.5192C403.312 52.0197 402.034 53.4925 400.533 54.9375C399.088 56.3269 397.449 57.5496 395.615 58.6056C393.836 59.6615 391.863 60.5229 389.696 61.1899C387.528 61.8012 385.25 62.1069 382.86 62.1069H382.776C379.053 62.1069 375.774 61.4955 372.939 60.2729C370.105 59.0502 367.715 57.3551 365.77 55.1876C363.88 53.0201 362.408 50.4358 361.352 47.4347C360.296 44.4335 359.712 41.1545 359.601 37.5976V24.7594C359.601 21.4248 360.101 18.2569 361.102 15.2558C362.102 12.2546 363.575 9.64255 365.52 7.41948C367.465 5.14084 369.883 3.3346 372.773 2.00076C375.663 0.66692 378.997 0 382.776 0H382.86C386.639 0.166728 389.696 0.833647 392.03 2.00076C394.42 3.11229 396.309 4.41834 397.699 5.91891C399.144 7.41948 400.227 8.92005 400.95 10.4206C401.672 11.9212 402.312 13.0883 402.867 13.9219L391.363 21.5082C391.085 20.8968 390.752 20.2021 390.363 19.424C390.029 18.646 389.529 17.9235 388.862 17.2565C388.251 16.5896 387.473 16.0339 386.528 15.5892C385.583 15.0891 384.388 14.839 382.943 14.839C380.164 14.839 377.941 15.7838 376.274 17.6734C374.662 19.5074 373.856 21.9528 373.856 25.0095V37.0974C373.856 38.598 374.106 40.0152 374.607 41.349C375.107 42.6273 375.774 43.7388 376.607 44.6836C377.497 45.5728 378.525 46.2953 379.692 46.8511C380.859 47.4069 382.137 47.6848 383.527 47.6848C385.472 47.7403 387.028 47.4069 388.195 46.6844C389.418 45.9619 390.335 45.0449 390.946 43.9333V40.8488H384.36V28.8443H404.368V50.5192Z" fill="currentColor"/>
-            <path d="M353.657 0V62.0235H339.651V0H353.657Z" fill="currentColor"/>
-            <path d="M335.493 47.6014C335.382 49.6021 334.799 51.4917 333.743 53.2702C332.742 54.9931 331.325 56.5214 329.491 57.8553C327.713 59.1335 325.545 60.1617 322.989 60.9398C320.432 61.6623 317.542 62.0235 314.319 62.0235C311.818 62.0235 309.456 61.6901 307.233 61.0231C305.065 60.3562 303.092 59.4114 301.314 58.1887C299.535 56.966 298.007 55.4933 296.729 53.7704C295.506 51.9919 294.617 49.9912 294.061 47.7681L307.399 42.1827C307.288 42.2382 307.399 42.6273 307.733 43.3498C308.122 44.0723 308.65 44.8503 309.317 45.684C309.984 46.4621 310.79 47.1846 311.734 47.8515C312.735 48.4628 313.791 48.6851 314.902 48.5184C315.847 48.4072 316.764 47.9904 317.653 47.2679C318.598 46.5454 319.043 45.4061 318.987 43.85C318.932 42.9052 318.543 42.0437 317.82 41.2657C317.153 40.432 316.181 39.5706 314.902 38.6813C312.068 36.7917 309.428 35.1522 306.983 33.7628C304.593 32.3178 302.481 30.8172 300.647 29.2611C298.868 27.705 297.451 25.9543 296.395 24.0091C295.395 22.0639 294.895 19.6185 294.895 16.673C294.895 13.9497 295.45 11.5599 296.562 9.5036C297.674 7.44727 299.146 5.72439 300.98 4.33498C302.814 2.94556 304.926 1.88961 307.316 1.16711C309.706 0.444612 312.179 0.0555759 314.736 0C317.792 0 320.46 0.444613 322.739 1.33384C325.073 2.16749 327.018 3.25123 328.574 4.58507C330.186 5.91891 331.436 7.44727 332.326 9.17015C333.215 10.8374 333.798 12.5047 334.076 14.172L321.822 19.0072C321.655 18.3959 321.405 17.7289 321.071 17.0064C320.738 16.2284 320.265 15.5337 319.654 14.9223C319.098 14.2554 318.404 13.6996 317.57 13.255C316.792 12.8104 315.875 12.5881 314.819 12.5881C313.707 12.5881 312.679 12.9494 311.734 13.6719C310.845 14.3388 310.401 15.3669 310.401 16.7564C310.401 17.8123 310.817 18.7571 311.651 19.5908C312.54 20.3688 313.902 21.4248 315.736 22.7586C318.292 24.2036 320.738 25.6486 323.072 27.0936C325.462 28.5386 327.574 30.1781 329.408 32.0121C331.242 33.8462 332.715 35.9303 333.826 38.2645C334.938 40.5432 335.493 43.2664 335.493 46.4343V47.6014Z" fill="currentColor"/>
-          </svg>
+        <a href="/" class="inline-block no-underline text-text" aria-label="Plain Sight - Home">
+          <Logo class="w-40 h-auto" />
         </a>
-        <p class="mt-4 leading-relaxed" style="color: var(--color-text-muted);">Web development agency crafting digital experiences.</p>
+        <p class="mt-4 leading-relaxed text-text-muted">Web development agency crafting digital experiences.</p>
       </div>
 
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-[0.08em] mb-4" style="color: var(--color-text);">Navigate</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-[0.08em] mb-4 text-text">Navigate</h3>
         <ul class="list-none p-0 flex flex-col gap-3">
-          <li><a href="/" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Home</a></li>
-          <li><a href="/services" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Services</a></li>
-          <li><a href="/work" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Work</a></li>
-          <li><a href="/contact" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">Contact</a></li>
+          <li><a href="/" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">Home</a></li>
+          <li><a href="/services" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">Services</a></li>
+          <li><a href="/work" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">Work</a></li>
+          <li><a href="/contact" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">Contact</a></li>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-xs font-semibold uppercase tracking-[0.08em] mb-4" style="color: var(--color-text);">Get in Touch</h3>
+        <h3 class="text-xs font-semibold uppercase tracking-[0.08em] mb-4 text-text">Get in Touch</h3>
         <ul class="list-none p-0 flex flex-col gap-3">
           <li>
-            <a href="mailto:hello@plainsight.works" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">
+            <a href="mailto:hello@plainsight.works" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
               hello@plainsight.works
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/company/plainsight-works/" target="_blank" rel="noopener noreferrer" class="no-underline inline-flex items-center gap-2 transition-colors" style="color: var(--color-text-muted); transition-duration: var(--duration-fast);" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text-muted)'">
+            <a href="https://www.linkedin.com/company/plainsight-works/" target="_blank" rel="noopener noreferrer" class="no-underline inline-flex items-center gap-2 text-text-muted transition-colors duration-fast hover:text-accent hover:no-underline">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
             </a>
@@ -53,7 +42,7 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="py-6 text-center" style="border-top: 1px solid var(--color-border-subtle); color: var(--color-text-dim);">
+    <div class="py-6 text-center border-t border-border-subtle text-text-dim">
       <p>&copy; {year} Plain Sight. All rights reserved.</p>
     </div>
   </div>
