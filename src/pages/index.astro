@@ -36,8 +36,6 @@ const caseStudies = workEntries.map((entry) => ({
   link: `/work#${entry.data.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`,
   image: caseStudyImages[entry.data.order],
 }));
-
-const year = new Date().getFullYear();
 ---
 
 <Base title="Plain Sight | Web Development Agency">
@@ -268,12 +266,6 @@ const year = new Date().getFullYear();
       );
     })}
   </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; {year} Plain Sight. All rights reserved.</p>
-    </div>
-  </footer>
 
   <script>
     const panel = document.querySelector('.process-panel');

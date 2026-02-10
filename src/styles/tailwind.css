@@ -1,0 +1,210 @@
+/* Tailwind v4 Configuration */
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════ */
+/* THEME CONFIGURATION */
+/* ═══════════════════════════════════════════════════ */
+
+@theme {
+  /* ────────────────────────────────────────────────── */
+  /* COLORS */
+  /* ────────────────────────────────────────────────── */
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+
+  --color-border: var(--color-border);
+  --color-border-subtle: var(--color-border-subtle);
+
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-dim: var(--color-text-dim);
+
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-subtle: var(--color-accent-subtle);
+  --color-accent-glow: var(--color-accent-glow);
+  --color-accent-glow-strong: var(--color-accent-glow-strong);
+
+  --color-pop: var(--color-pop);
+  --color-pop-hover: var(--color-pop-hover);
+  --color-pop-glow: var(--color-pop-glow);
+
+  --color-nav: var(--color-nav-bg);
+  --color-shadow: var(--color-shadow);
+  --color-shadow-strong: var(--color-shadow-strong);
+  --color-btn-text: var(--color-btn-text);
+
+  --color-hero-glow-1: var(--color-hero-glow-1);
+  --color-hero-glow-2: var(--color-hero-glow-2);
+
+  /* ────────────────────────────────────────────────── */
+  /* TYPOGRAPHY */
+  /* ────────────────────────────────────────────────── */
+  --font-family-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Darker Grotesque', system-ui, -apple-system, sans-serif;
+  --font-family-mono: ui-monospace, 'Fira Code', monospace;
+
+  /* Font Sizes - Standard */
+  --font-size-13: 0.8125rem;
+  --font-size-15: 0.9375rem;
+  --font-size-17: 1.0625rem;
+  --font-size-21: 1.3125rem;
+  --font-size-22: 1.375rem;
+  --font-size-26: 1.625rem;
+  --font-size-36: 2.25rem;
+  --font-size-48: 3rem;
+  --font-size-72: 4.5rem;
+
+  /* Font Sizes - Responsive (clamp) */
+  --font-size-hero: clamp(2.75rem, 5vw + 1rem, 4.5rem);
+  --font-size-hero-tagline: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
+  --font-size-section-title: clamp(1.75rem, 3vw, 2.5rem);
+  --font-size-section-prose: clamp(1.125rem, 1.5vw + 0.5rem, 1.3125rem);
+  --font-size-section-kicker: clamp(1.125rem, 1.5vw + 0.5rem, 1.625rem);
+  --font-size-cta-title: clamp(2rem, 4vw, 3rem);
+  --font-size-page-hero: clamp(2.25rem, 6vw, 4rem);
+  --font-size-service-title: clamp(1.5rem, 3vw, 2rem);
+  --font-size-case-study-title: clamp(1.75rem, 3vw, 2.25rem);
+  --font-size-service-tagline: clamp(0.9rem, 1.3vw, 1.05rem);
+
+  /* Line Heights */
+  --line-height-tight: 1.05;
+  --line-height-snug: 1.1;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 1.7;
+  --line-height-extra-loose: 1.85;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.03em;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-snug: -0.01em;
+  --letter-spacing-wide: 0.01em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ────────────────────────────────────────────────── */
+  /* SPACING */
+  /* ────────────────────────────────────────────────── */
+  --spacing-4\.5: 1.125rem;
+  --spacing-13: 3.25rem;
+  --spacing-15: 3.75rem;
+  --spacing-17: 4.25rem;
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+  --spacing-34: 8.5rem;
+  --spacing-section: clamp(5rem, 8vw, 8rem);
+
+  /* ────────────────────────────────────────────────── */
+  /* CONTAINER */
+  /* ────────────────────────────────────────────────── */
+  --container-max-width: 1200px;
+  --container-padding: 1.5rem;
+
+  /* ────────────────────────────────────────────────── */
+  /* BORDER RADIUS */
+  /* ────────────────────────────────────────────────── */
+  --radius-lg: 0.625rem;
+  --radius-2xl: 1rem;
+
+  /* ────────────────────────────────────────────────── */
+  /* BOX SHADOWS */
+  /* ────────────────────────────────────────────────── */
+  --shadow-card-hover: 0 8px 32px -8px var(--color-shadow);
+  --shadow-glow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-glow-hover: 0 0 30px var(--color-accent-glow-strong), 0 0 80px var(--color-accent-glow), 0 4px 16px var(--color-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --shadow-focus: 0 0 0 3px var(--color-accent-subtle);
+
+  /* ────────────────────────────────────────────────── */
+  /* TRANSITIONS */
+  /* ────────────────────────────────────────────────── */
+  --transition-duration-fast: 200ms;
+  --transition-duration-medium: 400ms;
+  --transition-duration-slow: 700ms;
+
+  --transition-timing-function-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-timing-function-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* ────────────────────────────────────────────────── */
+  /* ANIMATIONS */
+  /* ────────────────────────────────────────────────── */
+  --animate-fade-in-up: fade-in-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-subtle-float: subtle-float 12s ease-in-out infinite;
+
+  /* ────────────────────────────────────────────────── */
+  /* ASPECT RATIOS */
+  /* ────────────────────────────────────────────────── */
+  --aspect-ratio-hero: 16 / 10;
+
+  /* ────────────────────────────────────────────────── */
+  /* BREAKPOINTS */
+  /* ────────────────────────────────────────────────── */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* KEYFRAME ANIMATIONS */
+/* ═══════════════════════════════════════════════════ */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════ */
+/* BASE STYLES */
+/* ═══════════════════════════════════════════════════ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 1.125rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+}
+
+a {
+  color: var(--color-accent-hover);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
