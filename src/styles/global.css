@@ -117,6 +117,10 @@ body {
   font-size: 1.125rem;
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 /* === Keyframe Animations === */
 
 @keyframes fadeInUp {
@@ -200,6 +204,14 @@ body {
   display: flex;
   gap: 2rem;
   align-items: center;
+  margin-left: auto;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 2rem;
 }
 
 .theme-toggle {
@@ -1219,10 +1231,79 @@ body::after {
   background-size: 256px 256px;
 }
 
+/* === Hamburger (hidden on desktop) === */
+.nav-hamburger {
+  display: none;
+}
+
 /* === Responsive === */
 @media (max-width: 768px) {
   .section {
     padding: 4rem 0;
+  }
+
+  .nav-actions {
+    z-index: 110;
+    margin-left: 0;
+  }
+
+  /* Mobile hamburger */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 1px;
+    transition: transform var(--duration-fast) var(--ease-out-expo),
+                opacity var(--duration-fast);
+  }
+
+  .nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Mobile nav links */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-bg);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 105;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.5rem;
+    color: var(--color-text);
   }
 
   .about-content {
@@ -1293,6 +1374,7 @@ body::after {
 
   .section-problem {
     padding: 4rem 0;
+    overflow: hidden;
   }
 
   .section-problem-kicker {
