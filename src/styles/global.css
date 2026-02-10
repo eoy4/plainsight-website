@@ -533,6 +533,97 @@ a:hover {
   color: var(--color-pop);
 }
 
+/* === Basics Section === */
+.section-basics {
+  position: relative;
+}
+
+.section-basics::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 20%,
+    var(--color-accent-subtle) 50%,
+    var(--color-border) 80%,
+    transparent 100%
+  );
+}
+
+.section-basics-header {
+  margin-bottom: 3rem;
+}
+
+.section-basics-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-hover);
+  margin-bottom: 1rem;
+}
+
+.section-basics-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.basics-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 720px;
+}
+
+.basics-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.basics-item:first-child {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.basics-item-icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-hover);
+  margin-top: 0.15rem;
+}
+
+.basics-item-icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.basics-item-text h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+  color: var(--color-text);
+}
+
+.basics-item-text p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 /* === Work / Case Studies Section === */
 .section-work {
   position: relative;
@@ -1211,6 +1302,11 @@ body::after {
 
   .diff-card {
     padding: 2rem;
+  }
+
+  .basics-item {
+    gap: 1.25rem;
+    padding: 1.25rem 0;
   }
 
   .section-diff-title {

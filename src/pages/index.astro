@@ -171,6 +171,59 @@ const year = new Date().getFullYear();
         </section>
       );
 
+      if (d.section === "basics") return (
+        <section class="section section-basics">
+          <div class="container">
+            <div class="section-basics-header">
+              <p class="section-basics-label">What you get</p>
+              <h2 class="section-basics-title">{d.heading}</h2>
+            </div>
+            <ul class="basics-list">
+              {d.items?.map((item, i) => (
+                <li class="basics-item">
+                  <span class="basics-item-icon" aria-hidden="true">
+                    {i === 0 && (
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                      </svg>
+                    )}
+                    {i === 1 && (
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
+                      </svg>
+                    )}
+                    {i === 2 && (
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                    )}
+                    {i === 3 && (
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16,18 22,12 16,6" />
+                        <polyline points="8,6 2,12 8,18" />
+                      </svg>
+                    )}
+                    {i === 4 && (
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20,21v-2a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                      </svg>
+                    )}
+                  </span>
+                  <div class="basics-item-text">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      );
+
       if (d.section === "work") return (
         <section class="section section-work" id="work">
           <div class="container">
