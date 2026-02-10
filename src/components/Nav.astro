@@ -1,13 +1,13 @@
 ---
 ---
 
-<nav class="fixed top-0 left-0 right-0 bg-[var(--color-nav-bg)] backdrop-blur-[12px] z-[100] py-3 border-b border-[var(--color-border-subtle)]">
+<nav class="fixed top-0 left-0 right-0 bg-nav backdrop-blur-md z-[100] py-3 border-b border-border-subtle">
   <div class="container flex justify-between items-center">
-    <a href="/" class="nav-logo flex items-center no-underline text-[var(--color-text)] hover:no-underline">
+    <a href="/" class="nav-logo flex items-center no-underline text-text hover:no-underline">
       <svg width="517" height="63" viewBox="0 0 517 63" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[200px] h-auto block">
-        <rect class="logo-square-teal" x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke="var(--color-accent-hover)" stroke-width="5" stroke-dasharray="10 10"/>
+        <rect class="logo-square-teal" x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke-accent-hover stroke-[5] [stroke-dasharray:10_10]"/>
         <rect class="logo-square-mask" x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke-width="7"/>
-        <rect class="logo-square" x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke="currentColor" stroke-width="5" stroke-dasharray="10 10"/>
+        <rect class="logo-square" x="2.5" y="4.02686" width="54.0531" height="54.0531" stroke="currentColor" stroke-[5] [stroke-dasharray:10_10]"/>
         <path d="M261.64 0.041748H276.479V62.0653H262.307L245.634 31.5537V62.0653H230.795V0.041748H245.05L261.64 30.47V0.041748Z" fill="currentColor"/>
         <path d="M224.934 0.041748V62.0653H210.929V0.041748H224.934Z" fill="currentColor"/>
         <path d="M185.932 45.7257H173.844L168.342 62.0653H152.419L170.593 0.041748H189.266L207.44 62.0653H191.517L185.932 45.7257Z" fill="currentColor"/>
@@ -21,10 +21,10 @@
       </svg>
     </a>
     <div class="flex gap-8 items-center">
-      <a href="/services" class="text-[var(--color-text-muted)] text-[0.9rem] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-accent-hover)] hover:no-underline">Services</a>
-      <a href="/work" class="text-[var(--color-text-muted)] text-[0.9rem] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-accent-hover)] hover:no-underline">Work</a>
-      <a href="/contact" class="text-[var(--color-text-muted)] text-[0.9rem] transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-accent-hover)] hover:no-underline">Contact</a>
-      <button class="bg-transparent border border-[var(--color-border)] rounded-lg p-2 cursor-pointer text-[var(--color-text-muted)] flex items-center justify-center transition-colors duration-[var(--duration-fast)] hover:text-[var(--color-text)] hover:border-[var(--color-accent)]" aria-label="Toggle theme" type="button">
+      <a href="/services" class="text-text-muted text-[0.9rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline">Services</a>
+      <a href="/work" class="text-text-muted text-[0.9rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline">Work</a>
+      <a href="/contact" class="text-text-muted text-[0.9rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline">Contact</a>
+      <button class="bg-transparent border border-border rounded-lg p-2 cursor-pointer text-text-muted flex items-center justify-center transition-colors duration-fast hover:text-text hover:border-accent" aria-label="Toggle theme" type="button">
         <svg class="theme-icon theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"/>
           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
