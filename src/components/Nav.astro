@@ -21,6 +21,7 @@
       </svg>
     </a>
     <div class="nav-links">
+      <a href="/" class="nav-link-home">Home</a>
       <a href="/services">Services</a>
       <a href="/work">Work</a>
       <a href="/contact">Contact</a>
@@ -43,6 +44,7 @@
     </div>
   </div>
 </nav>
+<div class="nav-overlay"></div>
 
 <style>
   /* Mask: bg-colored solid stroke, fully covers teal square by default */
@@ -90,20 +92,32 @@
 
   const hamburger = document.querySelector('.nav-hamburger');
   const navLinks = document.querySelector('.nav-links');
+  const overlay = document.querySelector('.nav-overlay');
+
+  function closeMenu() {
+    hamburger?.setAttribute('aria-expanded', 'false');
+    navLinks?.classList.remove('nav-open');
+    overlay?.classList.remove('nav-open');
+    document.body.classList.remove('nav-open');
+  }
+
+  function openMenu() {
+    hamburger?.setAttribute('aria-expanded', 'true');
+    navLinks?.classList.add('nav-open');
+    overlay?.classList.add('nav-open');
+    document.body.classList.add('nav-open');
+  }
+
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-      hamburger.setAttribute('aria-expanded', String(!expanded));
-      navLinks.classList.toggle('nav-open');
-      document.body.classList.toggle('nav-open', !expanded);
+      expanded ? closeMenu() : openMenu();
     });
 
     navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        navLinks.classList.remove('nav-open');
-        document.body.classList.remove('nav-open');
-      });
+      link.addEventListener('click', closeMenu);
     });
   }
+
+  overlay?.addEventListener('click', closeMenu);
 </script>

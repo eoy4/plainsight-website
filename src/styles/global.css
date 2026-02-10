@@ -207,6 +207,10 @@ body.nav-open {
   margin-left: auto;
 }
 
+.nav-link-home {
+  display: none;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -1231,8 +1235,12 @@ body::after {
   background-size: 256px 256px;
 }
 
-/* === Hamburger (hidden on desktop) === */
+/* === Hamburger & overlay (hidden on desktop) === */
 .nav-hamburger {
+  display: none;
+}
+
+.nav-overlay {
   display: none;
 }
 
@@ -1281,29 +1289,53 @@ body::after {
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Mobile nav links */
+  /* Mobile nav drawer */
   .nav-links {
-    display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    right: 0;
+    width: 66.66%;
+    height: 100dvh;
     background: var(--color-bg);
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 6rem 2rem 2rem;
+    border-left: 1px solid var(--color-border-subtle);
+    transform: translateX(100%);
+    transition: transform var(--duration-medium) var(--ease-out-expo);
     z-index: 105;
   }
 
   .nav-links.nav-open {
-    display: flex;
+    transform: translateX(0);
   }
 
   .nav-links a {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
     color: var(--color-text);
+    padding: 0.75rem 0;
+  }
+
+  .nav-link-home {
+    display: block;
+  }
+
+  /* Mobile overlay — below .main-nav (z-index 100), above page content */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background var(--duration-medium) var(--ease-out-expo);
+    z-index: 99;
+  }
+
+  .nav-overlay.nav-open {
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: auto;
   }
 
   .about-content {
