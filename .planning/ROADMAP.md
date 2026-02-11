@@ -31,10 +31,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. User on mobile sees hero content without vertical scroll cutoff or viewport resizing when address bar expands/collapses
   4. User sees clear visual hierarchy with tagline and CTA clearly secondary to the massive headline
 
-**Plans**: TBD
+**Plans:** 1 plan
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01-PLAN.md — Fluid typography tokens, expanded container, svh height, editorial layout
 
 ### Phase 2: Font Loading Optimization
 **Goal**: Display font loads without layout shift or FOIT, especially critical at viewport scale where shifts are amplified.
@@ -73,10 +73,10 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3
+Phases execute in numeric order: 1 -> 2 -> 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Typography Foundation & Container Architecture | 0/TBD | Not started | - |
+| 1. Typography Foundation & Container Architecture | 0/1 | Planned | - |
 | 2. Font Loading Optimization | 0/TBD | Not started | - |
 | 3. Visual Effects & Section Polish | 0/TBD | Not started | - |
