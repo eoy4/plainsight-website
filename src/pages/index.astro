@@ -45,13 +45,13 @@ const caseStudies = workEntries.map((entry) => ({
       const d = section.data;
 
       if (d.section === "hero") return (
-        <section class="hero relative min-h-[100svh] flex items-end pt-24 pb-[clamp(4rem,8vh,8rem)] overflow-hidden">
+        <section class="hero relative min-h-[100svh] flex items-center overflow-hidden">
           <div class="hero-bg-glow" aria-hidden="true"></div>
           <div class="hero-grid-pattern" aria-hidden="true"></div>
           <div class="container">
             <div class="hero-content relative z-1">
-              <h1 class="hero-title font-heading text-hero font-black leading-tight tracking-tighter mb-[var(--spacing-hero-gap)]" style="overflow-wrap: break-word; word-break: normal; hyphens: none;">{d.heading}</h1>
-              <p class="hero-tagline text-hero-tagline text-text-muted mb-[var(--spacing-hero-cta-gap)] leading-relaxed font-normal">{d.subheading}</p>
+              <h1 class="hero-title font-heading text-hero font-black leading-[0.85] tracking-tighter mb-[var(--spacing-hero-gap)] pb-[0.15em]" style="overflow-wrap: break-word; word-break: normal; hyphens: none;">{d.heading}</h1>
+              <p class="hero-tagline text-hero-tagline text-text-muted mb-[var(--spacing-hero-cta-gap)] leading-relaxed font-normal max-w-[900px]">{d.subheading}</p>
               {d.cta_text && (
                 <div class="hero-actions">
                   <a href={d.cta_link} class="btn-primary text-hero-cta">{d.cta_text}</a>
@@ -587,7 +587,7 @@ const caseStudies = workEntries.map((entry) => ({
     @media (max-width: 768px) {
       .hero {
         min-height: 100svh;
-        align-items: flex-end;
+        align-items: center;
       }
 
       .hero-title {
