@@ -65,10 +65,11 @@ Plans:
   2. User scrolls page and sees subtle animations on hero or sections (fade, scale, or parallax-free motion)
   3. User views other homepage sections and sees typography hierarchy that feels cohesive with the bolder hero
 
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Scroll-driven animations + gradient optimization (EFCT-01, EFCT-02)
+- [ ] 03-02-PLAN.md — Typography hierarchy cohesion (EFCT-03)
 
 ## Progress
 
