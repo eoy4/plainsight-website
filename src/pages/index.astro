@@ -45,16 +45,16 @@ const caseStudies = workEntries.map((entry) => ({
       const d = section.data;
 
       if (d.section === "hero") return (
-        <section class="hero relative min-h-screen flex items-center pt-34 pb-26 overflow-hidden">
+        <section class="hero relative min-h-[100svh] flex items-end pt-24 pb-[clamp(4rem,8vh,8rem)] overflow-hidden">
           <div class="hero-bg-glow" aria-hidden="true"></div>
           <div class="hero-grid-pattern" aria-hidden="true"></div>
           <div class="container">
-            <div class="hero-content relative z-1 max-w-[900px]">
-              <h1 class="hero-title font-heading text-hero font-extrabold leading-tight tracking-tighter mb-8">{d.heading}</h1>
-              <p class="hero-tagline text-hero-tagline text-text-muted mb-12 max-w-[640px] leading-loose font-normal">{d.subheading}</p>
+            <div class="hero-content relative z-1">
+              <h1 class="hero-title font-heading text-hero font-black leading-tight tracking-tighter mb-[var(--spacing-hero-gap)]" style="overflow-wrap: break-word; word-break: normal; hyphens: none;">{d.heading}</h1>
+              <p class="hero-tagline text-hero-tagline text-text-muted mb-[var(--spacing-hero-cta-gap)] leading-relaxed font-normal">{d.subheading}</p>
               {d.cta_text && (
                 <div class="hero-actions">
-                  <a href={d.cta_link} class="btn-primary">{d.cta_text}</a>
+                  <a href={d.cta_link} class="btn-primary text-hero-cta">{d.cta_text}</a>
                 </div>
               )}
             </div>
@@ -586,8 +586,8 @@ const caseStudies = workEntries.map((entry) => ({
     /* ── Mobile overrides ── */
     @media (max-width: 768px) {
       .hero {
-        padding: 7rem 0 4rem;
-        min-height: 90vh;
+        min-height: 100svh;
+        align-items: flex-end;
       }
 
       .hero-title {
