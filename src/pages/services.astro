@@ -18,25 +18,31 @@ const icons: Record<string, string> = {
   "custom-builds": `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
   "everything-else": `<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
 };
+
+let svcIdx = 0;
+const processedSections = rendered.map(s => ({
+  ...s,
+  _svcIdx: (s.data.section !== 'intro' && s.data.section !== 'cta') ? svcIdx++ : -1,
+}));
 ---
 
 <Base title="Services | Plain Sight" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
-  <main class="container services-page">
-    {rendered.map((section) => {
+  <main class="container pt-32 max-md:pt-24">
+    {processedSections.map((section) => {
       const { Content } = section.rendered;
       const d = section.data;
 
       if (d.section === "intro") return (
-        <section class="services-hero">
-          <h1 class="services-hero-title">{d.heading}</h1>
-          <div class="services-hero-prose">
+        <section class="services-hero bg-surface border border-border rounded-2xl py-14 px-12 max-md:py-10 max-md:px-6 mb-10 relative overflow-hidden">
+          <h1 class="text-page-hero font-extrabold leading-snug mb-5 relative">{d.heading}</h1>
+          <div class="services-hero-prose max-w-[640px] relative">
             <Content />
           </div>
         </section>
       );
 
       if (d.section === "cta") return (
-        <section class="section section-cta">
+        <section class="section-cta mt-8">
           <div class="cta-glow" aria-hidden="true"></div>
           <div class="cta-content">
             <h2 class="cta-title">{d.heading}</h2>
@@ -48,15 +54,16 @@ const icons: Record<string, string> = {
         </section>
       );
 
+      const isAlt = section._svcIdx % 2 !== 0;
       return (
-        <section class="service-card">
-          <div class="service-card-sidebar">
+        <section class={`grid grid-cols-[1fr_1.6fr] max-md:grid-cols-1 gap-12 max-md:gap-6 ${isAlt ? 'bg-surface-raised' : 'bg-surface'} border border-border rounded-2xl p-10 max-md:py-8 max-md:px-6 mb-8`}>
+          <div class="sticky top-24 self-start max-md:static">
             {icons[d.section] && (
-              <div class="service-icon" set:html={icons[d.section]} />
+              <div class="text-accent mb-4" set:html={icons[d.section]} />
             )}
-            {d.title && <h2 class="service-card-title">{d.title}</h2>}
-            <p class="service-card-tagline">{d.heading}</p>
-            {d.intro && <p class="service-card-intro">{d.intro}</p>}
+            {d.title && <h2 class="text-service-title font-bold leading-[1.2] mb-[0.35rem]">{d.title}</h2>}
+            <p class="text-service-tagline text-text-muted italic leading-normal mb-5">{d.heading}</p>
+            {d.intro && <p class="text-base text-text-muted leading-loose m-0">{d.intro}</p>}
           </div>
           <div class="service-card-details">
             <Content />
@@ -68,23 +75,6 @@ const icons: Record<string, string> = {
 </Base>
 
 <style>
-  /* Services page — v3 */
-  .services-page {
-    padding-top: 8rem;
-    padding-bottom: 0;
-  }
-
-  /* ── Hero ── */
-  .services-hero {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    padding: 3.5rem 3rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
   .services-hero::before {
     content: '';
     position: absolute;
@@ -92,26 +82,9 @@ const icons: Record<string, string> = {
     right: -20%;
     width: 60%;
     height: 160%;
-    background: radial-gradient(
-      ellipse at center,
-      var(--color-accent-subtle) 0%,
-      transparent 70%
-    );
+    background: radial-gradient(ellipse at center, var(--color-accent-subtle) 0%, transparent 70%);
     opacity: 0.4;
     pointer-events: none;
-  }
-
-  .services-hero-title {
-    font-size: clamp(2.25rem, 6vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.25rem;
-    position: relative;
-  }
-
-  .services-hero-prose {
-    max-width: 640px;
-    position: relative;
   }
 
   .services-hero-prose :global(p) {
@@ -120,57 +93,6 @@ const icons: Record<string, string> = {
     line-height: 1.7;
   }
 
-  /* ── Service cards ── */
-  .service-card {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 3rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .service-card:nth-child(odd) {
-    background: var(--color-surface-raised);
-  }
-
-  /* Left column: icon, title, tagline, intro */
-  .service-card-sidebar {
-    position: sticky;
-    top: 6rem;
-    align-self: start;
-  }
-
-  .service-icon {
-    color: var(--color-accent);
-    margin-bottom: 1rem;
-  }
-
-  .service-card-title {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.35rem;
-  }
-
-  .service-card-tagline {
-    font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-    color: var(--color-text-muted);
-    font-style: italic;
-    line-height: 1.5;
-    margin-bottom: 1.25rem;
-  }
-
-  .service-card-intro {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* Right column: rendered markdown details */
   .service-card-details :global(h2) {
     font-size: 1.1rem;
     font-weight: 700;
@@ -191,31 +113,5 @@ const icons: Record<string, string> = {
 
   .service-card-details :global(strong) {
     color: var(--color-text);
-  }
-
-  /* ── CTA — uses global section-cta styles ── */
-  .section-cta {
-    margin-top: 2rem;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .services-page {
-      padding-top: 6rem;
-    }
-
-    .services-hero {
-      padding: 2.5rem 1.5rem;
-    }
-
-    .service-card {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      padding: 2rem 1.5rem;
-    }
-
-    .service-card-sidebar {
-      position: static;
-    }
   }
 </style>
