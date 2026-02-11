@@ -13,7 +13,7 @@ This roadmap delivers viewport-dominating hero typography for the Plain Sight ag
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Typography Foundation & Container Architecture** - Viewport-filling hero typography with accessibility and layout constraints
-- [ ] **Phase 2: Font Loading Optimization** - Variable font implementation with preloading to prevent CLS
+- [x] **Phase 2: Font Loading Optimization** - Variable font implementation with preloading to prevent CLS
 - [ ] **Phase 3: Visual Effects & Section Polish** - Gradient optimization, animations, and cohesive page hierarchy
 
 ## Phase Details
@@ -51,7 +51,7 @@ Plans:
 **Plans:** 1 plan
 
 Plans:
-- [ ] 02-01-PLAN.md — Self-host WOFF2 variable fonts, preload hero font, replace Google Fonts CDN
+- [x] 02-01-PLAN.md — Preload hero font (kept Google Fonts CDN for exploration flexibility)
 
 ### Phase 3: Visual Effects & Section Polish
 **Goal**: Hero and page sections match bold aesthetic with optimized gradients, animations, and cohesive typography.
@@ -78,5 +78,5 @@ Phases execute in numeric order: 1 -> 2 -> 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Typography Foundation & Container Architecture | 1/1 | Complete | 2026-02-11 |
-| 2. Font Loading Optimization | 0/1 | Not started | - |
+| 2. Font Loading Optimization | 1/1 | Complete | 2026-02-11 |
 | 3. Visual Effects & Section Polish | 0/TBD | Not started | - |
