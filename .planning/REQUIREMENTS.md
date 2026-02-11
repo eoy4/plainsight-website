@@ -55,24 +55,24 @@ Requirements for initial release. Each maps to roadmap phases.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TYPO-01 | — | Pending |
-| TYPO-02 | — | Pending |
-| TYPO-03 | — | Pending |
-| TYPO-04 | — | Pending |
-| LAYO-01 | — | Pending |
-| LAYO-02 | — | Pending |
-| LAYO-03 | — | Pending |
-| LAYO-04 | — | Pending |
-| EFCT-01 | — | Pending |
-| EFCT-02 | — | Pending |
-| EFCT-03 | — | Pending |
-| PERF-01 | — | Pending |
+| TYPO-01 | Phase 1 | Pending |
+| TYPO-02 | Phase 1 | Pending |
+| TYPO-03 | Phase 1 | Pending |
+| TYPO-04 | Phase 2 | Pending |
+| LAYO-01 | Phase 1 | Pending |
+| LAYO-02 | Phase 1 | Pending |
+| LAYO-03 | Phase 1 | Pending |
+| LAYO-04 | Phase 1 | Pending |
+| EFCT-01 | Phase 3 | Pending |
+| EFCT-02 | Phase 3 | Pending |
+| EFCT-03 | Phase 3 | Pending |
+| PERF-01 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 12 total
-- Mapped to phases: 0
-- Unmapped: 12
+- Mapped to phases: 12
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-10*
-*Last updated: 2026-02-10 after initial definition*
+*Last updated: 2026-02-11 after roadmap creation*
