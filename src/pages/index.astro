@@ -309,6 +309,14 @@ const caseStudies = workEntries.map((entry) => ({
       animation: fadeInUp 0.9s var(--ease-out-expo) both;
     }
 
+    @supports not (background-clip: text) {
+      .hero-title {
+        background: none;
+        -webkit-text-fill-color: unset;
+        color: var(--color-text);
+      }
+    }
+
     .hero-tagline {
       animation: fadeInUp 0.9s var(--ease-out-expo) 0.1s both;
     }

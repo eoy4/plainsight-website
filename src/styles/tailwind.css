@@ -67,10 +67,10 @@
   --text-hero: clamp(3rem, 10vw, 8rem);
   --text-hero-tagline: clamp(1.125rem, 2vw, 2rem);
   --text-hero-cta: 1.5rem;
-  --text-section-title: clamp(1.75rem, 3vw, 2.5rem);
+  --text-section-title: clamp(2rem, 3.5vw, 3.25rem);
   --text-section-prose: clamp(1.125rem, 1.5vw + 0.5rem, 1.3125rem);
-  --text-section-kicker: clamp(1.125rem, 1.5vw + 0.5rem, 1.625rem);
-  --text-cta-title: clamp(2rem, 4vw, 3rem);
+  --text-section-kicker: clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem);
+  --text-cta-title: clamp(2.25rem, 4.5vw, 3.75rem);
   --text-page-hero: clamp(2.25rem, 6vw, 4rem);
   --text-service-title: clamp(1.5rem, 3vw, 2rem);
   --text-case-study-title: clamp(1.75rem, 3vw, 2.25rem);
@@ -195,6 +195,55 @@
   }
 }
 
+/* ── Scroll-driven section animations ── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CSS Scroll-Driven Animations (Chrome 115+, Safari 26+) */
+@supports (animation-timeline: view()) {
+  .animate-on-scroll {
+    transition: none;
+    animation: scroll-fade-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .animate-on-scroll.is-visible {
+    /* Reset JS fallback class — CSS scroll-timeline handles it */
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+
+  @keyframes scroll-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Accessibility: disable all scroll animations for motion-sensitive users */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+}
+
 
 /* ═══════════════════════════════════════════════════ */
 /* BASE STYLES (in @layer base so utilities can win)   */
@@ -242,6 +291,11 @@
 /* ═══════════════════════════════════════════════════ */
 /* SHARED COMPONENT STYLES (used across pages)         */
 /* ═══════════════════════════════════════════════════ */
+
+/* GPU isolation for hero effects */
+.hero {
+  contain: layout paint;
+}
 
 /* CTA glow background — used in homepage, services, work */
 .cta-glow {
