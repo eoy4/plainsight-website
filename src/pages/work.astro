@@ -16,70 +16,70 @@ const heroImages: Record<number, ImageMetadata> = {
 ---
 
 <Base title="Work | Plain Sight" description="Selected projects showing our strategic approach to web development.">
-  <main class="container work-page">
-    <section class="work-hero">
-      <h1 class="work-hero-title">See for yourself</h1>
-      <p class="work-hero-subtitle">Sites that look great and actually drive results for the businesses behind them</p>
-      <p class="work-hero-intro">Selected projects showing our strategic approach</p>
+  <main class="container pt-32 max-md:pt-24">
+    <section class="bg-surface border border-border rounded-2xl py-14 px-12 max-md:py-10 max-md:px-6 mb-10">
+      <h1 class="text-page-hero font-extrabold leading-snug mb-4">See for yourself</h1>
+      <p class="text-[1.125rem] text-text-muted leading-loose max-w-[600px]">Sites that look great and actually drive results for the businesses behind them</p>
     </section>
 
-    {projects.map((project) => {
+    {projects.map((project, i) => {
       const d = project.data;
       const heroImage = heroImages[d.order];
+      const isAlt = i % 2 === 0;
       return (
-        <section class="case-study-card" id={d.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}>
-          <h2 class="case-study-card-title">{d.title}</h2>
+        <section class={`${isAlt ? 'bg-surface-raised' : 'bg-surface'} border border-border rounded-2xl p-10 max-md:py-8 max-md:px-6 mb-8 overflow-hidden`} id={d.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}>
+          <h2 class="text-case-study-title font-bold leading-[1.2] mb-6">{d.title}</h2>
 
-          <div class="case-study-hero-image">
+          <div class="mb-8 rounded-xl overflow-hidden border border-border">
             {heroImage ? (
-              <Image src={heroImage} alt={d.title} width={1100} class="case-study-img" />
+              <Image src={heroImage} alt={d.title} width={1100} class="w-full h-auto block" />
             ) : (
-              <div class="case-study-img-placeholder">
-                <span>Hero image</span>
+              <div class={`aspect-hero ${isAlt ? 'bg-surface' : 'bg-surface-raised'} border-2 border-dashed border-border rounded-xl flex items-center justify-center`}>
+                <span class="text-text-dim text-[0.9rem]">Hero image</span>
               </div>
             )}
           </div>
 
-          <div class="case-study-body">
-            <div class="case-study-section">
-              <h3>Client Challenge</h3>
-              <p>{d.challenge}</p>
+          <div class="max-w-[800px]">
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-text">Client Challenge</h3>
+              <p class="text-17 text-text-muted leading-loose mb-8">{d.challenge}</p>
             </div>
 
-            <div class="case-study-section">
-              <h3>Our Strategic Approach</h3>
-              <p>{d.approach}</p>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-text">Our Strategic Approach</h3>
+              <p class="text-17 text-text-muted leading-loose mb-8">{d.approach}</p>
             </div>
 
-            <div class="case-study-gallery">
-              <div class="case-study-img-placeholder">
-                <span>Project image</span>
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-4 mb-8">
+              <div class={`aspect-hero ${isAlt ? 'bg-surface' : 'bg-surface-raised'} border-2 border-dashed border-border rounded-xl flex items-center justify-center`}>
+                <span class="text-text-dim text-[0.9rem]">Project image</span>
               </div>
-              <div class="case-study-img-placeholder">
-                <span>Project image</span>
+              <div class={`aspect-hero ${isAlt ? 'bg-surface' : 'bg-surface-raised'} border-2 border-dashed border-border rounded-xl flex items-center justify-center`}>
+                <span class="text-text-dim text-[0.9rem]">Project image</span>
               </div>
             </div>
 
-            <div class="case-study-section">
-              <h3>Solution</h3>
-              <p>{d.solution}</p>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-text">Solution</h3>
+              <p class="text-17 text-text-muted leading-loose mb-8">{d.solution}</p>
             </div>
 
-            <div class="case-study-section">
-              <h3>Results</h3>
-              <p>{d.results}</p>
+            <div>
+              <h3 class="text-xl font-bold mb-2 text-text">Results</h3>
+              <p class="text-17 text-text-muted leading-loose mb-8">{d.results}</p>
             </div>
 
-            <div class="case-study-tech">
-              <span class="tech-label">Tech Stack</span>
-              <span class="tech-value">{d.tech}</span>
+            <div class="flex items-center gap-3 pt-2 border-t border-border mt-2">
+              <span class="font-semibold text-[0.9rem]">Tech Stack</span>
+              <span class="text-text-muted text-[0.9rem]">{d.tech}</span>
             </div>
           </div>
         </section>
       );
     })}
 
-    <section class="section section-cta">
+    <section class="section-cta mt-8">
       <div class="cta-glow" aria-hidden="true"></div>
       <div class="cta-content">
         <h2 class="cta-title">Your project could be next</h2>
@@ -89,166 +89,3 @@ const heroImages: Record<number, ImageMetadata> = {
     </section>
   </main>
 </Base>
-
-<style>
-  /* Work page styles — v2 */
-  .work-page {
-    padding-top: 8rem;
-    padding-bottom: 0;
-  }
-
-  /* Hero — matches services page treatment */
-  .work-hero {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    padding: 3.5rem 3rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .work-hero-title {
-    font-size: clamp(2.25rem, 6vw, 4rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .work-hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 0.75rem;
-  }
-
-  .work-hero-intro {
-    color: var(--color-text-dim);
-    font-size: 1rem;
-  }
-
-  /* Case study cards */
-  .case-study-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    overflow: hidden;
-  }
-
-  .case-study-card:nth-child(even) {
-    background: var(--color-surface-raised);
-  }
-
-  .case-study-card-title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Hero image */
-  .case-study-hero-image {
-    margin-bottom: 2rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-  }
-
-  .case-study-img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Placeholder images */
-  .case-study-img-placeholder {
-    aspect-ratio: 16 / 10;
-    background: var(--color-surface-raised);
-    border: 2px dashed var(--color-border);
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .case-study-card:nth-child(even) .case-study-img-placeholder {
-    background: var(--color-surface);
-  }
-
-  .case-study-img-placeholder span {
-    color: var(--color-text-dim);
-    font-size: 0.9rem;
-  }
-
-  /* Body content */
-  .case-study-body {
-    max-width: 800px;
-  }
-
-  .case-study-section h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
-  }
-
-  .case-study-section p {
-    font-size: 1.0625rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  /* Gallery — two placeholder images side by side */
-  .case-study-gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  /* Tech stack */
-  .case-study-tech {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--color-border);
-    margin-top: 0.5rem;
-  }
-
-  .tech-label {
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
-
-  .tech-value {
-    color: var(--color-text-muted);
-    font-size: 0.9rem;
-  }
-
-  /* CTA — uses global .section-cta, .cta-glow, .cta-title, .btn-cta styles */
-  .section-cta {
-    margin-top: 2rem;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .work-page {
-      padding-top: 6rem;
-    }
-
-    .work-hero {
-      padding: 2.5rem 1.5rem;
-    }
-
-    .case-study-card {
-      padding: 2rem 1.5rem;
-    }
-
-    .case-study-gallery {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
