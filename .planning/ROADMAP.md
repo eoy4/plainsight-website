@@ -48,10 +48,10 @@ Plans:
   2. User on slow 3G connection sees fallback font or no text (never mid-render font swap causing visible layout shift)
   3. Variable font file loads 55% faster than previous static fonts (376KB to 89KB payload reduction)
 
-**Plans**: TBD
+**Plans:** 1 plan
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01-PLAN.md — Self-host WOFF2 variable fonts, preload hero font, replace Google Fonts CDN
 
 ### Phase 3: Visual Effects & Section Polish
 **Goal**: Hero and page sections match bold aesthetic with optimized gradients, animations, and cohesive typography.
@@ -78,5 +78,5 @@ Phases execute in numeric order: 1 -> 2 -> 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Typography Foundation & Container Architecture | 1/1 | Complete | 2026-02-11 |
-| 2. Font Loading Optimization | 0/TBD | Not started | - |
+| 2. Font Loading Optimization | 0/1 | Not started | - |
 | 3. Visual Effects & Section Polish | 0/TBD | Not started | - |
