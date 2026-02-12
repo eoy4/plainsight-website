@@ -31,6 +31,7 @@
 
   --color-hero-glow-1: rgba(244, 162, 97, 0.08);
   --color-hero-glow-2: rgba(244, 162, 97, 0.04);
+
   --hero-title-gradient-start: #2D3142;
   --hero-title-gradient-end: rgba(45, 49, 66, 0.70);
 }
@@ -68,6 +69,7 @@
 
   --color-hero-glow-1: rgba(13, 115, 119, 0.25);
   --color-hero-glow-2: rgba(13, 115, 119, 0.10);
+
   --hero-title-gradient-start: #FFFFFF;
   --hero-title-gradient-end: rgba(255, 255, 255, 0.75);
 }
@@ -80,6 +82,7 @@
   filter: invert(1);
   opacity: 0.7;
 }
+
 
 [data-theme="light"] body::after {
   opacity: 0.01;
@@ -99,6 +102,11 @@
 *::before,
 *::after {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-aurora-inner,
+.hero-aurora-inner::after {
+  transition: none;
 }
 
 /* ═══════════════════════════════════════════════════ */
