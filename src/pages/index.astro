@@ -175,7 +175,7 @@ const caseStudies = workEntries.map((entry) => ({
               <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">What you get</p>
               <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
             </div>
-            <ul class="list-none flex flex-col max-w-[720px]">
+            <ul class="list-none flex flex-col max-w-[880px]">
               {d.items?.map((item, i) => (
                 <li class="flex items-start gap-8 py-8 border-b border-border-subtle first:border-t first:border-border-subtle">
                   <span class="shrink-0 w-14 h-14 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
@@ -211,7 +211,7 @@ const caseStudies = workEntries.map((entry) => ({
                     )}
                   </span>
                   <div>
-                    <h3 class="text-26 font-bold tracking-snug mb-2 text-text">{item.title}</h3>
+                    <h3 class="text-26 font-bold tracking-snug mb-1 text-text">{item.title}</h3>
                     <p class="text-text-muted leading-loose text-[1.1875rem]">{item.description}</p>
                   </div>
                 </li>
