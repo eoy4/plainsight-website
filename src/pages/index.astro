@@ -177,8 +177,8 @@ const caseStudies = workEntries.map((entry) => ({
             </div>
             <ul class="list-none flex flex-col max-w-[720px]">
               {d.items?.map((item, i) => (
-                <li class="flex items-start gap-6 py-6 border-b border-border-subtle first:border-t first:border-border-subtle">
-                  <span class="shrink-0 w-9 h-9 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
+                <li class="flex items-start gap-6 py-7 border-b border-border-subtle first:border-t first:border-border-subtle">
+                  <span class="shrink-0 w-10 h-10 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
                     {i === 0 && (
                       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
                         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -211,8 +211,8 @@ const caseStudies = workEntries.map((entry) => ({
                     )}
                   </span>
                   <div>
-                    <h3 class="text-[1.25rem] font-bold tracking-snug mb-1 text-text">{item.title}</h3>
-                    <p class="text-text-muted leading-loose text-17">{item.description}</p>
+                    <h3 class="text-22 font-bold tracking-snug mb-1 text-text">{item.title}</h3>
+                    <p class="text-text-muted leading-loose text-[1.125rem]">{item.description}</p>
                   </div>
                 </li>
               ))}
