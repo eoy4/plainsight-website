@@ -35,7 +35,9 @@ const work = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    subtitle: z.string(),
     order: z.number(),
+    url: z.string(),
     challenge: z.string(),
     approach: z.string(),
     solution: z.string(),

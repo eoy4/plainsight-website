@@ -1,0 +1,140 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "../../layouts/Base.astro";
+import demiHero from "../../assets/case-studies/demi-hero.png";
+import demiOrdering from "../../assets/case-studies/demi-ordering.png";
+import demiPrep from "../../assets/case-studies/demi-prep.png";
+import upmealsHero from "../../assets/case-studies/upmeals-hero.png";
+import upmealsCatering from "../../assets/case-studies/upmeals-catering.png";
+import upmealsFeatured from "../../assets/case-studies/upmeals-featured-meals.png";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("work");
+  return projects.map((project) => ({
+    params: { slug: project.id.replace(/^\d+-/, '').replace(/\.md$/, '') },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const d = project.data;
+
+const heroImages: Record<number, ImageMetadata> = {
+  1: demiHero,
+  2: upmealsHero,
+};
+
+const approachImages: Record<number, ImageMetadata> = {
+  1: demiPrep,
+  2: upmealsCatering,
+};
+
+const solutionImages: Record<number, ImageMetadata> = {
+  1: demiOrdering,
+  2: upmealsFeatured,
+};
+
+const heroImage = heroImages[d.order];
+const approachImage = approachImages[d.order];
+const solutionImage = solutionImages[d.order];
+const isAlt = d.order % 2 === 0;
+---
+
+<Base title={`${d.title} | Plain Sight`} description={d.challenge}>
+  <main class="container pt-32 max-md:pt-24">
+    <a href="/work" class="back-link">← All Projects</a>
+
+    <article class="project-article">
+      <h1 class="font-heading text-page-hero font-black tracking-tighter leading-snug mb-5">{d.title}</h1>
+      <p class="text-[1.5rem] text-text-muted leading-loose max-w-[960px] mb-12">{d.subtitle}</p>
+
+      <div class="mb-20 rounded-xl overflow-hidden border border-border">
+        {heroImage ? (
+          <Image src={heroImage} alt={d.title} width={1100} class="w-full h-auto block" />
+        ) : (
+          <div class={`aspect-hero ${isAlt ? 'bg-surface' : 'bg-surface-raised'} border-2 border-dashed border-border rounded-xl flex items-center justify-center`}>
+            <span class="text-text-dim text-[0.9rem]">Hero image</span>
+          </div>
+        )}
+      </div>
+
+      <section class="grid grid-cols-[2fr_1fr] max-md:grid-cols-1 gap-12 mb-20 items-start">
+        <div>
+          <h2 class="text-case-study-title font-extrabold mb-6 text-text tracking-tight">Client Challenge</h2>
+          <p class="text-section-prose text-text-muted leading-extra-loose">{d.challenge}</p>
+        </div>
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="mb-5">
+            <span class="font-semibold text-15 text-text block mb-1">Tech Stack</span>
+            <span class="text-text-muted text-17">{d.tech}</span>
+          </div>
+          <div>
+            <span class="font-semibold text-15 text-text block mb-1">Visit Site</span>
+            <a href={d.url} target="_blank" rel="noopener noreferrer" class="text-accent text-17 hover:underline break-all inline-flex items-center gap-1.5">
+              {d.url.replace('https://', '')}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-[1fr_1.2fr] max-md:grid-cols-1 gap-12 mb-20 items-start">
+        <div class="rounded-xl overflow-hidden max-md:order-2">
+          {approachImage && <Image src={approachImage} alt={`${d.title} strategic approach`} class="w-full h-auto" />}
+        </div>
+        <div class="max-md:order-1">
+          <h2 class="text-case-study-title font-extrabold mb-6 text-text tracking-tight">Our strategic approach</h2>
+          <p class="text-section-prose text-text-muted leading-extra-loose">{d.approach}</p>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-[1.2fr_1fr] max-md:grid-cols-1 gap-12 mb-20 items-start">
+        <div>
+          <h2 class="text-case-study-title font-extrabold mb-6 text-text tracking-tight">Solution</h2>
+          <p class="text-section-prose text-text-muted leading-extra-loose">{d.solution}</p>
+        </div>
+        <div class="rounded-xl overflow-hidden">
+          {solutionImage && <Image src={solutionImage} alt={`${d.title} solution`} class="w-full h-auto" />}
+        </div>
+      </section>
+
+      <section class="mb-20">
+        <h2 class="text-case-study-title font-extrabold mb-6 text-text tracking-tight">Results</h2>
+        <p class="text-section-prose text-text-muted leading-extra-loose max-w-[800px]">{d.results}</p>
+      </section>
+    </article>
+
+    <section class="section-cta mt-24">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-content">
+        <h2 class="cta-title">Your project could be next</h2>
+        <p class="cta-prose">We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
+        <a href="/contact" class="btn-cta">Reach out</a>
+      </div>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .back-link {
+    display: inline-block;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s ease;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+  }
+
+  .project-article {
+    margin-bottom: 4rem;
+  }
+</style>
