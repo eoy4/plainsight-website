@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A visual redesign of the Plain Sight agency homepage, focused on making the hero section dramatically bolder with dominating, viewport-filling typography inspired by the Frisk agency template. The rest of the page gets polished to match the elevated boldness of the new hero.
+A visual redesign of the Plain Sight agency homepage featuring viewport-dominating hero typography at 8rem (128px) scale, scroll-driven animations, and proportionally scaled section typography — all built on Astro 5 + Tailwind v4 with full accessibility compliance.
 
 ## Core Value
 
@@ -12,55 +12,60 @@ The hero headline must feel massive, confident, and impossible to ignore — dom
 
 ### Validated
 
-- The existing Astro 5 static site architecture (pages, layouts, content collections)
-- Dark theme default with CSS custom properties
-- Tailwind v4 utility-based styling
-- Content-driven homepage via `src/content/homepage/` markdown files
-- Hero section with heading, subheading/tagline, and CTA button
-- Sections: hero, problem, differentiators, process, basics, work, CTA
-- Responsive design with mobile overrides
-- Gradient title treatment and glow effects in hero
-- Interactive process section with hover navigation
+- ✓ Giant, viewport-dominating hero typography at 8rem scale with fluid clamp() — v1.0
+- ✓ Hero headline fills width, feels commanding and confident — v1.0
+- ✓ Tagline and CTA clearly secondary to massive headline — v1.0
+- ✓ All front page sections polished to match bolder hero aesthetic — v1.0
+- ✓ Current content maintained (headline text from CMS) — v1.0
+- ✓ Dark theme and color system preserved — v1.0
+- ✓ WCAG-compliant zoom via rem bounds in clamp() — v1.0
+- ✓ Mobile stability with svh viewport units — v1.0
+- ✓ Gradient text treatment preserved with @supports fallback — v1.0
+- ✓ Scroll-driven animations on below-fold sections — v1.0
+- ✓ Hero font preloaded to prevent CLS — v1.0
+- ✓ Variable font (Darker Grotesque 300-900) — v1.0
 
 ### Active
 
-- [ ] Giant, viewport-dominating hero typography (dramatically larger than current `clamp(2.75rem, 5vw + 1rem, 4.5rem)`)
-- [ ] Hero headline fills the width, feels commanding and confident
-- [ ] Tagline and CTA remain but are clearly secondary to the massive headline
-- [ ] Other front page sections polished to match the bolder hero aesthetic
-- [ ] Maintain current content (headline text from CMS stays the same)
-- [ ] Keep existing dark theme and color system
+(None — v1.0 complete. Define new requirements with `/gsd:new-milestone`)
 
 ### Out of Scope
 
-- New page sections or content restructuring — layout stays the same
-- Other pages (services, work, contact, blog) — front page only
-- New animations or scroll-triggered effects beyond what exists
+- Other pages redesign — front page only; services, work, contact, blog unchanged
+- New sections or content restructuring — layout stays the same
 - Content changes — same headline, tagline, CTA text
-- Mobile-first redesign — adjust mobile to work, but desktop impact is the priority
+- Self-hosting fonts — kept Google Fonts CDN for exploration flexibility
+- Component extraction (Hero.astro) — architecture improvement deferred
 
 ## Context
 
-- Current hero font size maxes out at `4.5rem` — needs to go significantly bigger (think 8-12vw range)
-- Heading font is "Darker Grotesque" (a display font designed for large sizes — perfect for this)
-- The Frisk template uses oversized headlines that fill the viewport width as the signature bold element
-- Current hero is constrained to `max-w-[900px]` — may need to widen or remove that constraint
-- Tailwind v4 theme tokens in `src/styles/tailwind.css` define all responsive font sizes via `--text-*` custom properties
+Shipped v1.0 with 3 phases (4 plans) over 7 days. 16 files modified (+2,279 / -73 lines).
+Tech stack: Astro 5, Tailwind v4, CSS scroll-timeline + Intersection Observer fallback.
+Hero scales from 3rem (mobile) to 8rem (desktop) via `clamp(3rem, 10vw, 8rem)`.
+Font: Darker Grotesque variable (Google Fonts CDN with preload hint).
 
 ## Constraints
 
 - **Tech stack**: Astro 5 + Tailwind v4 — no new dependencies
-- **Content system**: Hero text comes from `src/content/homepage/01-hero.md` frontmatter — don't hardcode
-- **Compatibility**: Must work across modern browsers, graceful on mobile
-- **Performance**: No heavy assets — typography-only impact
+- **Content system**: Hero text comes from `src/content/homepage/01-hero.md` frontmatter
+- **Compatibility**: Modern browsers, graceful on mobile
+- **Performance**: Typography-only impact, no heavy assets
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Keep tagline + CTA in hero | User wants bold headline but full hero content preserved | -- Pending |
-| Hero-focused with page polish | Not a full redesign, but sections should feel cohesive with bolder hero | -- Pending |
-| Dominating scale approach | User chose sheer size over split-line or mixed-weight treatments | -- Pending |
+| Keep tagline + CTA in hero | User wants bold headline but full hero content preserved | ✓ Good |
+| Hero-focused with page polish | Not a full redesign, but sections feel cohesive with bolder hero | ✓ Good |
+| Dominating scale approach | User chose sheer size over split-line or mixed-weight treatments | ✓ Good |
+| Max headline 8rem (not 9rem) | Prevents orphaned words at large scale | ✓ Good |
+| Line-height 0.85 | Tighter headline feel at large scale per user preference | ✓ Good |
+| Vertically centered (not bottom-aligned) | User preferred centered over editorial bottom alignment | ✓ Good |
+| Preload only hero font | Body font (Manrope) not CLS-critical; hero font is LCP-critical | ✓ Good |
+| Keep Google Fonts CDN | Easy font swapping during exploration phase; self-host later | ⚠️ Revisit |
+| CSS scroll-timeline + IO fallback | Native performance on Chrome/Safari, graceful fallback for Firefox | ✓ Good |
+| Section titles font-extrabold (800) | Bolder presence to match scaled hero per user preference | ✓ Good |
+| Expanded content scaling scope | User feedback required scaling all content text, not just headings | ✓ Good |
 
 ---
-*Last updated: 2026-02-10 after initialization*
+*Last updated: 2026-02-12 after v1.0 milestone*
