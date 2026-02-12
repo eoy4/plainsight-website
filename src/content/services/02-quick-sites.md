@@ -16,6 +16,13 @@ You tell us about your business and send us your content. We build something gre
 
 ## Two ways to pay
 
-**Pay upfront:** One payment, the site is yours. If you want us to handle updates and keep things running after launch, we can do that too for a simple monthly fee.
-
-**Pay monthly:** Skip the upfront cost entirely and pay a flat monthly rate that covers your site, hosting, and ongoing support. Same site, same quality, easier on your cash flow.
+<div class="payment-options">
+  <div class="payment-card">
+    <h3>Pay upfront</h3>
+    <p>One payment, the site is yours. If you want us to handle updates and keep things running after launch, we can do that too for a simple monthly fee.</p>
+  </div>
+  <div class="payment-card">
+    <h3>Pay monthly</h3>
+    <p>Skip the upfront cost entirely and pay a flat monthly rate that covers your site, hosting, and ongoing support. Same site, same quality, easier on your cash flow.</p>
+  </div>
+</div>
