@@ -177,42 +177,42 @@ const caseStudies = workEntries.map((entry) => ({
             </div>
             <ul class="list-none flex flex-col max-w-[720px]">
               {d.items?.map((item, i) => (
-                <li class="flex items-start gap-6 py-7 border-b border-border-subtle first:border-t first:border-border-subtle">
-                  <span class="shrink-0 w-10 h-10 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
+                <li class="flex items-start gap-8 py-8 border-b border-border-subtle first:border-t first:border-border-subtle">
+                  <span class="shrink-0 w-14 h-14 flex items-center justify-center text-accent-hover mt-0.5" aria-hidden="true">
                     {i === 0 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
                         <rect x="2" y="3" width="20" height="14" rx="2" />
                         <line x1="8" y1="21" x2="16" y2="21" />
                         <line x1="12" y1="17" x2="12" y2="21" />
                       </svg>
                     )}
                     {i === 1 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
                         <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
                       </svg>
                     )}
                     {i === 2 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
                         <circle cx="11" cy="11" r="8" />
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                       </svg>
                     )}
                     {i === 3 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
                         <polyline points="16,18 22,12 16,6" />
                         <polyline points="8,6 2,12 8,18" />
                       </svg>
                     )}
                     {i === 4 && (
-                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-[1.375rem] h-[1.375rem]">
+                      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
                         <path d="M20,21v-2a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" />
                         <circle cx="12" cy="7" r="4" />
                       </svg>
                     )}
                   </span>
                   <div>
-                    <h3 class="text-22 font-bold tracking-snug mb-1 text-text">{item.title}</h3>
-                    <p class="text-text-muted leading-loose text-[1.125rem]">{item.description}</p>
+                    <h3 class="text-26 font-bold tracking-snug mb-2 text-text">{item.title}</h3>
+                    <p class="text-text-muted leading-loose text-[1.1875rem]">{item.description}</p>
                   </div>
                 </li>
               ))}
