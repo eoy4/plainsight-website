@@ -65,7 +65,7 @@ const caseStudies = workEntries.map((entry) => ({
       if (d.section === "problem") return (
         <section class="section-problem animate-on-scroll relative py-section bg-surface-raised">
           <div class="container relative z-1">
-            <h2 class="font-heading text-section-title font-bold tracking-tight text-text">{d.heading}</h2>
+            <h2 class="font-heading text-section-title font-extrabold tracking-tight text-text">{d.heading}</h2>
             <div class="section-problem-prose max-w-[680px] text-section-prose text-text-muted leading-extra-loose mb-12">
               <p class="mb-6">Most small businesses know they need a website, but the process feels <span class="highlight">overwhelming</span>. Too many options, too many cookie-cutter solutions that slap a template on every business like they're all the same.</p>
               <p class="mb-6">What's missing is <span class="highlight">strategy</span>: understanding what your site needs to achieve. More customers? More bookings? Better leads?</p>
@@ -80,7 +80,7 @@ const caseStudies = workEntries.map((entry) => ({
           <div class="container">
             <div class="mb-12">
               <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Why Plain Sight</p>
-              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
+              <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
             </div>
             <div class="grid grid-cols-2 max-md:grid-cols-1 gap-5">
               {d.items?.map((item, i) => (
@@ -119,8 +119,8 @@ const caseStudies = workEntries.map((entry) => ({
                     )}
                   </div>
                   <div class="font-mono text-[0.875rem] text-text-dim mb-4 tracking-wider" aria-hidden="true">{String(i + 1).padStart(2, '0')} {['STRATEGY', 'EXPERIENCE', 'EXECUTION', 'TRANSPARENCY'][i]}</div>
-                  <h3 class="text-22 font-bold mb-3 tracking-snug">{item.title}</h3>
-                  <p class="text-text-muted leading-loose">{item.description}</p>
+                  <h3 class="text-26 font-bold mb-3 tracking-snug">{item.title}</h3>
+                  <p class="text-text-muted leading-loose text-17">{item.description}</p>
                 </div>
               ))}
             </div>
@@ -133,7 +133,7 @@ const caseStudies = workEntries.map((entry) => ({
           <div class="container">
             <div class="mb-12">
               <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Our process</p>
-              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
+              <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
             </div>
             <div class="process-panel" data-active="0">
               <div class="process-nav">
@@ -173,7 +173,7 @@ const caseStudies = workEntries.map((entry) => ({
           <div class="container">
             <div class="mb-12">
               <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">What you get</p>
-              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
+              <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
             </div>
             <ul class="list-none flex flex-col max-w-[720px]">
               {d.items?.map((item, i) => (
@@ -211,8 +211,8 @@ const caseStudies = workEntries.map((entry) => ({
                     )}
                   </span>
                   <div>
-                    <h3 class="text-[1.125rem] font-bold tracking-snug mb-1 text-text">{item.title}</h3>
-                    <p class="text-text-muted leading-loose text-base">{item.description}</p>
+                    <h3 class="text-[1.25rem] font-bold tracking-snug mb-1 text-text">{item.title}</h3>
+                    <p class="text-text-muted leading-loose text-17">{item.description}</p>
                   </div>
                 </li>
               ))}
@@ -226,7 +226,7 @@ const caseStudies = workEntries.map((entry) => ({
           <div class="container">
             <div class="mb-12">
               <p class="text-13 font-semibold tracking-widest uppercase text-accent-hover mb-4">Our work</p>
-              <h2 class="font-heading text-section-title font-bold tracking-tight">{d.heading}</h2>
+              <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
               {d.intro && <p class="text-text-muted mt-4 leading-loose">{d.intro}</p>}
             </div>
             <div class="grid grid-cols-2 max-md:grid-cols-1 gap-8">
@@ -236,8 +236,8 @@ const caseStudies = workEntries.map((entry) => ({
                     {study.image && <Image src={study.image} alt={`${study.title} screenshot`} width={800} class="w-full h-full object-cover" />}
                   </div>
                   <div class="p-8 max-md:p-6 border-t border-border">
-                    <h3 class="text-22 font-bold tracking-snug mb-3 text-text">{study.title}</h3>
-                    <p class="text-text-muted leading-loose mb-5">{study.description}</p>
+                    <h3 class="text-26 font-bold tracking-snug mb-3 text-text">{study.title}</h3>
+                    <p class="text-text-muted leading-loose mb-5 text-17">{study.description}</p>
                     <span class="btn text-[0.85rem] py-2.5 px-6 mt-5">View case study</span>
                   </div>
                 </a>
@@ -252,8 +252,8 @@ const caseStudies = workEntries.map((entry) => ({
           <div class="cta-glow" aria-hidden="true"></div>
           <div class="container">
             <div class="relative z-1 max-w-[800px] mx-auto">
-              <h2 class="font-heading text-cta-title font-bold tracking-tighter leading-snug mb-6 text-text">{d.heading}</h2>
-              <div class="cta-prose text-21 text-text-muted leading-loose mb-10">
+              <h2 class="font-heading text-cta-title font-extrabold tracking-tighter leading-snug mb-6 text-text">{d.heading}</h2>
+              <div class="cta-prose text-22 text-text-muted leading-loose mb-10">
                 <Content />
               </div>
               {d.cta_text && (
@@ -454,7 +454,7 @@ const caseStudies = workEntries.map((entry) => ({
     }
 
     .process-nav-title {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--color-text-muted);
       transition: color 400ms var(--ease-out-expo);
@@ -534,7 +534,7 @@ const caseStudies = workEntries.map((entry) => ({
     }
 
     .process-detail-title {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
       margin-bottom: 1rem;
       letter-spacing: -0.01em;
@@ -542,6 +542,7 @@ const caseStudies = workEntries.map((entry) => ({
     }
 
     .process-detail-desc {
+      font-size: 1.125rem;
       color: var(--color-text-muted);
       line-height: 1.8;
       max-width: 520px;
@@ -571,7 +572,7 @@ const caseStudies = workEntries.map((entry) => ({
       color: var(--color-btn-text);
       border-radius: 0.625rem;
       font-weight: 600;
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
       letter-spacing: -0.01em;
       transition: all 0.3s var(--ease-out-expo);
       box-shadow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
