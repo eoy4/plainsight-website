@@ -2,11 +2,21 @@
 
 ## What This Is
 
-A visual redesign of the Plain Sight agency homepage featuring viewport-dominating hero typography at 8rem (128px) scale, scroll-driven animations, and proportionally scaled section typography — all built on Astro 5 + Tailwind v4 with full accessibility compliance.
+A visual redesign of the Plain Sight agency homepage featuring viewport-dominating hero typography at 8rem (128px) scale, scroll-driven animations, proportionally scaled section typography, and an animated aurora background effect — all built on Astro 5 + Tailwind v4 with full accessibility compliance.
 
 ## Core Value
 
-The hero headline must feel massive, confident, and impossible to ignore — dominating the viewport with sheer typographic scale.
+The hero headline must feel massive, confident, and impossible to ignore — dominating the viewport with sheer typographic scale and a living, animated background.
+
+## Current Milestone: v1.1 Aurora Hero Background
+
+**Goal:** Add an animated aurora gradient background to the hero section, adapted from a React/shadcn component to pure CSS/Astro.
+
+**Target features:**
+- Animated aurora gradient background in the hero section (pure CSS, no React)
+- Theme-matched colors: warm oranges/ambers for light mode, teals/limes for dark mode
+- Replaces existing hero-bg-glow; keeps grid pattern overlay
+- Respects prefers-reduced-motion and existing accessibility patterns
 
 ## Requirements
 
@@ -27,7 +37,10 @@ The hero headline must feel massive, confident, and impossible to ignore — dom
 
 ### Active
 
-(None — v1.0 complete. Define new requirements with `/gsd:new-milestone`)
+- [ ] Animated aurora gradient background in hero section (pure CSS keyframe animation)
+- [ ] Theme-aware aurora colors (light: warm oranges/ambers, dark: teals/limes)
+- [ ] Aurora replaces hero-bg-glow; grid pattern preserved on top
+- [ ] prefers-reduced-motion compliance for aurora animation
 
 ### Out of Scope
 
@@ -66,6 +79,9 @@ Font: Darker Grotesque variable (Google Fonts CDN with preload hint).
 | CSS scroll-timeline + IO fallback | Native performance on Chrome/Safari, graceful fallback for Firefox | ✓ Good |
 | Section titles font-extrabold (800) | Bolder presence to match scaled hero per user preference | ✓ Good |
 | Expanded content scaling scope | User feedback required scaling all content text, not just headings | ✓ Good |
+| Pure CSS aurora (no React) | Aurora component has zero interactivity; saves ~40KB React runtime | — Pending |
+| Replace glow, keep grid | Aurora replaces radial glow; grid pattern adds texture on top | — Pending |
+| Theme-matched aurora colors | Aurora adapts to warm (light) / teal-lime (dark) palettes | — Pending |
 
 ---
-*Last updated: 2026-02-12 after v1.0 milestone*
+*Last updated: 2026-02-11 after v1.1 milestone start*
