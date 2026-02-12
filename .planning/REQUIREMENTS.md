@@ -50,25 +50,25 @@ None — v1.1 is tightly scoped.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AURA-01 | — | Pending |
-| AURA-02 | — | Pending |
-| AURA-03 | — | Pending |
-| THEME-01 | — | Pending |
-| THEME-02 | — | Pending |
-| THEME-03 | — | Pending |
-| HERO-01 | — | Pending |
-| HERO-02 | — | Pending |
-| HERO-03 | — | Pending |
-| HERO-04 | — | Pending |
-| A11Y-01 | — | Pending |
-| PERF-01 | — | Pending |
-| PERF-02 | — | Pending |
+| AURA-01 | Phase 4 | Pending |
+| AURA-02 | Phase 4 | Pending |
+| AURA-03 | Phase 4 | Pending |
+| THEME-01 | Phase 4 | Pending |
+| THEME-02 | Phase 4 | Pending |
+| THEME-03 | Phase 4 | Pending |
+| HERO-01 | Phase 4 | Pending |
+| HERO-02 | Phase 4 | Pending |
+| HERO-03 | Phase 4 | Pending |
+| HERO-04 | Phase 4 | Pending |
+| A11Y-01 | Phase 4 | Pending |
+| PERF-01 | Phase 4 | Pending |
+| PERF-02 | Phase 4 | Pending |
 
 **Coverage:**
 - v1.1 requirements: 13 total
-- Mapped to phases: 0
-- Unmapped: 13 ⚠️
+- Mapped to phases: 13
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-02-11*
-*Last updated: 2026-02-11 after initial definition*
+*Last updated: 2026-02-11 after v1.1 roadmap creation*
