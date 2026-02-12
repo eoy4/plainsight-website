@@ -46,8 +46,7 @@ const caseStudies = workEntries.map((entry) => ({
 
       if (d.section === "hero") return (
         <section class="hero relative min-h-[100svh] flex items-center overflow-hidden">
-          <div class="hero-bg-glow" aria-hidden="true"></div>
-          <div class="hero-grid-pattern" aria-hidden="true"></div>
+          <div class="hero-aurora" aria-hidden="true"><div class="hero-aurora-inner"></div></div>
           <div class="container">
             <div class="hero-content relative z-1">
               <h1 class="hero-title font-heading text-hero font-black leading-[0.85] tracking-tighter mb-[var(--spacing-hero-gap)] pb-[0.15em]" style="overflow-wrap: break-word; word-break: normal; hyphens: none;">{d.heading}</h1>
@@ -278,30 +277,71 @@ const caseStudies = workEntries.map((entry) => ({
       background: linear-gradient(90deg, transparent 0%, var(--color-border) 20%, var(--color-accent-subtle) 50%, var(--color-border) 80%, transparent 100%);
     }
 
-    .hero-bg-glow {
-      position: absolute;
-      top: 0;
-      left: -10%;
-      width: 80%;
-      height: 100%;
-      background: radial-gradient(ellipse 70% 60% at 30% 45%, var(--color-hero-glow-1) 0%, var(--color-hero-glow-2) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-      animation: subtleFloat 12s ease-in-out infinite;
-    }
-
-    .hero-grid-pattern {
+    .hero-aurora {
       position: absolute;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Cline x1='0' y1='0' x2='72' y2='0' stroke='rgba(255,255,255,0.22)' stroke-width='1' stroke-dasharray='8 8'/%3E%3Cline x1='0' y1='0' x2='0' y2='72' stroke='rgba(255,255,255,0.22)' stroke-width='1' stroke-dasharray='8 8'/%3E%3C/svg%3E");
-      background-size: 72px 72px;
+      overflow: hidden;
       pointer-events: none;
       z-index: 0;
-      mask-image: radial-gradient(ellipse 70% 50% at 40% 45%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 50% at 40% 45%, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 80%, transparent 100%);
     }
 
-    .hero-title {
+    .hero-aurora-inner {
+      --white: #ffffff;
+      --black: #000000;
+      --transparent: transparent;
+      --aurora-1: #3b82f6;
+      --aurora-2: #a5b4fc;
+      --aurora-3: #93c5fd;
+      --aurora-4: #ddd6fe;
+      --aurora-5: #60a5fa;
+
+      --base-gradient: repeating-linear-gradient(100deg, var(--white) 0%, var(--white) 7%, var(--transparent) 10%, var(--transparent) 12%, var(--white) 16%);
+      --aurora: repeating-linear-gradient(100deg, var(--aurora-1) 10%, var(--aurora-2) 15%, var(--aurora-3) 20%, var(--aurora-4) 25%, var(--aurora-5) 30%);
+
+      position: absolute;
+      inset: -10px;
+      background-image: var(--base-gradient), var(--aurora);
+      background-size: 300%, 200%;
+      background-position: 50% 50%, 50% 50%;
+      filter: blur(10px) invert(1) hue-rotate(170deg);
+      opacity: 0.5;
+      will-change: transform;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse at 100% 0%, black 10%, var(--transparent) 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, var(--transparent) 70%);
+    }
+
+    :global([data-theme="dark"]) .hero-aurora-inner {
+      --aurora-1: #3b82f6;
+      --aurora-2: #a5b4fc;
+      --aurora-3: #93c5fd;
+      --aurora-4: #ddd6fe;
+      --aurora-5: #60a5fa;
+      --base-gradient: repeating-linear-gradient(100deg, var(--black) 0%, var(--black) 7%, var(--transparent) 10%, var(--transparent) 12%, var(--black) 16%);
+      filter: blur(10px);
+    }
+
+    .hero-aurora-inner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--base-gradient), var(--aurora);
+      background-size: 200%, 100%;
+      background-attachment: fixed;
+      mix-blend-mode: difference;
+      animation: auroraFlow 60s linear infinite;
+    }
+
+    @keyframes auroraFlow {
+      from {
+        background-position: 50% 50%, 50% 50%;
+      }
+      to {
+        background-position: 350% 50%, 350% 50%;
+      }
+    }
+
+.hero-title {
       background: linear-gradient(to bottom right, var(--hero-title-gradient-start) 30%, var(--hero-title-gradient-end) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -592,6 +632,12 @@ const caseStudies = workEntries.map((entry) => ({
       transition-duration: 0.1s;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .hero-aurora-inner::after {
+        animation: none;
+      }
+    }
+
     /* ── Mobile overrides ── */
     @media (max-width: 768px) {
       .hero {
@@ -620,13 +666,8 @@ const caseStudies = workEntries.map((entry) => ({
         padding-left: 1rem;
       }
 
-      .hero-grid-pattern {
-        display: none;
-      }
-
-      .hero-bg-glow {
+.hero-aurora-inner::after {
         animation: none;
-        opacity: 0.7;
       }
 
       .process-panel {
