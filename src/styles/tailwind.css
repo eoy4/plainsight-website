@@ -193,53 +193,10 @@
   }
 }
 
-/* ── Scroll-driven section animations ── */
+/* Scroll animations disabled - sections appear immediately */
 .animate-on-scroll {
-  opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.animate-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0);
-}
-
-/* CSS Scroll-Driven Animations (Chrome 115+, Safari 26+) */
-@supports (animation-timeline: view()) {
-  .animate-on-scroll {
-    transition: none;
-    animation: scroll-fade-in linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
-
-  .animate-on-scroll.is-visible {
-    /* Reset JS fallback class — CSS scroll-timeline handles it */
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-
-  @keyframes scroll-fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(2rem);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-/* Accessibility: disable all scroll animations for motion-sensitive users */
-@media (prefers-reduced-motion: reduce) {
-  .animate-on-scroll {
-    opacity: 1;
-    transform: none;
-    transition: none;
-    animation: none;
-  }
+  transform: none;
 }
 
 
