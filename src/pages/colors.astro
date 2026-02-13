@@ -1,0 +1,542 @@
+---
+import Base from "../layouts/Base.astro";
+
+// Proposed color palette with contextual variants
+const colorPalette = {
+  // Primary - Teal (for actions, links, emphasis)
+  primary: {
+    light: { name: "Teal 400 (for light bg)", value: "#14A8B0", var: "--color-primary-light" },
+    default: { name: "Teal 600 (for dark bg)", value: "#0D7377", var: "--color-primary" },
+    hover: { name: "Teal 500 (hover)", value: "#078C94", var: "--color-primary-hover" },
+    subtle: { name: "Teal subtle", value: "#E0F4F5", var: "--color-primary-subtle" },
+  },
+
+  // Secondary - Lime (for pop/emphasis)
+  secondary: {
+    light: { name: "Lime 500 (for light bg)", value: "#B8F545", var: "--color-secondary-light" },
+    default: { name: "Lime 600 (for dark bg)", value: "#8BC934", var: "--color-secondary" },
+    hover: { name: "Lime hover", value: "#A8E535", var: "--color-secondary-hover" },
+    subtle: { name: "Lime subtle", value: "#F0F9E0", var: "--color-secondary-subtle" },
+  },
+
+  // Tertiary - Orange (occasional warmth)
+  tertiary: {
+    default: { name: "Orange (tertiary)", value: "#D97642", var: "--color-tertiary" },
+    hover: { name: "Orange hover", value: "#E07A5F", var: "--color-tertiary-hover" },
+    subtle: { name: "Orange subtle", value: "#FADEC9", var: "--color-tertiary-subtle" },
+  },
+
+  // Neutrals
+  neutrals: {
+    light: [
+      { name: "Background", value: "#FFFFFF", var: "--color-bg" },
+      { name: "Surface", value: "#FAFAFA", var: "--color-surface" },
+      { name: "Border", value: "#E8E0D8", var: "--color-border" },
+      { name: "Text", value: "#2D3142", var: "--color-text" },
+      { name: "Text muted", value: "rgba(45, 49, 66, 0.65)", var: "--color-text-muted" },
+    ],
+    dark: [
+      { name: "Background Dark", value: "#0A1A1D", var: "--color-bg-dark" },
+      { name: "Surface Dark", value: "#0F2428", var: "--color-surface-dark" },
+      { name: "Border Dark", value: "#1A4A52", var: "--color-border-dark" },
+      { name: "Text Light", value: "#FAFAFA", var: "--color-text-light" },
+      { name: "Text Light muted", value: "rgba(255, 255, 255, 0.70)", var: "--color-text-light-muted" },
+    ],
+  },
+};
+---
+
+<Base title="Color Palette Preview - Plain Sight" description="Preview new unified color system">
+  <main style="padding-top: 5rem;">
+
+    <!-- Header -->
+    <div class="container" style="padding-bottom: 3rem;">
+      <h1 style="font-family: var(--font-heading); font-size: var(--text-48); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: var(--tracking-tight);">
+        Color System Preview
+      </h1>
+      <p style="color: var(--color-text-muted); font-size: var(--text-17); margin-bottom: 0;">
+        New unified palette with contextual variants for light and dark sections
+      </p>
+    </div>
+
+    <!-- LIGHT SECTION -->
+    <section class="preview-section light-section">
+      <div class="container">
+        <h2 class="section-title">Light Background Section</h2>
+        <p class="section-description">Colors optimized for white/light backgrounds</p>
+
+        <!-- UI Examples -->
+        <div class="ui-examples">
+          <div class="example-group">
+            <h3 class="example-title">Headings & Text</h3>
+            <h1 class="demo-heading" style="color: #2D3142;">Main Heading</h1>
+            <p class="demo-text" style="color: #2D3142;">
+              This is body text on a light background. It should be highly readable with good contrast.
+              <a href="#" class="demo-link" style="color: #14A8B0;">This is a link using teal</a>.
+            </p>
+            <p class="demo-text-muted" style="color: rgba(45, 49, 66, 0.65);">
+              This is muted text for secondary information.
+            </p>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title">Buttons - Primary (Teal)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #14A8B0; color: #FFFFFF;">
+                Primary Button
+              </button>
+              <button class="demo-button" style="background: #1BC4CD; color: #FFFFFF;">
+                Hover State
+              </button>
+              <button class="demo-button-outline" style="border: 2px solid #14A8B0; color: #14A8B0;">
+                Outline Button
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title">Buttons - Secondary (Lime)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #B8F545; color: #0A1A1D;">
+                Secondary Button
+              </button>
+              <button class="demo-button" style="background: #C5F76B; color: #0A1A1D;">
+                Hover State
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title">Buttons - Tertiary (Orange)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #D97642; color: #FFFFFF;">
+                Tertiary Button
+              </button>
+              <button class="demo-button" style="background: #E07A5F; color: #FFFFFF;">
+                Hover State
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title">Badges & Highlights</h3>
+            <div class="badge-row">
+              <span class="demo-badge" style="background: #E0F4F5; color: #14A8B0;">Teal Badge</span>
+              <span class="demo-badge" style="background: rgba(184, 245, 69, 0.15); color: #5A8020;">Lime Badge</span>
+              <span class="demo-badge" style="background: #FADEC9; color: #D97642;">Orange Badge</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Swatches -->
+        <div class="color-section">
+          <h3 class="color-section-title">Primary (Teal) - For Light Backgrounds</h3>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background: #14A8B0;"></div>
+              <div class="color-name">{colorPalette.primary.light.name}</div>
+              <div class="color-value">{colorPalette.primary.light.value}</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #1BC4CD;"></div>
+              <div class="color-name">Teal Hover (lighter)</div>
+              <div class="color-value">#1BC4CD</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #E0F4F5; border: 1px solid #E8E0D8;"></div>
+              <div class="color-name">{colorPalette.primary.subtle.name}</div>
+              <div class="color-value">{colorPalette.primary.subtle.value}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-section">
+          <h3 class="color-section-title">Secondary (Lime) - For Light Backgrounds</h3>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background: #B8F545;"></div>
+              <div class="color-name">{colorPalette.secondary.light.name}</div>
+              <div class="color-value">{colorPalette.secondary.light.value}</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #C5F76B;"></div>
+              <div class="color-name">Lime Hover (lighter)</div>
+              <div class="color-value">#C5F76B</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #F0F9E0; border: 1px solid #E8E0D8;"></div>
+              <div class="color-name">{colorPalette.secondary.subtle.name}</div>
+              <div class="color-value">{colorPalette.secondary.subtle.value}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DARK SECTION -->
+    <section class="preview-section dark-section">
+      <div class="container">
+        <h2 class="section-title" style="color: #FAFAFA;">Dark Background Section</h2>
+        <p class="section-description" style="color: rgba(255, 255, 255, 0.70);">Colors optimized for dark backgrounds</p>
+
+        <!-- UI Examples -->
+        <div class="ui-examples">
+          <div class="example-group">
+            <h3 class="example-title" style="color: rgba(255, 255, 255, 0.80);">Headings & Text</h3>
+            <h1 class="demo-heading" style="color: #FAFAFA;">Main Heading</h1>
+            <p class="demo-text" style="color: #FAFAFA;">
+              This is body text on a dark background. It should be highly readable with good contrast.
+              <a href="#" class="demo-link" style="color: #0D7377;">This is a link using darker teal</a>.
+            </p>
+            <p class="demo-text-muted" style="color: rgba(255, 255, 255, 0.70);">
+              This is muted text for secondary information.
+            </p>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title" style="color: rgba(255, 255, 255, 0.80);">Buttons - Primary (Teal)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #0D7377; color: #FFFFFF;">
+                Primary Button
+              </button>
+              <button class="demo-button" style="background: #078C94; color: #FFFFFF;">
+                Hover State
+              </button>
+              <button class="demo-button-outline" style="border: 2px solid #0D7377; color: #0D7377;">
+                Outline Button
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title" style="color: rgba(255, 255, 255, 0.80);">Buttons - Secondary (Lime)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #8BC934; color: #FFFFFF;">
+                Secondary Button
+              </button>
+              <button class="demo-button" style="background: #A8E535; color: #FFFFFF;">
+                Hover State
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title" style="color: rgba(255, 255, 255, 0.80);">Buttons - Tertiary (Orange)</h3>
+            <div class="button-row">
+              <button class="demo-button" style="background: #E07A5F; color: #FFFFFF;">
+                Tertiary Button
+              </button>
+              <button class="demo-button" style="background: #E89580; color: #FFFFFF;">
+                Hover State
+              </button>
+            </div>
+          </div>
+
+          <div class="example-group">
+            <h3 class="example-title" style="color: rgba(255, 255, 255, 0.80);">Badges & Highlights</h3>
+            <div class="badge-row">
+              <span class="demo-badge" style="background: rgba(13, 115, 119, 0.20); color: #0D7377; border: 1px solid #0D7377;">Teal Badge</span>
+              <span class="demo-badge" style="background: rgba(139, 201, 52, 0.20); color: #8BC934; border: 1px solid #8BC934;">Lime Badge</span>
+              <span class="demo-badge" style="background: rgba(224, 122, 95, 0.20); color: #E07A5F; border: 1px solid #E07A5F;">Orange Badge</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Swatches -->
+        <div class="color-section">
+          <h3 class="color-section-title" style="color: #FAFAFA;">Primary (Teal) - For Dark Backgrounds</h3>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background: #0D7377;"></div>
+              <div class="color-name" style="color: #FAFAFA;">{colorPalette.primary.default.name}</div>
+              <div class="color-value" style="color: rgba(255, 255, 255, 0.70);">{colorPalette.primary.default.value}</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #078C94;"></div>
+              <div class="color-name" style="color: #FAFAFA;">{colorPalette.primary.hover.name}</div>
+              <div class="color-value" style="color: rgba(255, 255, 255, 0.70);">{colorPalette.primary.hover.value}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="color-section">
+          <h3 class="color-section-title" style="color: #FAFAFA;">Secondary (Lime) - For Dark Backgrounds</h3>
+          <div class="color-grid">
+            <div class="color-card">
+              <div class="color-swatch" style="background: #8BC934;"></div>
+              <div class="color-name" style="color: #FAFAFA;">{colorPalette.secondary.default.name}</div>
+              <div class="color-value" style="color: rgba(255, 255, 255, 0.70);">{colorPalette.secondary.default.value}</div>
+            </div>
+            <div class="color-card">
+              <div class="color-swatch" style="background: #A8E535;"></div>
+              <div class="color-name" style="color: #FAFAFA;">{colorPalette.secondary.hover.name}</div>
+              <div class="color-value" style="color: rgba(255, 255, 255, 0.70);">{colorPalette.secondary.hover.value}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Color Reference Table -->
+    <section class="preview-section" style="background: #FAFAFA;">
+      <div class="container">
+        <h2 class="section-title">Complete Color Reference</h2>
+        <p class="section-description">All colors with CSS variable names</p>
+
+        <div class="reference-grid">
+          {Object.entries(colorPalette).map(([category, colors]) => (
+            <div class="reference-category">
+              <h3 class="reference-title">{category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+              {Object.entries(colors).map(([key, color]) => {
+                if (Array.isArray(color)) {
+                  return color.map((c) => (
+                    <div class="reference-item">
+                      <div class="reference-swatch" style={`background: ${c.value}; border: 1px solid #E8E0D8;`}></div>
+                      <div>
+                        <div class="reference-name">{c.name}</div>
+                        <div class="reference-var">{c.var}</div>
+                        <div class="reference-value">{c.value}</div>
+                      </div>
+                    </div>
+                  ));
+                } else {
+                  return (
+                    <div class="reference-item">
+                      <div class="reference-swatch" style={`background: ${color.value}; border: 1px solid #E8E0D8;`}></div>
+                      <div>
+                        <div class="reference-name">{color.name}</div>
+                        <div class="reference-var">{color.var}</div>
+                        <div class="reference-value">{color.value}</div>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Base>
+
+<style>
+  .preview-section {
+    padding: 4rem 0;
+  }
+
+  .light-section {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E8E0D8;
+  }
+
+  .dark-section {
+    background: #0A1A1D;
+    border-bottom: 1px solid #1A4A52;
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-description {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .ui-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .example-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .example-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+
+  .demo-heading {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+
+  .demo-text {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin: 0.5rem 0;
+  }
+
+  .demo-text-muted {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .demo-link {
+    text-decoration: underline;
+    font-weight: 500;
+  }
+
+  .button-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .demo-button {
+    padding: 0.875rem 2rem;
+    border-radius: 0.625rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .demo-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .demo-button-outline {
+    padding: 0.875rem 2rem;
+    border-radius: 0.625rem;
+    font-weight: 600;
+    font-size: 1rem;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .demo-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .color-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .color-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .color-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .color-swatch {
+    width: 100%;
+    height: 80px;
+    border-radius: 0.5rem;
+  }
+
+  .color-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .color-value {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  .reference-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .reference-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .reference-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 0.5rem;
+  }
+
+  .reference-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .reference-swatch {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .reference-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .reference-var {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: #0D7377;
+    margin-top: 0.125rem;
+  }
+
+  .reference-value {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    opacity: 0.6;
+    margin-top: 0.125rem;
+  }
+
+  @media (max-width: 768px) {
+    .button-row {
+      flex-direction: column;
+    }
+
+    .demo-button,
+    .demo-button-outline {
+      width: 100%;
+    }
+  }
+</style>

@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
+import CTA from "../components/CTA.astro";
 import demiHero from "../assets/case-studies/demi-hero.png";
 import upmealsHero from "../assets/case-studies/upmeals-hero.png";
 
@@ -45,16 +46,11 @@ const caseStudies = projects.map((project) => ({
         />
       ))}
     </div>
-
-    <section class="section-cta mt-8">
-      <div class="cta-glow" aria-hidden="true"></div>
-      <div class="cta-content">
-        <h2 class="cta-title">Your project could be next</h2>
-        <p class="cta-prose">We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
-        <a href="/contact" class="btn-cta">Reach out</a>
-      </div>
-    </section>
   </main>
+
+  <CTA heading="Your project could be next" ctaText="Reach out" ctaLink="/contact">
+    <p>We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
+  </CTA>
 </Base>
 
 <style>

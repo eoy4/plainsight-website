@@ -39,3 +39,8 @@ src/
 - CSS uses custom properties defined in `:root` (e.g., `--color-bg`, `--color-accent`)
 - Dark theme by default (background: `#0a0a0a`)
 - Global styles imported via `<style is:global>` in Base.astro
+
+## Styling and Tailwind
+
+- Never use inline styles
+- Always use tokens for colors, don't use hex codes direclty

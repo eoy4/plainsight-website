@@ -1,101 +1,126 @@
 /* ═══════════════════════════════════════════════════ */
-/* LIGHT THEME (DEFAULT) */
+/* UNIFIED COLOR PALETTE */
 /* ═══════════════════════════════════════════════════ */
 
-[data-theme="light"] {
-  --color-bg: #FFFFFF;
-  --color-surface: #FFFFFF;
-  --color-surface-raised: #FCFAF7;
+:root {
+  /* Primary - Teal (for actions, links, emphasis) */
+  --color-primary-light: #14A8B0;        /* for light backgrounds */
+  --color-primary: #0D7377;              /* for dark backgrounds */
+  --color-primary-hover: #078C94;        /* hover state */
+  --color-primary-hover-light: #1BC4CD;  /* hover for light bg */
+  --color-primary-subtle: #E0F4F5;       /* backgrounds/badges */
 
+  /* Secondary - Lime (for pop/emphasis) */
+  --color-secondary-light: #8BC934;      /* for light backgrounds - darker shade */
+  --color-secondary: #B8F545;            /* for dark backgrounds - brighter shade */
+  --color-secondary-hover: #A8E535;      /* hover state */
+  --color-secondary-hover-light: #9DD435; /* hover for light bg */
+  --color-secondary-subtle: #F0F9E0;     /* backgrounds/badges */
+
+  /* Tertiary - Orange (occasional warmth) */
+  --color-tertiary: #D97642;
+  --color-tertiary-hover: #E07A5F;
+  --color-tertiary-subtle: #FADEC9;
+
+  /* Quaternary - Magenta (vibrant accent) */
+  --color-quaternary: #D946EF;
+  --color-quaternary-hover: #E056F5;
+  --color-quaternary-subtle: #F8E7FD;
+
+  /* Neutrals - Light (default) */
+  --color-bg: #FFFFFF;
+  --color-surface: #f8fafd;
+  --color-surface-raised: #f8fafd;
+  --color-surface-alt: #f4f7fb;
+  --color-surface-gradient-end: #e8eff6;
   --color-border: #E8E0D8;
   --color-border-subtle: #F0EBE6;
-
+  --color-border-alt: #d0dae5;
   --color-text: #2D3142;
   --color-text-muted: rgba(45, 49, 66, 0.65);
   --color-text-dim: rgba(45, 49, 66, 0.40);
 
-  --color-accent: #D97642;
-  --color-accent-hover: #E07A5F;
-  --color-accent-subtle: #FADEC9;
-  --color-accent-glow: rgba(217, 118, 66, 0.12);
-  --color-accent-glow-strong: rgba(217, 118, 66, 0.20);
+  /* Neutrals - Dark (for dark sections) */
+  --color-bg-dark: #0A1A1D;
+  --color-bg-dark-hero: #040F12;
+  --color-bg-dark-process: #0A2428;
+  --color-surface-dark: #0F2428;
+  --color-surface-raised-dark: #0D2428;
+  --color-border-dark: #1A4A52;
+  --color-border-subtle-dark: #0F2E33;
+  --color-text-light: #FAFAFA;
+  --color-text-light-muted: rgba(255, 255, 255, 0.70);
+  --color-text-light-dim: rgba(255, 255, 255, 0.40);
 
-  --color-pop: #E07A5F;
-  --color-pop-hover: #D97642;
-  --color-pop-glow: rgba(224, 122, 95, 0.15);
+  /* Semantic aliases (for existing code compatibility) */
+  --color-accent: var(--color-primary-light);
+  --color-accent-hover: var(--color-primary-hover-light);
+  --color-accent-subtle: var(--color-primary-subtle);
+  --color-accent-glow: rgba(20, 168, 176, 0.18);
+  --color-accent-glow-strong: rgba(20, 168, 176, 0.28);
 
+  --color-pop: var(--color-secondary-light);
+  --color-pop-hover: var(--color-secondary-hover-light);
+  --color-pop-glow: rgba(184, 245, 69, 0.18);
+
+  /* UI */
   --color-nav-bg: rgba(255, 255, 255, 0.85);
   --color-shadow: rgba(45, 49, 66, 0.08);
   --color-shadow-strong: rgba(45, 49, 66, 0.15);
   --color-btn-text: #FFFFFF;
 
-  --color-hero-glow-1: rgba(244, 162, 97, 0.08);
-  --color-hero-glow-2: rgba(244, 162, 97, 0.04);
+  /* Hero effects */
+  --color-hero-glow-1: rgba(20, 168, 176, 0.15);
+  --color-hero-glow-2: rgba(20, 168, 176, 0.08);
 
+  /* Hero title gradient (for light sections, though currently unused) */
   --hero-title-gradient-start: #2D3142;
   --hero-title-gradient-end: rgba(45, 49, 66, 0.70);
 }
 
 /* ═══════════════════════════════════════════════════ */
-/* DARK THEME */
+/* DARK SECTION OVERRIDES */
 /* ═══════════════════════════════════════════════════ */
 
-[data-theme="dark"] {
-  --color-bg: #040F12;
-  --color-surface: #0A2428;
-  --color-surface-raised: #0D2428;
+.dark-section {
+  /* Use dark background colors */
+  --color-bg: var(--color-bg-dark);
+  --color-surface: var(--color-surface-dark);
+  --color-surface-raised: var(--color-surface-raised-dark);
+  --color-border: var(--color-border-dark);
+  --color-border-subtle: var(--color-border-subtle-dark);
 
-  --color-border: #1A4A52;
-  --color-border-subtle: #0F2E33;
+  /* Use light text on dark backgrounds */
+  --color-text: var(--color-text-light);
+  --color-text-muted: var(--color-text-light-muted);
+  --color-text-dim: var(--color-text-light-dim);
 
-  --color-text: #FAFAFA;
-  --color-text-muted: rgba(255, 255, 255, 0.65);
-  --color-text-dim: rgba(255, 255, 255, 0.40);
-
-  --color-accent: #0D7377;
-  --color-accent-hover: #078C94;
-  --color-accent-subtle: #0A3A3D;
+  /* Use darker accent colors (sophisticated look) */
+  --color-accent: var(--color-primary);
+  --color-accent-hover: var(--color-primary-hover);
   --color-accent-glow: rgba(13, 115, 119, 0.18);
-  --color-accent-glow-strong: rgba(7, 140, 148, 0.28);
+  --color-accent-glow-strong: rgba(13, 115, 119, 0.28);
 
-  --color-pop: #B8F545;
-  --color-pop-hover: #A8E535;
+  --color-pop: var(--color-secondary);
+  --color-pop-hover: var(--color-secondary-hover);
   --color-pop-glow: rgba(184, 245, 69, 0.18);
 
-  --color-nav-bg: rgba(4, 15, 18, 0.85);
-  --color-shadow: rgba(0, 0, 0, 0.35);
-  --color-shadow-strong: rgba(0, 0, 0, 0.55);
-  --color-btn-text: #FFFFFF;
-
+  /* Hero effects for dark sections */
   --color-hero-glow-1: rgba(13, 115, 119, 0.25);
   --color-hero-glow-2: rgba(13, 115, 119, 0.10);
 
+  /* Nav background for dark sections */
+  --color-nav-bg: rgba(10, 26, 29, 0.85);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+  --color-shadow-strong: rgba(0, 0, 0, 0.55);
+
+  /* Hero title gradient for dark sections */
   --hero-title-gradient-start: #FFFFFF;
   --hero-title-gradient-end: rgba(255, 255, 255, 0.75);
 }
 
 /* ═══════════════════════════════════════════════════ */
-/* THEME-SPECIFIC OVERRIDES */
-/* ═══════════════════════════════════════════════════ */
-
-[data-theme="light"] .hero-grid-pattern {
-  filter: invert(1);
-  opacity: 0.7;
-}
-
-
-[data-theme="light"] body::after {
-  opacity: 0.01;
-}
-
-/* Theme icon visibility */
-[data-theme="light"] .theme-icon-sun { display: none; }
-[data-theme="light"] .theme-icon-moon { display: block; }
-[data-theme="dark"] .theme-icon-sun { display: block; }
-[data-theme="dark"] .theme-icon-moon { display: none; }
-
-/* ═══════════════════════════════════════════════════ */
-/* GLOBAL THEME TRANSITION */
+/* GLOBAL TRANSITIONS */
 /* ═══════════════════════════════════════════════════ */
 
 *,

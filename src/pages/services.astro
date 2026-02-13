@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Base from "../layouts/Base.astro";
+import CTA from "../components/CTA.astro";
 
 const sections = (await getCollection("services")).sort(
   (a, b) => a.data.order - b.data.order
@@ -27,7 +28,7 @@ const processedSections = rendered.map(s => ({
 ---
 
 <Base title="Services | Plain Sight" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
-  <main class="container pt-32 max-md:pt-24">
+  <main class="container pt-32 max-md:pt-24 mb-10">
     {processedSections.filter(s => s.data.section === "intro").map((section) => {
       const { Content } = section.rendered;
       const d = section.data;
@@ -41,19 +42,19 @@ const processedSections = rendered.map(s => ({
       );
     })}
 
-    <div class="services-grid">
+    <div class="services-grid mb-48">
       {processedSections.filter(s => s._svcIdx >= 0).map((section, idx) => {
         const { Content } = section.rendered;
         const d = section.data;
         const isAlt = idx % 2 !== 0;
 
         return (
-          <article class={`service-card ${isAlt ? 'bg-surface-raised' : 'bg-surface'} border border-border rounded-2xl p-6 max-md:py-6 max-md:px-5`} data-service-idx={idx}>
+          <article class={`service-card bg-bg border border-border rounded-2xl p-6 max-md:py-6 max-md:px-5`} data-service-idx={idx}>
             <div class="card-content">
               {icons[d.section] && (
                 <div class="text-accent mb-4" set:html={icons[d.section]} />
               )}
-              {d.title && <h2 class="text-service-title font-bold leading-[1.2] mb-4">{d.title}</h2>}
+              {d.title && <h2 class="text-service-title font-bold leading-[1.2] mb-6">{d.title}</h2>}
               <p class="text-service-tagline text-text-muted leading-normal mb-5">{d.heading}</p>
             </div>
             <button class="learn-more-button" data-service-idx={idx} aria-label="Learn more about this service">
@@ -73,24 +74,19 @@ const processedSections = rendered.map(s => ({
         );
       })}
     </div>
+  </main>
 
+  <div class="mt-40">
     {processedSections.filter(s => s.data.section === "cta").map((section) => {
       const { Content } = section.rendered;
       const d = section.data;
       return (
-        <section class="section-cta mt-8">
-          <div class="cta-glow" aria-hidden="true"></div>
-          <div class="cta-content">
-            <h2 class="cta-title">{d.heading}</h2>
-            <div class="cta-prose">
-              <Content />
-            </div>
-            {d.cta_text && <a href={d.cta_link} class="btn btn-cta">{d.cta_text}</a>}
-          </div>
-        </section>
+        <CTA heading={d.heading} ctaText={d.cta_text} ctaLink={d.cta_link}>
+          <Content />
+        </CTA>
       );
     })}
-  </main>
+  </div>
 
   <!-- Service Modal -->
   <div id="service-modal" class="service-modal" role="dialog" aria-modal="true" aria-hidden="true">
@@ -102,8 +98,10 @@ const processedSections = rendered.map(s => ({
         </svg>
       </button>
       <div class="modal-content">
-        <div class="modal-icon" id="modal-icon"></div>
-        <h2 class="modal-title" id="modal-title"></h2>
+        <div class="modal-header">
+          <div class="modal-icon" id="modal-icon"></div>
+          <h2 class="modal-title" id="modal-title"></h2>
+        </div>
         <p class="modal-heading" id="modal-heading"></p>
         <div class="modal-body">
           <p class="modal-intro" id="modal-intro"></p>
@@ -334,16 +332,23 @@ const processedSections = rendered.map(s => ({
     position: relative;
   }
 
+  .modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
   .modal-icon {
     color: var(--color-accent);
-    margin-bottom: 1.5rem;
+    flex-shrink: 0;
   }
 
   .modal-title {
     font-size: 2rem;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 0.75rem;
+    margin: 0;
     color: var(--color-text);
   }
 
@@ -365,7 +370,7 @@ const processedSections = rendered.map(s => ({
   .modal-sections :global(h2) {
     font-size: 1.5rem;
     font-weight: 700;
-    margin: 2.5rem 0 1rem;
+    margin-top: 2.5rem;
     color: var(--color-text);
   }
 
