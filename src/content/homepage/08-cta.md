@@ -1,6 +1,6 @@
 ---
 section: cta
-order: 7
+order: 8
 heading: "Let's talk about your site"
 cta_text: "Get in Touch"
 cta_link: "/contact"

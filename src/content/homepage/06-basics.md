@@ -1,6 +1,6 @@
 ---
 section: basics
-order: 5
+order: 6
 heading: "The basics, done properly"
 items:
   - title: "Works on every device"

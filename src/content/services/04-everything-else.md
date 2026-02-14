@@ -12,7 +12,7 @@ Not sure what's working and what's holding you back? We'll take a hard look at y
 
 ## Redesigns and revamps
 
-Yes, your site works, but... it still has stock photos of people high-fiving in a conference room. Let us bring it back to 2026 with a fresh design that actually represents where your business is now.
+Yes, your site works, but... it still has stock photos of people high-fiving in a conference room. Let us bring it back to 2026 with a fresh design that represents where your business is now.
 
 ## Fixes, tweaks, and upgrades
 

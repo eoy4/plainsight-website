@@ -21,6 +21,11 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const d = project.data;
 
+// Debug: log the data to see what's undefined
+console.log('Project ID:', project.id);
+console.log('Project data:', d);
+console.log('URL value:', d.url);
+
 const heroImages: Record<number, ImageMetadata> = {
   1: demiHero,
   2: upmealsHero,
@@ -73,7 +78,7 @@ const isAlt = d.order % 2 === 0;
           <div>
             <span class="font-semibold text-15 text-text block mb-1">Visit Site</span>
             <a href={d.url} target="_blank" rel="noopener noreferrer" class="text-accent text-17 hover:underline break-all inline-flex items-center gap-1.5">
-              {d.url.replace('https://', '')}
+              {d.url?.replace('https://', '') || d.url || 'N/A'}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -109,13 +114,11 @@ const isAlt = d.order % 2 === 0;
         <p class="text-section-prose text-text-muted leading-extra-loose max-w-[800px]">{d.results}</p>
       </section>
     </article>
-
-    <div class="mt-24">
-      <CTA heading="Your project could be next" ctaText="Reach out" ctaLink="/contact">
-        <p>We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
-      </CTA>
-    </div>
   </main>
+
+  <CTA heading="Your project could be next" ctaText="Reach out" ctaLink="/contact">
+    <p>We're building this out one great project at a time. Curious if we're the right fit for what you're building?</p>
+  </CTA>
 </Base>
 
 <style>

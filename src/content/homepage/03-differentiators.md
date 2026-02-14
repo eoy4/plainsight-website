@@ -4,7 +4,7 @@ order: 3
 heading: "We'll help you see the way forward"
 items:
   - title: "We build with purpose"
-    description: "Step 1 is understanding your business, your customers, and what success actually looks like. Then we code."
+    description: "Step 1 is understanding your business, your customers, and what success looks like. Then we code."
   - title: "We've been doing this a long time"
     description: "With decades of experience building everything from quick one-pagers to complex custom builds, we know exactly what your site needs. And what it doesn't."
   - title: "Quality work, quick turnarounds"
