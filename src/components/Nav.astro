@@ -1,23 +1,30 @@
 ---
 import Logo from './Logo.astro';
+
+interface Props {
+  variant?: 'light' | 'dark';
+}
+
+const { variant = 'light' } = Astro.props;
+const isDark = variant === 'dark';
 ---
 
-<nav class="dark-section fixed top-0 left-0 right-0 z-[100] py-4 backdrop-blur-[12px] border-b border-border-subtle bg-[var(--color-nav-bg)]">
+<nav class={`py-4 ${isDark ? 'dark-section absolute top-0 left-0 right-0 z-50 bg-[rgba(4,15,18,0.5)] backdrop-blur-[12px]' : 'bg-bg border-b border-dashed border-border-subtle'}`}>
   <div class="container flex justify-between items-center">
-    <a href="/" class="nav-logo flex items-center no-underline hover:no-underline text-[#FAFAFA]">
+    <a href="/" class={`nav-logo flex items-center no-underline hover:no-underline ${isDark ? 'text-[#FAFAFA]' : 'text-text'}`}>
       <Logo animated class="w-[200px] h-auto block" />
     </a>
-    <div class="nav-links flex gap-8 items-center ml-auto max-md:fixed max-md:top-0 max-md:right-0 max-md:w-2/3 max-md:h-dvh max-md:bg-[#040F12] max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-24 max-md:px-8 max-md:pb-8 max-md:border-l max-md:border-[#1A4A52] max-md:translate-x-full max-md:transition-transform max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[105]">
-      <a href="/" class="hidden max-md:block no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium max-md:text-[#FAFAFA] max-md:py-3">Home</a>
-      <a href="/services" class="no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium max-md:text-[#FAFAFA] max-md:py-3">Services</a>
-      <a href="/work" class="no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium max-md:text-[#FAFAFA] max-md:py-3">Work</a>
-      <a href="/contact" class="no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium max-md:text-[#FAFAFA] max-md:py-3">Contact</a>
+    <div class={`nav-links flex gap-8 items-center ml-auto max-md:fixed max-md:top-0 max-md:right-0 max-md:w-2/3 max-md:h-dvh ${isDark ? 'max-md:bg-[#040F12]' : 'max-md:bg-bg'} max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-24 max-md:px-8 max-md:pb-8 max-md:border-l ${isDark ? 'max-md:border-[#1A4A52]' : 'max-md:border-border'} max-md:translate-x-full max-md:transition-transform max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[105]`}>
+      <a href="/" class={`hidden max-md:block no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Home</a>
+      <a href="/services" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Services</a>
+      <a href="/work" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Work</a>
+      <a href="/contact" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Contact</a>
     </div>
     <div class="flex items-center gap-3 ml-8 max-md:z-[110] max-md:ml-0">
       <button class="nav-hamburger hidden max-md:flex max-md:flex-col max-md:justify-center max-md:gap-[5px] bg-transparent border-none cursor-pointer max-md:p-2" aria-label="Toggle menu" aria-expanded="false" type="button">
-        <span class="block w-[22px] h-[2px] bg-[#FAFAFA] rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo"></span>
-        <span class="block w-[22px] h-[2px] bg-[#FAFAFA] rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo"></span>
-        <span class="block w-[22px] h-[2px] bg-[#FAFAFA] rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo"></span>
+        <span class={`block w-[22px] h-[2px] ${isDark ? 'bg-[#FAFAFA]' : 'bg-text'} rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo`}></span>
+        <span class={`block w-[22px] h-[2px] ${isDark ? 'bg-[#FAFAFA]' : 'bg-text'} rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo`}></span>
+        <span class={`block w-[22px] h-[2px] ${isDark ? 'bg-[#FAFAFA]' : 'bg-text'} rounded-[1px] transition-[transform,opacity] duration-200 ease-out-expo`}></span>
       </button>
     </div>
   </div>

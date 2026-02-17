@@ -41,6 +41,10 @@ const { animated = false, class: className = '' } = Astro.props;
       stroke-dashoffset: 0;
     }
 
+    .dark-section .logo-square-mask {
+      stroke: var(--color-bg-dark-hero);
+    }
+
     .nav-logo:hover .logo-square {
       animation: square-fade-out 0.15s ease forwards;
     }
