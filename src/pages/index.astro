@@ -11,6 +11,15 @@ import iconDisk from "../assets/icons/icon-disk.svg";
 import iconRocket from "../assets/icons/icon-rocket.svg";
 import iconBulb from "../assets/icons/icon-bulb.svg";
 
+const basicsIcons: Record<string, string> = {
+  "responsive":  `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect x="2" y="3" width="20" height="14" rx="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>`,
+  "speed":       `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polygon points="13,2 3,14 12,14 11,22 21,10 12,10" /></svg>`,
+  "seo":         `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>`,
+  "foundation":  `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polyline points="16,18 22,12 16,6" /><polyline points="8,6 2,12 8,18" /></svg>`,
+  "accessible":  `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><path d="M20,21v-2a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" /><circle cx="12" cy="7" r="4" /></svg>`,
+};
+const basicsIconKeys = ["responsive", "speed", "seo", "foundation", "accessible"];
+
 const caseStudyImages: Record<number, ImageMetadata> = {
   1: demiHero,
   2: upmealsHero,
@@ -180,40 +189,9 @@ const caseStudies = workEntries.map((entry) => ({
             </div>
             <ul class="list-none flex flex-col max-w-[1100px]">
               {d.items?.map((item, i) => (
-                <li class="grid grid-cols-[320px_1fr] max-md:grid-cols-1 gap-x-20 max-md:gap-y-3 items-center py-8 border-b border-border-alt first:border-t first:border-border-alt">
-                  <div class="flex items-center gap-3">
-                    <span class="shrink-0 w-16 h-16 flex items-center justify-center text-pop" aria-hidden="true">
-                      {i === 0 && (
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                          <rect x="2" y="3" width="20" height="14" rx="2" />
-                          <line x1="8" y1="21" x2="16" y2="21" />
-                          <line x1="12" y1="17" x2="12" y2="21" />
-                        </svg>
-                      )}
-                      {i === 1 && (
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                          <polygon points="13,2 3,14 12,14 11,22 21,10 12,10" />
-                        </svg>
-                      )}
-                      {i === 2 && (
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                          <circle cx="11" cy="11" r="8" />
-                          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                      )}
-                      {i === 3 && (
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                          <polyline points="16,18 22,12 16,6" />
-                          <polyline points="8,6 2,12 8,18" />
-                        </svg>
-                      )}
-                      {i === 4 && (
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8">
-                          <path d="M20,21v-2a4,4,0,0,0-4-4H8a4,4,0,0,0-4,4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
-                      )}
-                    </span>
+                <li class="grid grid-cols-[320px_1fr] max-md:grid-cols-1 gap-x-20 max-md:gap-y-3 items-center py-6 border-b border-border-alt first:border-t first:border-border-alt">
+                  <div class="flex items-center gap-5">
+                    <span class="shrink-0 text-pop" aria-hidden="true" set:html={basicsIcons[basicsIconKeys[i]]} />
                     <h3 class="text-[1.75rem] font-bold tracking-snug text-text whitespace-nowrap">{item.title}</h3>
                   </div>
                   <div>

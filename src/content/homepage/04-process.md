@@ -4,7 +4,7 @@ order: 4
 heading: "From idea to launch"
 items:
   - title: "Discovery + strategy"
-    description: "First, we figure out what your site needs to accomplish. Who's using it? What are they looking for? What makes them hit that contact button? We ask the right questions so we can build you a site that works harder than your last three employees combined."
+    description: "Quick kickoff to confirm your goals and what you need the site to do. For straightforward projects, this is a 30-minute call. For complex builds, we go deeper with strategy and research. Either way, we make sure we're building the right thing."
   - title: "Design"
     description: "This is where strategy takes visual form. Beautiful and functional, every detail is dialed in. One look and your customers know you're legit."
   - title: "Build"

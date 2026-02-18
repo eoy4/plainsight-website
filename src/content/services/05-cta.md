@@ -2,7 +2,7 @@
 section: cta
 order: 5
 heading: "Ready to get started?"
-cta_text: "Get in Touch"
+cta_text: "Get in touch"
 cta_link: "/contact"
 ---
 

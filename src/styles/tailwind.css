@@ -721,3 +721,12 @@
     }
   }
 }
+
+@layer utilities {
+  /* Card accordion row hover — closed rows only, must be in utilities to override text-* utility classes */
+  .card-acc-button[aria-expanded="false"]:hover span,
+  .card-acc-button[aria-expanded="false"]:hover svg {
+    color: var(--color-text);
+    transition: color 150ms;
+  }
+}
