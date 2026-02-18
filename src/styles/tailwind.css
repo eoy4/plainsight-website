@@ -39,12 +39,13 @@
   --color-primary-light: var(--color-primary-light);
   --color-secondary: var(--color-secondary);
   --color-secondary-light: var(--color-secondary-light);
+  --color-secondary-accessible: var(--color-secondary-accessible);
   --color-tertiary: var(--color-tertiary);
 
 
   /* Typography */
-  --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Darker Grotesque', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Manrope', 'Manrope Fallback', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Darker Grotesque', 'Darker Grotesque Fallback', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, 'Fira Code', monospace;
 
   /* Font Sizes - Standard (--text-* → text-* utilities) */
@@ -189,6 +190,28 @@
 
 
 /* ═══════════════════════════════════════════════════ */
+/* FONT FALLBACK METRICS (reduce CLS from font swap)   */
+/* ═══════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Darker Grotesque Fallback';
+  src: local('Arial');
+  size-adjust: 108%;
+  ascent-override: 95%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Arial');
+  size-adjust: 103%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* ═══════════════════════════════════════════════════ */
 /* BASE STYLES (in @layer base so utilities can win)   */
 /* ═══════════════════════════════════════════════════ */
 
@@ -288,7 +311,6 @@
     background-position: 50% 50%, 50% 50%;
     filter: blur(10px);
     opacity: 0.5;
-    will-change: transform;
     pointer-events: none;
     mask-image: radial-gradient(ellipse at 100% 0%, black 10%, var(--transparent) 70%);
     -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 10%, var(--transparent) 70%);
@@ -300,7 +322,6 @@
     inset: 0;
     background-image: var(--base-gradient), var(--aurora);
     background-size: 200%, 100%;
-    background-attachment: fixed;
     mix-blend-mode: difference;
     animation: auroraFlow 60s linear infinite;
   }

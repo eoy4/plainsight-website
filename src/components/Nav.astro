@@ -11,7 +11,7 @@ const isDark = variant === 'dark';
 
 <nav class={`py-4 ${isDark ? 'dark-section absolute top-0 left-0 right-0 z-50 bg-[rgba(4,15,18,0.5)] backdrop-blur-[12px]' : 'bg-bg border-b border-dashed border-border-subtle'}`}>
   <div class="container flex justify-between items-center">
-    <a href="/" class={`nav-logo flex items-center no-underline hover:no-underline ${isDark ? 'text-[#FAFAFA]' : 'text-text'}`}>
+    <a href="/" class={`nav-logo flex items-center no-underline hover:no-underline ${isDark ? 'text-[#FAFAFA]' : 'text-text'}`} aria-label="Plain Sight — Home">
       <Logo animated class="w-[200px] h-auto block" />
     </a>
     <div class={`nav-links flex gap-8 items-center ml-auto max-md:fixed max-md:top-0 max-md:right-0 max-md:w-2/3 max-md:h-dvh ${isDark ? 'max-md:bg-[#040F12]' : 'max-md:bg-bg'} max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-24 max-md:px-8 max-md:pb-8 max-md:border-l ${isDark ? 'max-md:border-[#1A4A52]' : 'max-md:border-border'} max-md:translate-x-full max-md:transition-transform max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[105]`}>
@@ -29,7 +29,7 @@ const isDark = variant === 'dark';
     </div>
   </div>
 </nav>
-<div class="nav-overlay hidden max-md:block max-md:fixed max-md:inset-0 max-md:bg-transparent max-md:pointer-events-none max-md:transition-colors max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[99]"></div>
+<div class="nav-overlay hidden max-md:block max-md:fixed max-md:inset-0 max-md:bg-transparent max-md:pointer-events-none max-md:transition-colors max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[45]"></div>
 
 <style>
   /* Hamburger animation - complex nth-child transforms */
@@ -43,9 +43,9 @@ const isDark = variant === 'dark';
     transform: translateY(-7px) rotate(-45deg);
   }
 
-  /* Nav drawer open state */
+  /* Nav drawer open state — uses translate (not transform) to match Tailwind v4 */
   .nav-links.nav-open {
-    transform: translateX(0);
+    translate: none;
   }
 
   /* Overlay open state */
