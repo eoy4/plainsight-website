@@ -9,16 +9,16 @@ const { variant = 'light' } = Astro.props;
 const isDark = variant === 'dark';
 ---
 
-<nav class={`py-4 ${isDark ? 'dark-section absolute top-0 left-0 right-0 z-50 bg-[rgba(4,15,18,0.5)] backdrop-blur-[12px]' : 'bg-bg border-b border-dashed border-border-subtle'}`}>
+<nav class={`py-4 ${isDark ? 'dark-section absolute top-0 left-0 right-0 z-50 bg-[rgba(4,15,18,0.5)] backdrop-blur-[12px]' : 'bg-bg nav-border-light'}`}>
   <div class="container flex justify-between items-center">
     <a href="/" class={`nav-logo flex items-center no-underline hover:no-underline ${isDark ? 'text-[#FAFAFA]' : 'text-text'}`} aria-label="Plain Sight — Home">
       <Logo animated class="w-[200px] h-auto block" />
     </a>
     <div class={`nav-links flex gap-8 items-center ml-auto max-md:fixed max-md:top-0 max-md:right-0 max-md:w-2/3 max-md:h-dvh ${isDark ? 'max-md:bg-[#040F12]' : 'max-md:bg-bg'} max-md:flex-col max-md:items-start max-md:gap-2 max-md:pt-24 max-md:px-8 max-md:pb-8 max-md:border-l ${isDark ? 'max-md:border-[#1A4A52]' : 'max-md:border-border'} max-md:translate-x-full max-md:transition-transform max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[105]`}>
       <a href="/" class={`hidden max-md:block no-underline text-text-muted text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Home</a>
-      <a href="/services" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Services</a>
-      <a href="/work" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Work</a>
-      <a href="/contact" class={`no-underline ${isDark ? 'text-white/70' : 'text-text-muted'} text-[1rem] transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl max-md:font-medium ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Contact</a>
+      <a href="/services" class={`no-underline ${isDark ? 'text-white/90' : 'text-text-muted'} text-[1rem] font-medium tracking-normal transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Services</a>
+      <a href="/work" class={`no-underline ${isDark ? 'text-white/90' : 'text-text-muted'} text-[1rem] font-medium tracking-normal transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Work</a>
+      <a href="/contact" class={`no-underline ${isDark ? 'text-white/90' : 'text-text-muted'} text-[1rem] font-medium tracking-normal transition-colors duration-fast hover:text-accent-hover hover:no-underline max-md:text-xl ${isDark ? 'max-md:text-[#FAFAFA]' : 'max-md:text-text'} max-md:py-3`}>Contact</a>
     </div>
     <div class="flex items-center gap-3 ml-8 max-md:z-[110] max-md:ml-0">
       <button class="nav-hamburger hidden max-md:flex max-md:flex-col max-md:justify-center max-md:gap-[5px] bg-transparent border-none cursor-pointer max-md:p-2" aria-label="Toggle menu" aria-expanded="false" type="button">
@@ -32,6 +32,20 @@ const isDark = variant === 'dark';
 <div class="nav-overlay hidden max-md:block max-md:fixed max-md:inset-0 max-md:bg-transparent max-md:pointer-events-none max-md:transition-colors max-md:duration-[400ms] max-md:ease-out-expo max-md:z-[45]"></div>
 
 <style>
+  /* Light nav custom dashed border - larger dashes/gaps */
+  .nav-border-light {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--color-border) 0,
+      var(--color-border) 8px,
+      transparent 8px,
+      transparent 14px
+    );
+    background-position: left bottom;
+    background-size: 14px 1px;
+    background-repeat: repeat-x;
+  }
+
   /* Hamburger animation - complex nth-child transforms */
   .nav-hamburger[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);

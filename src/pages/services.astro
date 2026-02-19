@@ -26,8 +26,8 @@ const icons: Record<string, string> = {
 };
 ---
 
-<Base title="Services | Plain Sight" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
-  <main class="container pt-22 max-md:pt-16">
+<Base title="Services | Plain Sight | Vancouver Web Design and Development" description="Web development services — quick sites, custom builds, audits, redesigns, and more.">
+  <main class="container pt-22 max-md:pt-8">
     <!-- Hero Section -->
     {rendered.filter(s => s.data.section === "intro").map((section) => {
       const Content = section.rendered?.Content;
@@ -36,7 +36,7 @@ const icons: Record<string, string> = {
         <section class="py-14 max-md:py-10 max-md:mb-16">
           <h1 class="font-heading text-page-hero font-black tracking-tighter leading-snug mb-6 max-w-[1000px]">{d.heading}</h1>
           {Content && (
-            <div class="prose-services max-w-[960px] text-[1.5rem] text-text-muted leading-[1.7]">
+            <div class="max-w-[960px] text-page-subheading text-text-muted leading-[1.7]">
               <Content />
             </div>
           )}
@@ -48,41 +48,41 @@ const icons: Record<string, string> = {
     <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-6 mb-10 max-md:mb-8">
       <!-- Card 1: Standard -->
       <article class="bg-gradient-to-b from-surface-alt to-surface-gradient-end rounded-2xl p-8 max-md:p-6 flex flex-col transition-colors duration-300">
-        <div class="flex items-center gap-5 mb-4">
+        <div class="flex items-center gap-3 mb-4">
           <div class="text-accent" set:html={icons["standard"]} />
-          <h2 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Standard</h2>
+          <h2 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Standard</h2>
         </div>
-        <p class="text-[1.0625rem] text-text-muted leading-relaxed mb-6">Perfect for businesses that know what they need: a professional site that works. Quick kickoff call, fast execution, polished result.</p>
+        <p class="text-body text-text-muted leading-relaxed mb-6">Perfect for businesses that know what they need: a professional site that works. Quick kickoff call, fast execution, polished result.</p>
 
         <div class="card-accordion flex flex-col flex-1">
           <div class="card-acc-section" data-open="true">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="true">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">What's included</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">What's included</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out">
               <ul class="space-y-3 pt-3 pb-4">
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Design and development included</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Up to 5 pages</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Fast turnaround</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Low hosting cost</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Optional ongoing support</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Add-ons available: blogs, galleries, booking systems, and more</span>
                 </li>
@@ -91,15 +91,15 @@ const icons: Record<string, string> = {
           </div>
           <div class="card-acc-section mt-auto" data-open="false">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="false">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
               <ul class="space-y-2 pt-3 pb-4">
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Service businesses needing a professional presence</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Authors and creatives showcasing their work</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Local businesses attracting nearby customers</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Anyone outgrowing DIY tools like Squarespace</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Service businesses needing a professional presence</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Authors and creatives showcasing their work</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Local businesses attracting nearby customers</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Anyone outgrowing DIY tools like Squarespace</span></li>
               </ul>
             </div>
           </div>
@@ -108,33 +108,33 @@ const icons: Record<string, string> = {
 
       <!-- Card 2: Subscription -->
       <article class="bg-gradient-to-b from-surface-alt to-surface-gradient-end rounded-2xl p-8 max-md:p-6 flex flex-col transition-colors duration-300">
-        <div class="flex items-center gap-5 mb-4">
+        <div class="flex items-center gap-3 mb-4">
           <div class="text-accent" set:html={icons["subscription"]} />
-          <h2 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Subscription</h2>
+          <h2 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Subscription</h2>
         </div>
-        <p class="text-[1.0625rem] text-text-muted leading-relaxed mb-6">Everything in the Standard plan, without the upfront payment. We take care of hosting, updates, and support throughout.</p>
+        <p class="text-body text-text-muted leading-relaxed mb-6">Everything in the Standard plan, without the upfront payment. We take care of hosting, updates, and support throughout.</p>
 
         <div class="card-accordion flex flex-col flex-1">
           <div class="card-acc-section" data-open="true">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="true">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">What's included</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">What's included</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out">
               <ul class="space-y-3 pt-3 pb-4">
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Flat monthly rate, no upfront cost</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Everything in the Standard package</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Hosting included</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Ongoing support and updates included</span>
                 </li>
@@ -143,15 +143,15 @@ const icons: Record<string, string> = {
           </div>
           <div class="card-acc-section mt-auto" data-open="false">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="false">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
               <ul class="space-y-2 pt-3 pb-4">
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Businesses just getting started</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Anyone who wants to avoid upfront costs</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Clients who want everything handled — hosting, updates, support</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Growing businesses that need flexibility</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Businesses just getting started</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Anyone who wants to avoid upfront costs</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Clients who want everything handled — hosting, updates, support</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Growing businesses that need flexibility</span></li>
               </ul>
             </div>
           </div>
@@ -160,37 +160,37 @@ const icons: Record<string, string> = {
 
       <!-- Card 3: Custom Builds -->
       <article class="bg-gradient-to-b from-surface-alt to-surface-gradient-end rounded-2xl p-8 max-md:p-6 flex flex-col transition-colors duration-300">
-        <div class="flex items-center gap-5 mb-4">
+        <div class="flex items-center gap-3 mb-4">
           <div class="text-accent" set:html={icons["custom"]} />
-          <h2 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Custom builds</h2>
+          <h2 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Custom builds</h2>
         </div>
-        <p class="text-[1.0625rem] text-text-muted leading-relaxed mb-6">For advanced functionality and integrations, or projects that need deeper strategic discovery to get clarity first.</p>
+        <p class="text-body text-text-muted leading-relaxed mb-6">For advanced functionality and integrations, or projects that need deeper strategic discovery to get clarity first.</p>
 
         <div class="card-accordion flex flex-col flex-1">
           <div class="card-acc-section" data-open="true">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="true">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">What's included</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">What's included</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out">
               <ul class="space-y-3 pt-3 pb-4">
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Custom design from scratch</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Strategic consultation and planning</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Complex functionality support</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>Can include e-commerce, booking systems, member areas, and custom integrations</span>
                 </li>
-                <li class="flex items-start gap-3 text-[0.9375rem] text-text-muted">
+                <li class="flex items-start gap-3 text-body-sm text-text-muted">
                   <span set:html={checkIcon} />
                   <span>For unique business requirements</span>
                 </li>
@@ -199,15 +199,15 @@ const icons: Record<string, string> = {
           </div>
           <div class="card-acc-section mt-auto" data-open="false">
             <button class="card-acc-button w-full flex items-center justify-between gap-4 pt-4 pb-2 text-left cursor-pointer border-b border-border-alt" type="button" aria-expanded="false">
-              <span class="text-[0.6875rem] font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
+              <span class="text-label font-semibold tracking-widest uppercase text-text-dim">Who is this for?</span>
               <svg class="card-acc-chevron shrink-0 w-4 h-4 text-text-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
             <div class="card-acc-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
               <ul class="space-y-2 pt-3 pb-4">
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>E-commerce and online booking systems</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Complex membership or content platforms</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Businesses with unique technical requirements</span></li>
-                <li class="flex items-baseline gap-2 text-[0.9375rem] text-text-muted"><span class="text-accent shrink-0">›</span><span>Established companies ready to invest in competitive advantage</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>E-commerce and online booking systems</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Complex membership or content platforms</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Businesses with unique technical requirements</span></li>
+                <li class="flex items-baseline gap-2 text-body-sm text-text-muted"><span class="text-accent shrink-0">›</span><span>Established companies ready to invest in competitive advantage</span></li>
               </ul>
             </div>
           </div>
@@ -216,7 +216,7 @@ const icons: Record<string, string> = {
     </div>
 
     <div class="flex justify-center mb-32 max-md:mb-24">
-      <a href="/contact" class="inline-flex items-center justify-center py-4 px-10 bg-accent text-bg rounded-lg font-semibold text-[1rem] hover:bg-accent-hover hover:no-underline transition-all duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:duration-100">
+      <a href="/contact" class="inline-flex items-center justify-center py-4 px-10 bg-accent text-bg rounded-lg font-semibold text-cta hover:bg-accent-hover hover:no-underline transition-all duration-300 ease-out-expo hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 active:duration-100">
         Get started
       </a>
     </div>
@@ -226,8 +226,8 @@ const icons: Record<string, string> = {
   <section class="dark-section relative py-section max-md:py-20 bg-[var(--color-bg-dark-process)]">
     <div class="container">
       <div class="mb-12 max-md:mb-10">
-        <h2 class="font-heading text-[3rem] max-md:text-[2.5rem] font-black tracking-tighter leading-tight text-text mb-4">Make it work harder</h2>
-        <p class="text-[1.25rem] text-text-muted leading-relaxed">Optional features for Standard and Subscription plans.</p>
+        <h2 class="font-heading text-subsection-title font-black tracking-tighter leading-tight text-text mb-4">Make it work harder</h2>
+        <p class="text-section-subtitle text-text-muted leading-relaxed">Optional features for Standard and Subscription plans.</p>
       </div>
 
       <div class="grid grid-cols-2 max-md:grid-cols-1 gap-8 max-md:gap-6 mb-10">
@@ -238,8 +238,8 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">Additional pages</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">Need more pages? Add as many as you want, priced per page.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">Additional pages</h3>
+            <p class="text-body text-text-muted leading-relaxed">Need more pages? Add as many as you want, priced per page.</p>
           </div>
         </div>
 
@@ -250,8 +250,8 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">CMS</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">For sites that need regular updates. Edit your own content without touching code.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">CMS</h3>
+            <p class="text-body text-text-muted leading-relaxed">For sites that need regular updates. Edit your own content without touching code.</p>
           </div>
         </div>
 
@@ -262,8 +262,8 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">Blog</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">Publish articles, news, or updates. Great for SEO and staying relevant.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">Blog</h3>
+            <p class="text-body text-text-muted leading-relaxed">Publish articles, news, or updates. Great for SEO and staying relevant.</p>
           </div>
         </div>
 
@@ -274,8 +274,8 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">Booking & events</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">Integrates with platforms like Calendly, Acuity, and Jane for online booking.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">Booking & events</h3>
+            <p class="text-body text-text-muted leading-relaxed">Integrates with platforms like Calendly, Acuity, and Jane for online booking.</p>
           </div>
         </div>
 
@@ -286,8 +286,8 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">Email integration</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">Capture leads and grow your list. Connects with platforms like Mailchimp and HubSpot.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">Email integration</h3>
+            <p class="text-body text-text-muted leading-relaxed">Capture leads and grow your list. Connects with platforms like Mailchimp and HubSpot.</p>
           </div>
         </div>
 
@@ -298,13 +298,13 @@ const icons: Record<string, string> = {
             </svg>
           </div>
           <div>
-            <h3 class="text-[1.5rem] font-bold text-text mb-2 tracking-tight leading-tight">Photo galleries & portfolios</h3>
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed">Showcase your work with organized, beautiful image displays.</p>
+            <h3 class="text-item-title font-bold text-text mb-2 tracking-tight leading-tight">Photo galleries & portfolios</h3>
+            <p class="text-body text-text-muted leading-relaxed">Showcase your work with organized, beautiful image displays.</p>
           </div>
         </div>
       </div>
 
-      <p class="text-[1.25rem] text-text-muted">Need something else? <a href="/contact" class="text-secondary hover:underline">Just ask.</a></p>
+      <p class="text-section-subtitle text-text-muted">Need something else? <a href="/contact" class="text-secondary hover:underline">Just ask.</a></p>
     </div>
   </section>
 
@@ -312,33 +312,33 @@ const icons: Record<string, string> = {
   <section class="relative py-section max-md:py-20 bg-gradient-to-b from-surface-alt to-surface-gradient-end">
     <div class="container">
       <div class="mb-16 max-md:mb-12">
-        <h2 class="font-heading text-[3rem] max-md:text-[2.5rem] font-black tracking-tighter leading-tight mb-4">Everything else</h2>
-        <p class="text-[1.5rem] text-text-muted leading-relaxed max-w-[800px]">Already have a site? Good. Let's make it better.</p>
+        <h2 class="font-heading text-subsection-title font-black tracking-tighter leading-tight mb-4">Everything else</h2>
+        <p class="text-section-subtitle text-text-muted leading-relaxed max-w-[800px]">Already have a site? Good. Let's make it better.</p>
       </div>
 
       <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-12 max-md:gap-10">
         <div>
-          <div class="flex items-center gap-5 mb-6">
+          <div class="flex items-center gap-3 mb-4">
             <div class="text-accent" set:html={icons["audits"]} />
-            <h3 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Site audits</h3>
+            <h3 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Site audits</h3>
           </div>
-          <p class="text-[1.0625rem] text-text-muted leading-relaxed">Not sure what's working and what's holding you back? We'll take a hard look at your current site and give you an honest breakdown of what's helping, what's hurting, and what we can do about it.</p>
+          <p class="text-body text-text-muted leading-relaxed">Not sure what's working and what's holding you back? We'll take a hard look at your current site and give you an honest breakdown of what's helping, what's hurting, and what we can do about it.</p>
         </div>
 
         <div>
-          <div class="flex items-center gap-5 mb-6">
+          <div class="flex items-center gap-3 mb-4">
             <div class="text-accent" set:html={icons["redesigns"]} />
-            <h3 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Redesigns & revamps</h3>
+            <h3 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Redesigns & revamps</h3>
           </div>
-          <p class="text-[1.0625rem] text-text-muted leading-relaxed">Yes, your site works, but... it still has stock photos of people high-fiving in a conference room. Let us bring it into to 2026 with a fresh design that represents where your business is now.</p>
+          <p class="text-body text-text-muted leading-relaxed">Yes, your site works, but... it still has stock photos of people high-fiving in a conference room. Let us bring it into to 2026 with a fresh design that represents where your business is now.</p>
         </div>
 
         <div>
-          <div class="flex items-center gap-5 mb-6">
+          <div class="flex items-center gap-3 mb-4">
             <div class="text-accent" set:html={icons["fixes"]} />
-            <h3 class="text-[2rem] font-bold leading-tight tracking-tight text-text mb-2">Fixes & upgrades</h3>
+            <h3 class="text-item-title font-bold leading-tight tracking-tight text-text mb-2">Fixes & upgrades</h3>
           </div>
-          <p class="text-[1.0625rem] text-text-muted leading-relaxed">Something broken, outdated, or just plain bugging you? Got a list of fixes that you've been putting off for a year? We can jump in and sort it out.</p>
+          <p class="text-body text-text-muted leading-relaxed">Something broken, outdated, or just plain bugging you? Got a list of fixes that you've been putting off for a year? We can jump in and sort it out.</p>
         </div>
       </div>
     </div>
@@ -348,66 +348,66 @@ const icons: Record<string, string> = {
   <section class="relative py-section max-md:py-20 bg-bg">
     <div class="container">
       <div class="mb-12 max-md:mb-10">
-        <h2 class="font-heading text-[3rem] max-md:text-[2.5rem] font-black tracking-tighter leading-tight mb-4">Frequently asked questions</h2>
+        <h2 class="font-heading text-subsection-title font-black tracking-tighter leading-tight mb-4">Frequently asked questions</h2>
       </div>
       <div class="max-w-[800px] divide-y divide-border-alt" id="faq-list">
         <div class="faq-item -mx-4 px-4 hover:bg-surface-alt transition-colors duration-200" data-open="true">
           <button class="faq-button w-full flex items-center justify-between gap-6 py-5 text-left cursor-pointer" type="button" aria-expanded="true">
-            <span class="text-[1.125rem] font-semibold text-text tracking-tight">How long does it take?</span>
+            <span class="text-section-subtitle font-semibold text-text tracking-tight">How long does it take?</span>
             <svg class="faq-chevron shrink-0 w-5 h-5 text-accent transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
           <div class="faq-content overflow-hidden transition-[height] duration-300 ease-in-out">
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed pb-5">Standard and Subscription sites typically launch in 2–4 weeks. Custom builds take longer and timelines are discussed on a case-by-case basis depending on complexity.</p>
+            <p class="text-body text-text-muted leading-relaxed pb-5">Standard and Subscription sites typically launch in 2–4 weeks. Custom builds take longer and timelines are discussed on a case-by-case basis depending on complexity.</p>
           </div>
         </div>
 
         <div class="faq-item -mx-4 px-4 hover:bg-surface-alt transition-colors duration-200" data-open="false">
           <button class="faq-button w-full flex items-center justify-between gap-6 py-5 text-left cursor-pointer" type="button" aria-expanded="false">
-            <span class="text-[1.125rem] font-semibold text-text tracking-tight">How long does the subscription last?</span>
+            <span class="text-section-subtitle font-semibold text-text tracking-tight">How long does the subscription last?</span>
             <svg class="faq-chevron shrink-0 w-5 h-5 text-accent transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
           <div class="faq-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed pb-5">There's a 12-month minimum commitment. After that, the subscription continues month-to-month for as long as you want to keep your site live and maintained.</p>
+            <p class="text-body text-text-muted leading-relaxed pb-5">There's a 12-month minimum commitment. After that, the subscription continues month-to-month for as long as you want to keep your site live and maintained.</p>
           </div>
         </div>
 
         <div class="faq-item -mx-4 px-4 hover:bg-surface-alt transition-colors duration-200" data-open="false">
           <button class="faq-button w-full flex items-center justify-between gap-6 py-5 text-left cursor-pointer" type="button" aria-expanded="false">
-            <span class="text-[1.125rem] font-semibold text-text tracking-tight">What happens if I cancel my subscription?</span>
+            <span class="text-section-subtitle font-semibold text-text tracking-tight">What happens if I cancel my subscription?</span>
             <svg class="faq-chevron shrink-0 w-5 h-5 text-accent transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
           <div class="faq-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed pb-5">If you cancel after the 12-month minimum, your site goes offline and you stop paying. If you cancel before the 12 months are up, you'll owe the remaining balance (the cost of a Standard site minus what you've already paid in subscription fees).</p>
+            <p class="text-body text-text-muted leading-relaxed pb-5">If you cancel after the 12-month minimum, your site goes offline and you stop paying. If you cancel before the 12 months are up, you'll owe the remaining balance (the cost of a Standard site minus what you've already paid in subscription fees).</p>
           </div>
         </div>
 
         <div class="faq-item -mx-4 px-4 hover:bg-surface-alt transition-colors duration-200" data-open="false">
           <button class="faq-button w-full flex items-center justify-between gap-6 py-5 text-left cursor-pointer" type="button" aria-expanded="false">
-            <span class="text-[1.125rem] font-semibold text-text tracking-tight">Why wouldn't I just use a DIY page builder like Squarespace or Wix?</span>
+            <span class="text-section-subtitle font-semibold text-text tracking-tight">Why wouldn't I just use a DIY page builder like Squarespace or Wix?</span>
             <svg class="faq-chevron shrink-0 w-5 h-5 text-accent transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
           <div class="faq-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed pb-5">Squarespace and Wix are solid tools. But building something that looks professional and polished is harder than you'd think. You'll spend weeks learning the platform, making design decisions, and tinkering with details trying to get everything to feel just right... and you might still end up with a site that doesn't bring in customers.<br><br>Instead, you could leave it to the experts and get a professional site done quickly while you focus on what you do best.</p>
+            <p class="text-body text-text-muted leading-relaxed pb-5">Squarespace and Wix are solid tools. But building something that looks professional and polished is harder than you'd think. You'll spend weeks learning the platform, making design decisions, and tinkering with details trying to get everything just right... and you might still end up with a site that doesn't bring in customers.<br><br>Instead, you could leave it to the experts and get a professional site done quickly while you focus on what you do best.</p>
           </div>
         </div>
 
         <div class="faq-item -mx-4 px-4 hover:bg-surface-alt transition-colors duration-200" data-open="false">
           <button class="faq-button w-full flex items-center justify-between gap-6 py-5 text-left cursor-pointer" type="button" aria-expanded="false">
-            <span class="text-[1.125rem] font-semibold text-text tracking-tight">Do we own our domain?</span>
+            <span class="text-section-subtitle font-semibold text-text tracking-tight">Do we own our domain?</span>
             <svg class="faq-chevron shrink-0 w-5 h-5 text-accent transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
           </button>
           <div class="faq-content overflow-hidden transition-[height] duration-300 ease-in-out" style="height: 0px;">
-            <p class="text-[1.0625rem] text-text-muted leading-relaxed pb-5">Yes, you always own your domain.</p>
+            <p class="text-body text-text-muted leading-relaxed pb-5">Yes, you always own your domain.</p>
           </div>
         </div>
       </div>

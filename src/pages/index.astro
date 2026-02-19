@@ -53,19 +53,19 @@ const caseStudies = workEntries.map((entry) => ({
 }));
 ---
 
-<Base title="Plain Sight | Web Development Agency" navVariant="dark">
+<Base title="Plain Sight | Vancouver Web Design and Development" navVariant="dark">
   <main>
     {rendered.map((section) => {
       const { Content } = section.rendered;
       const d = section.data;
 
       if (d.section === "hero") return (
-        <section class="dark-section relative min-h-[90vh] flex items-center overflow-hidden bg-[var(--color-bg-dark-hero)] text-[var(--color-text-light)] [--hero-title-gradient-start:var(--color-text-light)] [--hero-title-gradient-end:var(--color-text-light-muted)]">
+        <section class="dark-section relative min-h-[90vh] flex items-center overflow-hidden bg-[var(--color-bg-dark-hero)] text-[var(--color-text-light)] max-md:pt-[var(--nav-height)]">
           <div class="hero-aurora" aria-hidden="true"><div class="hero-aurora-inner"></div></div>
           <div class="container">
             <div class="relative z-1">
-              <h1 class="font-heading text-hero font-black leading-[0.85] tracking-tighter mb-[var(--spacing-hero-gap)] pb-[0.15em] bg-gradient-to-br from-[var(--hero-title-gradient-start)] to-[var(--hero-title-gradient-end)] bg-clip-text text-transparent [overflow-wrap:break-word] [word-break:normal] [hyphens:none]">{d.heading}</h1>
-              <p class="text-hero-tagline mb-[var(--spacing-hero-cta-gap)] leading-relaxed font-normal max-w-[900px] text-white/70">{d.subheading}</p>
+              <h1 class="font-heading text-hero font-black leading-[0.85] tracking-tighter mb-[var(--spacing-hero-gap)] pb-[0.15em] text-white [overflow-wrap:break-word] [word-break:normal] [hyphens:none]">{d.heading}</h1>
+              <p class="text-hero-tagline mb-[var(--spacing-hero-cta-gap)] leading-relaxed font-normal max-w-[900px] text-white/85">{d.subheading}</p>
               {d.cta_text && (
                 <a href={d.cta_link} class="btn-cta text-hero-cta">{d.cta_text}</a>
               )}
@@ -77,18 +77,18 @@ const caseStudies = workEntries.map((entry) => ({
       if (d.section === "problem") return (
         <section class="animate-on-scroll relative py-section max-md:py-16 max-md:overflow-hidden after:content-[''] after:absolute after:top-[30%] after:right-[-20%] after:w-[40%] after:h-[60%] after:bg-[radial-gradient(ellipse_at_center,rgba(126,219,87,0.03)_0%,transparent_60%)] after:pointer-events-none after:z-0">
           <div class="container relative z-1">
-            <h2 class="font-heading text-problem-title font-extrabold tracking-tight text-text mb-12 max-md:font-black max-md:leading-none">{d.heading}</h2>
-            <div class="max-w-[1100px] text-problem-prose text-text-muted leading-extra-loose mb-12">
-              <p class="mb-6">Most small businesses know they need a website, but the process feels <span class="text-btn-text bg-accent px-[0.15em] py-[0.05em] rounded-[0.25em] font-semibold not-italic [box-decoration-break:clone]">overwhelming.</span> Too many options, too many cookie-cutter solutions that slap a template on every business like they're all the same.</p>
-              <p class="mb-6">What's missing is <span class="text-btn-text bg-accent px-[0.15em] py-[0.05em] rounded-[0.25em] font-semibold not-italic [box-decoration-break:clone]">strategy:</span> understanding what goals your site needs to achieve. More customers? More bookings? Better leads?</p>
+            <h2 class="font-heading text-problem-title font-black tracking-tight text-text mb-12">{d.heading}</h2>
+            <div class="max-w-[1100px] text-problem-prose text-text-muted leading-loose mb-12">
+              <p class="mb-6">Most businesses know they need a website, but the process feels <span class="font-extrabold">overwhelming.</span> Too many options, too much uncertainty. How many pages? What should they say? What should they look like? Oh god... do I need a blog?</p>
+              <p class="mb-6">What's missing is <span class="font-extrabold">strategy:</span> focusing first on the goals that the site needs to accomplish. More customers? More bookings? Better leads?</p>
             </div>
-            <p class="max-w-[1100px] text-problem-kicker font-semibold leading-extra-loose text-secondary-accessible max-md:text-[1.5rem]">If your website isn't driving those results, it's just expensive decoration.</p>
+            <p class="max-w-[1100px] text-problem-kicker tracking-tight font-semibold text-primary">If your website isn't driving those results, it's just expensive decoration.</p>
           </div>
         </section>
       );
 
       if (d.section === "differentiators") return (
-        <section class="section-diff animate-on-scroll relative py-section bg-gradient-to-b from-surface-alt to-surface-gradient-end">
+        <section class="animate-on-scroll relative py-section bg-gradient-to-b from-surface-alt to-surface-gradient-end">
           <div class="container">
             <div class="mb-12">
               <p class="text-15 font-semibold tracking-widest uppercase text-primary">Why Plain Sight</p>
@@ -104,7 +104,7 @@ const caseStudies = workEntries.map((entry) => ({
                   </div>
                   <div class="font-mono text-17 text-text-dim mb-4 tracking-wider" aria-hidden="true">{String(i + 1).padStart(2, '0')} {['STRATEGY', 'EXPERIENCE', 'EXECUTION', 'TRANSPARENCY'][i]}</div>
                   <h3 class="text-36 font-extrabold mb-6 tracking-snug leading-tight">{item.title}</h3>
-                  <p class="text-text-muted leading-loose text-[1.1875rem]">{item.description}</p>
+                  <p class="text-text-muted text-body">{item.description}</p>
                 </div>
               );
               })}
@@ -147,7 +147,7 @@ const caseStudies = workEntries.map((entry) => ({
                   >
                     <span class="process-detail-number">{String(i + 1).padStart(2, '0')}</span>
                     <h3 class="process-detail-title">{item.title}</h3>
-                    <p class="process-detail-desc">{item.description}</p>
+                    <p class="text-section-subtitle text-text-muted max-w-[520px]">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -167,11 +167,11 @@ const caseStudies = workEntries.map((entry) => ({
             <div class="flex items-stretch gap-10 max-w-[900px] max-md:gap-6">
               <div class="w-[3px] flex-shrink-0 rounded-[2px] bg-gradient-to-b from-accent to-pop" aria-hidden="true"></div>
               <blockquote class="m-0 p-0">
-                <p class="font-sans text-[1.75rem] font-medium leading-[1.5] tracking-[-0.01em] text-text-muted mb-8 max-md:mb-6">&ldquo;They nailed the strategy, the design, and the execution. We finally have a site that accurately represents what we do .&rdquo;</p>
+                <p class="font-sans text-[1.5rem] font-medium leading-[1.5] tracking-[-0.01em] text-text-muted mb-8 max-md:mb-6">&ldquo;They nailed the strategy, the design, and the execution. We finally have a site that accurately represents what we do .&rdquo;</p>
                 <footer class="flex items-center gap-4">
                   <div class="flex flex-col gap-[0.15rem]">
                     <span class="font-bold text-[1.375rem] text-text tracking-[-0.01em]">Mohit Wasan</span>
-                    <span class="text-[1.125rem] text-text-muted">CEO, UpMeals</span>
+                    <span class="text-section-subtitle text-text-muted">CEO, UpMeals</span>
                   </div>
                 </footer>
               </blockquote>
@@ -181,7 +181,7 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "basics") return (
-        <section class="section-basics animate-on-scroll relative py-section bg-gradient-to-b from-surface-alt to-surface-gradient-end">
+        <section class="animate-on-scroll relative py-section bg-gradient-to-b from-surface-alt to-surface-gradient-end">
           <div class="container">
             <div class="mb-12">
               <p class="text-15 font-semibold tracking-widest uppercase text-secondary-accessible">What you get</p>
@@ -192,10 +192,10 @@ const caseStudies = workEntries.map((entry) => ({
                 <li class="grid grid-cols-[320px_1fr] max-md:grid-cols-1 gap-x-20 max-md:gap-y-3 items-center py-6 border-b border-border-alt first:border-t first:border-border-alt">
                   <div class="flex items-center gap-5">
                     <span class="shrink-0 text-pop" aria-hidden="true" set:html={basicsIcons[basicsIconKeys[i]]} />
-                    <h3 class="text-[1.75rem] font-bold tracking-snug text-text whitespace-nowrap">{item.title}</h3>
+                    <h3 class="text-item-title font-bold tracking-snug text-text whitespace-nowrap">{item.title}</h3>
                   </div>
                   <div>
-                    <p class="leading-loose text-[1.125rem]" style="color: rgba(45, 49, 66, 0.80);">{item.description}</p>
+                    <p class="leading-loose text-body" style="color: rgba(45, 49, 66, 0.80);">{item.description}</p>
                   </div>
                 </li>
               ))}
@@ -205,14 +205,14 @@ const caseStudies = workEntries.map((entry) => ({
       );
 
       if (d.section === "work") return (
-        <section class="section-work animate-on-scroll relative py-section" id="work">
+        <section class="animate-on-scroll relative py-section" id="work">
           <div class="container">
             <div class="mb-12">
               <p class="text-15 font-semibold tracking-widest uppercase text-primary">Our work</p>
               <h2 class="font-heading text-section-title font-extrabold tracking-tight">{d.heading}</h2>
               {d.intro && <p class="text-text-muted mt-4 leading-loose">{d.intro}</p>}
             </div>
-            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-12">
+            <div class="grid grid-cols-2 max-md:grid-cols-1 gap-12 max-md:[&>*:not(:last-child)]:border-b max-md:[&>*:not(:last-child)]:border-border max-md:[&>*:not(:last-child)]:pb-12">
               {caseStudies.map((study) => (
                 <CaseStudyCard
                   title={study.title}
