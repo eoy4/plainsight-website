@@ -241,6 +241,7 @@
   body {
     min-height: 100vh;
     font-size: 1.125rem;
+    overflow-x: hidden;
   }
 
   body.nav-open {
