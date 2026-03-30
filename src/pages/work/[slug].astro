@@ -6,9 +6,6 @@ import CTA from "../../components/CTA.astro";
 import demiHero from "../../assets/case-studies/demi-hero.png";
 import demiOrdering from "../../assets/case-studies/demi-ordering.png";
 import demiPrep from "../../assets/case-studies/demi-prep.png";
-import upmealsHero from "../../assets/case-studies/upmeals-hero.png";
-import upmealsCatering from "../../assets/case-studies/upmeals-catering.png";
-import upmealsFeatured from "../../assets/case-studies/upmeals-featured-meals.png";
 
 export async function getStaticPaths() {
   const projects = await getCollection("work");
@@ -28,17 +25,14 @@ console.log('URL value:', d.url);
 
 const heroImages: Record<number, ImageMetadata> = {
   1: demiHero,
-  2: upmealsHero,
 };
 
 const approachImages: Record<number, ImageMetadata> = {
   1: demiPrep,
-  2: upmealsCatering,
 };
 
 const solutionImages: Record<number, ImageMetadata> = {
   1: demiOrdering,
-  2: upmealsFeatured,
 };
 
 const heroImage = heroImages[d.order];

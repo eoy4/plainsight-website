@@ -5,7 +5,6 @@ import Base from "../layouts/Base.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import CTA from "../components/CTA.astro";
 import demiHero from "../assets/case-studies/demi-hero.png";
-import upmealsHero from "../assets/case-studies/upmeals-hero.png";
 import iconCompass from "../assets/icons/icon-compass.svg";
 import iconDisk from "../assets/icons/icon-disk.svg";
 import iconRocket from "../assets/icons/icon-rocket.svg";
@@ -22,7 +21,6 @@ const basicsIconKeys = ["responsive", "speed", "seo", "foundation", "accessible"
 
 const caseStudyImages: Record<number, ImageMetadata> = {
   1: demiHero,
-  2: upmealsHero,
 };
 
 const sections = (await getCollection("homepage")).sort(
@@ -42,7 +40,6 @@ const workEntries = (await getCollection("work")).sort(
 
 const descriptions: Record<number, string> = {
   1: "Complex AI kitchen software that needed to feel simple. We led with operator pain points, not tech jargon, and built a marketing site that makes Demi feel like relief, not another learning curve.",
-  2: "Three very different buyers, one brand. We found the common thread, reliability at scale, and built a site where each audience gets spoken to directly without the brand feeling fragmented.",
 };
 
 const caseStudies = workEntries.map((entry) => ({
@@ -156,6 +153,7 @@ const caseStudies = workEntries.map((entry) => ({
         </section>
       );
 
+      /* Testimonial section hidden — no active testimonials
       if (d.section === "testimonial") return (
         <section class="animate-on-scroll relative py-section overflow-hidden bg-bg">
           <div class="container relative z-1">
@@ -179,6 +177,7 @@ const caseStudies = workEntries.map((entry) => ({
           </div>
         </section>
       );
+      */
 
       if (d.section === "basics") return (
         <section class="animate-on-scroll relative py-section bg-gradient-to-b from-surface-alt to-surface-gradient-end">

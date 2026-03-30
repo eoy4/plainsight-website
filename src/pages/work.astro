@@ -5,7 +5,6 @@ import Base from "../layouts/Base.astro";
 import CaseStudyCard from "../components/CaseStudyCard.astro";
 import CTA from "../components/CTA.astro";
 import demiHero from "../assets/case-studies/demi-hero.png";
-import upmealsHero from "../assets/case-studies/upmeals-hero.png";
 
 const projects = (await getCollection("work")).sort(
   (a, b) => a.data.order - b.data.order
@@ -13,12 +12,10 @@ const projects = (await getCollection("work")).sort(
 
 const heroImages: Record<number, ImageMetadata> = {
   1: demiHero,
-  2: upmealsHero,
 };
 
 const descriptions: Record<number, string> = {
   1: "Complex AI kitchen software that needed to feel simple. We led with operator pain points, not tech jargon, and built a marketing site that makes Demi feel like relief, not another learning curve.",
-  2: "Three very different buyers, one brand. We found the common thread, reliability at scale, and built a site where each audience gets spoken to directly without the brand feeling fragmented.",
 };
 
 const caseStudies = projects.map((project) => ({
